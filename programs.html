@@ -1,308 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Programs - Hayimi Movement</title>
-
-  <!-- Fonts and Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo-img {
-      height: 40px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #0077b6;
-    }
-
-    .donate-btn {
-      background-color: #ff6600;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .donate-btn:hover {
-      background-color: #d9480f;
-    }
-
-    .hero-section {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 2rem;
-      background: linear-gradient(to right, #e0f7fa, #fff);
-      animation: fadeIn 1.5s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-text {
-      flex: 1;
-      min-width: 300px;
-      max-width: 500px;
-      padding: 1rem;
-    }
-
-    .hero-text h2 {
-      font-size: 2rem;
-      color: #0077b6;
-      margin-bottom: 1rem;
-    }
-
-    .hero-text p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .hero-text a {
-      display: inline-block;
-      margin-top: 1rem;
-      font-weight: bold;
-      color: #0077b6;
-    }
-
-    .hero-image {
-      flex: 1;
-      min-width: 300px;
-      max-width: 500px;
-      padding: 1rem;
-      animation: fadeIn 2s ease-in;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: auto; /* ensures image scales properly */
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      object-fit: contain; /* makes sure image is fully visible */
-    }
-
-    .hero-image img:hover {
-      transform: scale(1.05);
-    }
-
-    .programs-section {
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    .programs-section h1 {
-      font-size: 2.5rem;
-      color: #ff6600;
-      margin-bottom: 1rem;
-    }
-
-    .programs-section .intro {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
-
-    .program-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .program-card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .program-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .program-card .icon {
-      font-size: 2rem;
-      color: #0077b6;
-      margin-bottom: 1rem;
-    }
-
-    .program-card h3 {
-      color: #ff6600;
-      margin-bottom: 0.3rem;
-    }
-
-    .program-card p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-
-    .social-icons {
-      margin-top: 0.5rem;
-    }
-
-    .social-icons a {
-      color: white;
-      margin: 0 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .hero-section {
-        flex-direction: column;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs - Hayimi Movement</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:#f9f9f9;color:#333}
+a{text-decoration:none;color:inherit}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:#002855;color:white;position:sticky;top:0;z-index:1000;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:0.5rem}
+.logo img{height:40px;width:auto}
+.logo span{font-size:1.2rem;font-weight:bold;color:white}
+.nav-links{display:flex;gap:1.5rem;list-style:none;transition:all 0.3s ease}
+.nav-links li a{position:relative;font-weight:600;padding:0.5rem 0.8rem;border-radius:5px;overflow:hidden;transition:color 0.3s}
+.nav-links li a::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:#ff6600;z-index:-1;transition:left 0.3s;border-radius:5px}
+.nav-links li a:hover::before,.nav-links li a.active::before{left:0}
+.nav-links li a:hover,.nav-links li a.active{color:white}
+.donate-btn{background:#ff6600;color:white;padding:0.5rem 1rem;border:none;border-radius:5px;font-weight:bold;cursor:pointer}
+.donate-btn:hover{background:#e65c00}
+.menu-toggle{display:none;font-size:1.5rem;background:none;border:none;color:white;cursor:pointer}
+.hero{background:linear-gradient(to right,#ff6600,#ff9966);color:white;text-align:center;padding:4rem 2rem}
+.hero h1{font-size:3rem;margin-bottom:1rem}
+.hero p{font-size:1.2rem;max-width:700px;margin:0 auto}
+.content{max-width:1000px;margin:3rem auto;padding:0 2rem}
+.program{background:#fff;padding:2rem;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.1);margin-bottom:2rem;transition:transform 0.3s ease}
+.program:hover{transform:translateY(-5px)}
+.program h2{color:#ff6600;margin-bottom:1rem}
+.program p{font-size:1rem;line-height:1.6;margin-bottom:1rem}
+.learn-btn{display:inline-block;background-color:#0077b6;color:white;padding:0.75rem 1.5rem;border-radius:5px;font-weight:bold;transition:background-color 0.3s ease}
+.learn-btn:hover{background-color:#023e8a}
+footer{background:#333;color:white;text-align:center;padding:1rem;font-size:0.9rem}
+.menu-toggle{display:none}@media(max-width:768px){.nav-links{display:none;flex-direction:column;gap:1rem;margin:1rem 0;width:100%}.nav-links.show{display:flex}.menu-toggle{display:block}.navbar{flex-direction:column;align-items:flex-start}.hero h1{font-size:2rem}}
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">
-        <!-- removed 'images/' from src -->
-        <img src="logo.jpg" alt="Hayimi Movement Logo" class="logo-img" />
-      </div>
-      <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="programs.html" class="active">Programs</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="donation.html" class="donate-btn">DONATE</a></li>
-      </ul>
-    </nav>
-  </header>
+<nav class="navbar">
+  <div class="logo"><img src="logo.jpg" alt="Hayimi Logo"><span>Hayimi Movement</span></div>
+  <button class="menu-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="programs.html" class="active">Programs</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donation.html" class="donate-btn">DONATE</a></li>
+  </ul>
+</nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-text">
-      <h2>We are a Non-Profit Team</h2>
-      <p>We're passionate about creating sustainable solutions for those less fortunate, using private donations to fund our projects, and sharing the true life-changing stories that were made possible by your support.</p>
-      <a href="#">Read More ➞</a>
-    </div>
-    <div class="hero-image">
-      <!-- removed 'images/' from src -->
-      <img src="logo.jpg" alt="Hayimi Movement Logo in action" />
-    </div>
-  </section>
+<section class="hero">
+  <h1>Our Programs</h1>
+  <p>Empowering communities through education, health, and humanitarian initiatives.</p>
+</section>
 
-  <!-- Programs Section -->
-  <main class="programs-section">
-    <h1>Our Programs</h1>
-    <p class="intro">Real help, where it matters most — education, health, women's leadership, and dignified relief.</p>
-    <div class="program-cards">
-      <article class="program-card">
-        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
-        <h3>Education Access</h3>
-        <p>Empowering children in underserved and crisis-affected areas with school supplies, uniforms, and tuition assistance.</p>
-      </article>
-      <article class="program-card">
-        <div class="icon"><i class="fas fa-heart-circle-plus"></i></div>
-        <h3>Health Outreach</h3>
-        <p>Bringing essential care to remote and conflict-impacted communities through mobile clinics, health education, and sanitation support.</p>
-      </article>
-      <article class="program-card">
-        <div class="icon"><i class="fas fa-person-rays"></i></div>
-        <h3>Women Empowerment</h3>
-        <p>Providing vocational skills, confidence-building workshops, and leadership training to women in marginalized communities.</p>
-      </article>
-    </div>
-  </main>
+<main class="content">
+  <div class="program">
+    <h2>Education for All</h2>
+    <p>Providing educational support, scholarships, and school supplies to children and young adults.</p>
+    <a href="donation.html" class="learn-btn">Support Education</a>
+  </div>
+  <div class="program">
+    <h2>Health & Wellness</h2>
+    <p>Organizing medical camps, health awareness, and community wellness programs.</p>
+    <a href="donation.html" class="learn-btn">Support Health Programs</a>
+  </div>
+  <div class="program">
+    <h2>Community Development</h2>
+    <p>Empowering families and individuals through skills training, livelihood programs, and humanitarian aid.</p>
+    <a href="donation.html" class="learn-btn">Get Involved</a>
+  </div>
+</main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 Hayimi Movement. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </footer>
+<footer>
+  <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
+</footer>
 
-  <!-- Script for dropdown menu -->
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+<script>
+const menuToggle=document.querySelector('.menu-toggle');
+const navLinks=document.querySelector('.nav-links');
+menuToggle.addEventListener('click',()=>{navLinks.classList.toggle('show')});
+</script>
 
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-  </script>
 </body>
 </html>
