@@ -1,75 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery - Hayimi Movement</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery - Hayimi Movement</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:#f9f9f9;color:#333}
+a{text-decoration:none;color:inherit}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:#002855;color:white;position:sticky;top:0;z-index:1000;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:0.5rem}
+.logo img{height:40px;width:auto}
+.logo span{font-size:1.2rem;font-weight:bold;color:white}
+.nav-links{display:flex;gap:1.5rem;list-style:none;transition:all 0.3s ease}
+.nav-links li a{position:relative;font-weight:600;padding:0.5rem 0.8rem;border-radius:5px;overflow:hidden;transition:color 0.3s}
+.nav-links li a::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:#ff6600;z-index:-1;transition:left 0.3s;border-radius:5px}
+.nav-links li a:hover::before,.nav-links li a.active::before{left:0}
+.nav-links li a:hover,.nav-links li a.active{color:white}
+.donate-btn{background:#ff6600;color:white;padding:0.5rem 1rem;border:none;border-radius:5px;font-weight:bold;cursor:pointer}
+.donate-btn:hover{background:#e65c00}
+.menu-toggle{display:none;font-size:1.5rem;background:none;border:none;color:white;cursor:pointer}
+.page-content{padding:2rem;text-align:center}
+.page-content h1{font-size:2.5rem;margin-bottom:1rem;color:#ff6600}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:2rem}
+.gallery-grid img{width:100%;height:250px;border-radius:10px;object-fit:cover;transition:transform 0.3s ease,box-shadow 0.3s ease;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+.gallery-grid img:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+.lightbox{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center}
+.lightbox img{max-width:90%;max-height:80%;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+.lightbox .close{position:absolute;top:20px;right:30px;font-size:2rem;color:white;cursor:pointer;font-weight:bold}
+footer{background:#333;color:white;text-align:center;padding:1rem;font-size:0.9rem}
+@media(max-width:768px){.nav-links{display:none;flex-direction:column;gap:1rem;margin:1rem 0;width:100%}.nav-links.show{display:flex}.menu-toggle{display:block}.page-content h1{font-size:2rem}}
+</style>
+</head>
+<body>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+<nav class="navbar">
+<div class="logo"><img src="logo.jpg" alt="Hayimi Logo"><span>Hayimi Movement</span></div>
+<button class="menu-toggle">☰</button>
+<ul class="nav-links">
+<li><a href="about.html">About</a></li>
+<li><a href="programs.html">Programs</a></li>
+<li><a href="gallery.html" class="active">Gallery</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="donation.html" class="donate-btn">DONATE</a></li>
+</ul>
+</nav>
 
-  <style>
-    /* Reset and Base Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<main class="page-content">
+<h1>Gallery</h1>
+<div class="gallery-grid">
+<img src="photo_1.jpg" alt="Hayimi photo 1" loading="lazy">
+<img src="photo_2.jpg" alt="Hayimi photo 2" loading="lazy">
+<img src="photo_3.jpg" alt="Hayimi photo 3" loading="lazy">
+<img src="photo_4.jpg" alt="Hayimi photo 4" loading="lazy">
+<img src="photo_5.jpg" alt="Hayimi photo 5" loading="lazy">
+</div>
+</main>
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-    }
+<div class="lightbox" id="lightbox">
+<span class="close" id="closeBtn">&times;</span>
+<img src="" alt="Expanded view" id="lightbox-img">
+</div>
 
-    a { text-decoration: none; color: inherit; }
+<footer>
+<p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
+</footer>
 
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #002855;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      flex-wrap: wrap;
-    }
+<script>
+const menuToggle=document.querySelector('.menu-toggle');
+const navLinks=document.querySelector('.nav-links');
+menuToggle.addEventListener('click',()=>{navLinks.classList.toggle('show')});
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+// Lightbox
+const lightbox=document.getElementById('lightbox');
+const lightboxImg=document.getElementById('lightbox-img');
+const closeBtn=document.getElementById('closeBtn');
+const galleryImages=document.querySelectorAll('.gallery-grid img');
 
-    .logo img { height: 40px; width: auto; }
-    .logo span { font-size: 1.2rem; font-weight: bold; color: white; }
+galleryImages.forEach(img=>{
+  img.addEventListener('click',()=>{
+    lightbox.style.display='flex';
+    lightboxImg.src=img.src;
+  });
+});
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-      transition: all 0.3s ease;
-    }
+closeBtn.addEventListener('click',()=>{lightbox.style.display='none'});
+lightbox.addEventListener('click',(e)=>{if(e.target===lightbox){lightbox.style.display='none'}});
+</script>
 
-    .nav-links li a {
-      position: relative;
-      font-weight: 600;
-      padding: 0.5rem 0.8rem;
-      border-radius: 5px;
-      overflow: hidden;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links li a::before {
-      content: "";
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%;
-      height: 100%;
-      background-color: #ff6600;
-      z-index: -1;
-      transition: left 0.3s ease;
-      border-radius: 5px;
-    }
-
-    .nav-links li a:hover::before,
-    .nav-links li a
+</body>
+</html>
