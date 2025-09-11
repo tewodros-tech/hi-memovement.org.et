@@ -48,4 +48,54 @@
 </head>
 <body>
 
-  <
+  <nav class="navbar">
+    <div class="logo"><img src="logo.jpg" alt="Hayimi Logo" /></div>
+    <button class="menu-toggle">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-item" data-page="index">Home</a></li>
+      <li><a href="about.html" class="nav-item" data-page="about">About</a></li>
+      <li><a href="programs.html" class="nav-item" data-page="programs">Programs</a></li>
+      <li><a href="gallery.html" class="nav-item" data-page="gallery">Gallery</a></li>
+      <li><a href="events.html" class="nav-item" data-page="events">Events</a></li>
+      <li><a href="contact.html" class="nav-item" data-page="contact">Contact</a></li>
+      <li><a href="donation.html" class="donate-btn">DONATE</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero-about">
+    <h1>About Hayimi Movement</h1>
+    <p>Spreading love and hope to families in need—through compassion, resilience, and community-driven action.</p>
+  </section>
+
+  <section class="about-section">
+    <div class="slide">
+      <h2>Our Mission</h2>
+      <p>Empowering communities in Ethiopia through education, health, and humanitarian support.</p>
+    </div>
+    <div class="slide">
+      <h2>What We Do</h2>
+      <p>Supporting internally displaced people and those with disabilities through community-focused programs.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+    const navItems = document.querySelectorAll('.nav-item');
+    const currentPage = window.location.pathname.split('/').pop().replace('.html','');
+    navItems.forEach(item => { if(item.dataset.page===currentPage)item.classList.add('active'); });
+  </script>
+</body>
+</html>
