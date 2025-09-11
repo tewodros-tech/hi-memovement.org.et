@@ -1,134 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us - Hayimi Movement</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Hayimi Movement</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:#f9f9f9;color:#333}
+a{text-decoration:none;color:inherit}
 
-  <!-- Fonts and Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+/* Navbar */
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:#002855;color:white;position:sticky;top:0;z-index:1000;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:0.5rem}
+.logo img{height:40px;width:auto}
+.logo span{font-size:1.2rem;font-weight:bold;color:white}
+.nav-links{display:flex;gap:1.5rem;list-style:none;transition:all 0.3s ease}
+.nav-links li a{position:relative;font-weight:600;padding:0.5rem 0.8rem;border-radius:5px;overflow:hidden;transition:color 0.3s}
+.nav-links li a::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:#ff6600;z-index:-1;transition:left 0.3s;border-radius:5px}
+.nav-links li a:hover::before,.nav-links li a.active::before{left:0}
+.nav-links li a:hover,.nav-links li a.active{color:white}
+.donate-btn{background:#ff6600;color:white;padding:0.5rem 1rem;border:none;border-radius:5px;font-weight:bold;cursor:pointer}
+.donate-btn:hover{background:#e65c00}
+.menu-toggle{display:none;font-size:1.5rem;background:none;border:none;color:white;cursor:pointer}
 
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
+/* Hero Section */
+.hero-about{background:url('logo.jpg') center/cover no-repeat;color:white;text-align:center;padding:6rem 2rem;position:relative}
+.hero-about::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:0}
+.hero-about h1,.hero-about p{position:relative;z-index:1}
+.hero-about h1{font-size:3rem;margin-bottom:1rem;animation:fadeInDown 1s ease-out}
+.hero-about p{font-size:1.3rem;max-width:700px;margin:0 auto;animation:fadeInUp 1.2s ease-out}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      flex-wrap: wrap; /* allow wrapping on mobile */
-    }
+/* About Section */
+.about-section{max-width:1000px;margin:0 auto;padding:2rem}
+.slide{padding:4rem 2rem;transition:background 0.3s ease;border-radius:10px;margin-bottom:1rem}
+.slide:nth-child(even){background:#fff}
+.slide:nth-child(odd){background:#f1f1f1}
+.slide h2{color:#ff6600;font-size:2rem;margin-bottom:1rem}
+.slide p{font-size:1.1rem;line-height:1.8}
 
-    .logo img {
-      height: 50px;
-    }
+/* Footer */
+footer{background:#333;color:white;text-align:center;padding:1rem;font-size:0.9rem}
+.social-icons{margin-top:0.5rem}
+.social-icons a{color:white;margin:0 0.5rem;font-size:1.2rem}
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-      transition: all 0.3s ease;
-    }
+/* Mobile */
+@media(max-width:768px){
+  .nav-links{display:none;flex-direction:column;gap:1rem;margin:1rem 0;width:100%}
+  .nav-links.show{display:flex}
+  .menu-toggle{display:block}
+  .hero-about h1{font-size:2rem}
+  .hero-about p{font-size:1rem}
+}
+</style>
+</head>
+<body>
 
-    .nav-links li a {
-      position: relative;
-      font-weight: 600;
-      padding: 0.5rem 0.8rem;
-      border-radius: 5px;
-      transition: color 0.3s ease;
-      overflow: hidden;
-    }
+<nav class="navbar">
+  <div class="logo"><img src="logo.jpg" alt="Hayimi Logo"><span>Hayimi Movement</span></div>
+  <button class="menu-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donation.html" class="donate-btn">DONATE</a></li>
+  </ul>
+</nav>
 
-    /* Animated background highlight */
-    .nav-links li a::before {
-      content: "";
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%;
-      height: 100%;
-      background-color: #ff6600;
-      z-index: -1;
-      transition: left 0.3s ease;
-      border-radius: 5px;
-    }
+<section class="hero-about">
+  <h1>About Hayimi Movement</h1>
+  <p>Spreading love and hope to families in need—through compassion, resilience, and community-driven action.</p>
+</section>
 
-    .nav-links li a:hover::before,
-    .nav-links li a.active::before {
-      left: 0;
-    }
+<section class="about-section">
+  <div class="slide">
+    <h2>Our Mission</h2>
+    <p>Hayimi Movement is a grassroots initiative rooted in Ethiopia, committed to empowering communities through education, health, and humanitarian support. We believe in the power of local leadership, cultural preservation, and inclusive development.</p>
+  </div>
+  <div class="slide">
+    <h2>What We Do</h2>
+    <p><strong>Supporting Internally Displaced People and Those with Disabilities:</strong> We provide aid, resources, and community programs that create sustainable change and preserve dignity and hope.</p>
+  </div>
+</section>
 
-    .nav-links li a:hover,
-    .nav-links li a.active {
-      color: #fff;
-    }
+<footer>
+  <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
 
-    .donate-btn {
-      background-color: #ff6600;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
+<script>
+const menuToggle=document.querySelector('.menu-toggle');
+const navLinks=document.querySelector('.nav-links');
+menuToggle.addEventListener('click',()=>{navLinks.classList.toggle('show')});
+</script>
 
-    .donate-btn:hover {
-      background-color: #d9480f;
-    }
-
-    /* Hero Banner */
-    .hero-about {
-      background: url('logo.jpg') center/cover no-repeat;
-      color: white;
-      padding: 6rem 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero-about::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
-    }
-
-    .hero-about h1,
-    .hero-about p {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-about h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: fadeInDown 1s ease-out;
-    }
-
-    .hero-about p {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin: 0 auto;
-      animation: fadeInUp 1.2s ease-out;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform:
+</body>
+</html>
