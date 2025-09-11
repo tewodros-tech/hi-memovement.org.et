@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-/* Base */
 body { font-family: 'Montserrat', sans-serif; margin:0; color:#333; background:#f9f9f9; scroll-behavior:smooth; }
 a { text-decoration:none; color:inherit; }
 
@@ -16,20 +15,17 @@ a { text-decoration:none; color:inherit; }
 .logo-text { font-weight:bold; font-size:1.5rem; color:#fff; }
 .nav-links { display:flex; gap:1.5rem; list-style:none; }
 .nav-links a { font-weight:600; color:white; transition:0.3s; }
-.nav-links a:hover, .nav-links a.active { color:#6c757d; } /* gray */
+.nav-links a:hover, .nav-links a.active { color:#6c757d; }
 .donate-btn { background:#6c757d; color:#fff; padding:0.5rem 1rem; border-radius:5px; font-weight:bold; transition:0.3s; }
 .donate-btn:hover { background:#495057; }
 .menu-toggle { display:none; font-size:1.5rem; background:none; border:none; cursor:pointer; color:white; }
 
-/* Hero Section */
-.hero { background:url('photo_30.jpg') center/cover no-repeat; height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; text-align:center; position:relative; }
+/* Hero */
+.hero { background:url('photo_10.jpg') center/cover no-repeat; height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; text-align:center; position:relative; }
 .hero::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); }
 .hero h1, .hero p { position:relative; z-index:1; }
-.hero h1 { font-size:3.5rem; margin-bottom:1rem; animation: fadeInDown 1s ease-out; }
-.hero p { font-size:1.5rem; max-width:800px; animation: fadeInUp 1.2s ease-out; }
-
-@keyframes fadeInDown { from {opacity:0; transform:translateY(-30px);} to {opacity:1; transform:translateY(0);} }
-@keyframes fadeInUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
+.hero h1 { font-size:3.5rem; margin-bottom:1rem; }
+.hero p { font-size:1.5rem; max-width:800px; }
 
 /* Sections */
 .section { padding:5rem 2rem; max-width:1200px; margin:0 auto; }
@@ -43,7 +39,7 @@ a { text-decoration:none; color:inherit; }
 .card h3 { color:#0077b6; margin-bottom:1rem; }
 .card p { font-size:1rem; line-height:1.6; }
 
-/* Image Slider */
+/* Slider */
 .slider { position:relative; margin-top:3rem; overflow:hidden; border-radius:15px; }
 .slides { display:flex; transition:transform 0.5s ease-in-out; }
 .slides img { width:100%; flex-shrink:0; object-fit:cover; height:400px; }
@@ -128,17 +124,16 @@ a { text-decoration:none; color:inherit; }
   <div class="slider">
     <button class="prev">&#10094;</button>
     <div class="slides">
-      <img src="photo_30.jpg" alt="Hayimi 30">
-      <img src="photo_31.jpg" alt="Hayimi 31">
-      <img src="photo_32.jpg" alt="Hayimi 32">
-      <img src="photo_33.jpg" alt="Hayimi 33">
-      <img src="photo_34.jpg" alt="Hayimi 34">
-      <img src="photo_35.jpg" alt="Hayimi 35">
-      <img src="photo_36.jpg" alt="Hayimi 36">
-      <img src="photo_37.jpg" alt="Hayimi 37">
-      <img src="photo_38.jpg" alt="Hayimi 38">
-      <img src="photo_39.jpg" alt="Hayimi 39">
-      <img src="photo_40.jpg" alt="Hayimi 40">
+      <img src="photo_10.jpg" alt="Hayimi 10">
+      <img src="photo_11.jpg" alt="Hayimi 11">
+      <img src="photo_12.jpg" alt="Hayimi 12">
+      <img src="photo_13.jpg" alt="Hayimi 13">
+      <img src="photo_14.jpg" alt="Hayimi 14">
+      <img src="photo_15.jpg" alt="Hayimi 15">
+      <img src="photo_16.jpg" alt="Hayimi 16">
+      <img src="photo_17.jpg" alt="Hayimi 17">
+      <img src="photo_18.jpg" alt="Hayimi 18">
+      <img src="photo_19.jpg" alt="Hayimi 19">
     </div>
     <button class="next">&#10095;</button>
   </div>
@@ -156,4 +151,43 @@ a { text-decoration:none; color:inherit; }
   <div class="social-icons">
     <a href="#"><i class="fab fa-facebook-f"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
+
+<script>
+// Mobile menu toggle
+const toggle=document.querySelector('.menu-toggle');
+const navLinks=document.querySelector('.nav-links');
+toggle.addEventListener('click',()=>{ navLinks.classList.toggle('show'); });
+
+// Slider
+const slides = document.querySelector('.slides');
+const slideImages = document.querySelectorAll('.slides img');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+let index = 0;
+const total = slideImages.length;
+
+function showSlide(i) {
+  if(i >= total) index = 0;
+  else if(i < 0) index = total - 1;
+  else index = i;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+}
+
+// Automatic sliding
+let slideInterval = setInterval(()=>{ showSlide(index+1); }, 3000);
+
+// Buttons
+next.addEventListener('click', ()=>{ showSlide(index+1); resetInterval(); });
+prev.addEventListener('click', ()=>{ showSlide(index-1); resetInterval(); });
+
+function resetInterval(){
+  clearInterval(slideInterval);
+  slideInterval = setInterval(()=>{ showSlide(index+1); }, 3000);
+}
+</script>
+
+</body>
+</html>
