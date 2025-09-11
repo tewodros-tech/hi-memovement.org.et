@@ -113,6 +113,7 @@ a {
   animation: fade 30s infinite;
 }
 
+/* Slides with images */
 .slide:nth-child(1) { background-image: url('photo_12.jpg'); animation-delay: 0s; }
 .slide:nth-child(2) { background-image: url('photo_19.jpg'); animation-delay: 5s; }
 .slide:nth-child(3) { background-image: url('photo7.jpg'); animation-delay: 10s; }
@@ -120,6 +121,7 @@ a {
 .slide:nth-child(5) { background-image: url('photo_45.jpg'); animation-delay: 20s; }
 .slide:nth-child(6) { background-image: url('photo_12.jpg'); animation-delay: 25s; }
 
+/* Fade animation */
 @keyframes fade {
   0%   { opacity: 0; }
   5%   { opacity: 1; }
@@ -128,6 +130,7 @@ a {
   100% { opacity: 0; }
 }
 
+/* Dark overlay for readability */
 .hero::before {
   content: "";
   position: absolute;
@@ -217,5 +220,11 @@ a {
 
   .hero p {
     font-size: 1rem;
+  }
+
+  /* Show full image on mobile */
+  .slide {
+    background-size: contain;
+    background-color: black; /* adds background to avoid empty spaces */
   }
 }
