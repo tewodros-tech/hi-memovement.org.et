@@ -10,143 +10,170 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 <style>
-  body {
-    font-family:'Montserrat',sans-serif;
-    margin:0;
-    background:#f9f9f9;
-    color:#333;
-  }
-  a {text-decoration:none;color:inherit;}
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+a { text-decoration: none; color: inherit; }
 
-  /* Navbar */
-  .navbar {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:1rem 2rem;
-    background:#fff;
-    box-shadow:0 2px 4px rgba(0,0,0,0.1);
-    position:sticky;
-    top:0;
-    z-index:1000;
-  }
-  .logo-text {
-    font-weight:bold;
-    font-size:1.2rem;
-    color:#0077b6;
-  }
-  .nav-links {
-    display:flex;
-    gap:1.5rem;
-    list-style:none;
-    position:relative;
-  }
-  .nav-links a { font-weight:600; transition:0.3s; }
-  .nav-links a:hover, .nav-links a.active { color:#ff6600; }
-  .donate-btn { background:#ff6600; color:#fff; padding:0.5rem 1rem; border-radius:5px; font-weight:bold; transition:0.3s;}
-  .donate-btn:hover { background:#d9480f; }
-  .menu-toggle { display:none; font-size:1.5rem; background:none; border:none; cursor:pointer; }
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo img { height: 50px; }
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+.nav-links a {
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover,
+.nav-links a.active { color: #0077b6; }
+.donate-btn {
+  background-color: #ff6600;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.donate-btn:hover { background-color: #d9480f; }
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
-  /* Hero About (unchanged) */
-  .hero-about {
-    background: url('logo.jpg') center/cover no-repeat;
-    color:white;
-    padding:6rem 2rem;
-    text-align:center;
-    position:relative;
-  }
-  .hero-about::before {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: rgba(0,0,0,0.5);
-    z-index:0;
-  }
-  .hero-about h1, .hero-about p { position:relative; z-index:1; }
-  .hero-about h1 { font-size:3rem; margin-bottom:1rem; }
-  .hero-about p { font-size:1.3rem; max-width:700px; margin:0 auto; }
+/* Hero Section */
+.hero-about {
+  background: url('logo.jpg') center/cover no-repeat;
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+}
+.hero-about::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+.hero-about h1,
+.hero-about p { position: relative; z-index: 1; }
+.hero-about h1 { font-size: 3rem; margin-bottom:1rem; animation:fadeInDown 1s ease-out; }
+.hero-about p { font-size:1.3rem; max-width:700px; margin:0 auto; animation:fadeInUp 1.2s ease-out; }
+@keyframes fadeInDown { from {opacity:0; transform:translateY(-30px);} to {opacity:1; transform:translateY(0);} }
+@keyframes fadeInUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
 
-  /* About section */
-  .about-section { max-width:1000px; margin:0 auto; }
-  .slide { padding:4rem 2rem; }
-  .slide:nth-child(even){ background:#fff; }
-  .slide:nth-child(odd){ background:#f1f1f1; }
-  .slide h2 { color:#ff6600; font-size:2rem; margin-bottom:1rem; }
-  .slide p { font-size:1.1rem; line-height:1.8; margin:1rem 0; }
+/* About Content Slides */
+.about-section { max-width:1000px; margin:0 auto; }
+.slide {
+  padding: 4rem 2rem;
+  transition: background 0.3s ease;
+}
+.slide:nth-child(even) { background-color:#fff; }
+.slide:nth-child(odd) { background-color:#f1f1f1; }
+.slide h2 { color:#ff6600; font-size:2rem; margin-bottom:1rem; }
+.slide p { font-size:1.1rem; line-height:1.8; margin:1rem 0; }
 
-  /* Footer */
-  footer { background:#333; color:white; text-align:center; padding:1rem; }
-  .social-icons a { color:white; margin:0 0.5rem; font-size:1.2rem; }
+/* Footer */
+.footer { background-color:#333; color:white; text-align:center; padding:1rem; font-size:0.9rem; }
+.social-icons { margin-top:0.5rem; }
+.social-icons a { color:white; margin:0 0.5rem; font-size:1.2rem; transition: color 0.3s ease; }
+.social-icons a:hover { color:#ff9966; }
 
-  /* Mobile menu */
-  @media(max-width:768px){
-    .menu-toggle { display:block; }
-    .nav-links {
-      display:none; flex-direction:column; position:absolute;
-      top:70px; right:0; background:#fff; padding:1rem 2rem;
-      box-shadow:0 2px 6px rgba(0,0,0,0.15); border-radius:8px;
-    }
-    .nav-links.show { display:flex; }
-  }
+/* Mobile Menu */
+@media(max-width:768px){
+.menu-toggle { display:block; }
+.nav-links {
+  display:flex;
+  flex-direction:column;
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:250px;
+  height:100%;
+  background:#fff;
+  padding:2rem 1.5rem;
+  box-shadow:-2px 0 6px rgba(0,0,0,0.15);
+  transition:right 0.3s ease;
+  z-index:2000;
+}
+.nav-links.show { right:0; }
+.hero-about h1 { font-size:2rem; }
+.hero-about p { font-size:1rem; }
+}
 </style>
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar">
-  <div class="logo-text">Hayimi Movement</div>
+  <div class="logo"><a href="index.html"><img src="logo.jpg" alt="Hayimi Logo"></a></div>
   <button class="menu-toggle">☰</button>
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-item" data-page="index">Home</a></li>
-    <li><a href="about.html" class="nav-item" data-page="about">About</a></li>
-    <li><a href="programs.html" class="nav-item" data-page="programs">Programs</a></li>
-    <li><a href="gallery.html" class="nav-item" data-page="gallery">Gallery</a></li>
-    <li><a href="events.html" class="nav-item" data-page="events">Events</a></li>
-    <li><a href="contact.html" class="nav-item" data-page="contact">Contact</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
     <li><a href="donation.html" class="donate-btn">DONATE</a></li>
   </ul>
 </nav>
 
 <!-- Hero Section -->
 <section class="hero-about">
-  <h1>About Hayimi Movement</h1>
-  <p>Spreading love and hope to families in need—through compassion, resilience, and community-driven action.</p>
+<h1>About Hayimi Movement</h1>
+<p>Spreading love and hope to families in need—through compassion, resilience, and community-driven action.</p>
 </section>
 
 <!-- About Content -->
 <section class="about-section">
-  <div class="slide">
-    <h2>Our Mission</h2>
-    <p>Hayimi Movement is a grassroots initiative rooted in Ethiopia, committed to empowering communities through education, health, and humanitarian support.</p>
-  </div>
-  <div class="slide">
-    <h2>What We Do</h2>
-    <p>We support internally displaced people and those with disabilities by integrating them into thriving communities and providing essential aid.</p>
-  </div>
+<div class="slide">
+<h2>Our Mission</h2>
+<p>Hayimi Movement is a grassroots initiative rooted in Ethiopia, committed to empowering communities through education, health, and humanitarian support. We believe in the power of local leadership, cultural preservation, and inclusive development.</p>
+</div>
+<div class="slide">
+<h2>What We Do</h2>
+<p><strong>Supporting Internally Displaced People and Those with Disabilities:</strong> We’ve witnessed the compassion of people from Ethiopia, North America, and beyond. Communities in crisis are not just given aid—they’re welcomed into thriving communities. We stand with them, honoring their feelings and hope as essential.</p>
+</div>
 </section>
 
 <!-- Footer -->
-<footer>
-  <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-  </div>
+<footer class="footer">
+<p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
+<div class="social-icons">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
 </footer>
 
-<!-- JS -->
+<!-- Mobile menu script -->
 <script>
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
-
-// Highlight active page
-const navItems = document.querySelectorAll('.nav-item');
-const currentPage = window.location.pathname.split('/').pop().replace('.html','');
-navItems.forEach(item => { if(item.dataset.page===currentPage)item.classList.add('active'); });
+const toggle=document.querySelector('.menu-toggle');
+const nav=document.querySelector('.nav-links');
+toggle.addEventListener('click',()=>{nav.classList.toggle('show');});
+document.addEventListener('click',(e)=>{if(!nav.contains(e.target)&&!toggle.contains(e.target)){nav.classList.remove('show');}});
 </script>
 
 </body>
