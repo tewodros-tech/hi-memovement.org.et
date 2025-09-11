@@ -118,9 +118,11 @@
 
     .hero-image img {
       width: 100%;
+      height: auto; /* ensures image scales properly */
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
+      object-fit: contain; /* makes sure image is fully visible */
     }
 
     .hero-image img:hover {
@@ -171,13 +173,6 @@
     .program-card h3 {
       color: #ff6600;
       margin-bottom: 0.3rem;
-    }
-
-    .program-card .briefing {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #0077b6;
-      margin-bottom: 0.5rem;
     }
 
     .program-card p {
@@ -239,7 +234,8 @@
   <header>
     <nav class="navbar">
       <div class="logo">
-        <img src="images/logo.jpg" alt="Hayimi Movement Logo" class="logo-img" />
+        <!-- removed 'images/' from src -->
+        <img src="logo.jpg" alt="Hayimi Movement Logo" class="logo-img" />
       </div>
       <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
       <ul class="nav-links">
@@ -261,7 +257,8 @@
       <a href="#">Read More ➞</a>
     </div>
     <div class="hero-image">
-      <img src="images/logo.jpg" alt="Hayimi Movement Logo in action" />
+      <!-- removed 'images/' from src -->
+      <img src="logo.jpg" alt="Hayimi Movement Logo in action" />
     </div>
   </section>
 
@@ -285,4 +282,27 @@
         <h3>Women Empowerment</h3>
         <p>Providing vocational skills, confidence-building workshops, and leadership training to women in marginalized communities.</p>
       </article>
-      <article
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Hayimi Movement. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <!-- Script for dropdown menu -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
