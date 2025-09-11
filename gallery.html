@@ -229,4 +229,56 @@
     <div class="gallery-grid">
       <!-- Sample Images -->
       <img src="photo_1.jpg" alt="Hayimi photo 1" loading="lazy" />
-      <img
+      <img src="photo_2.jpg" alt="Hayimi photo 2" loading="lazy" />
+      <img src="photo_3.jpg" alt="Hayimi photo 3" loading="lazy" />
+      <img src="photo_4.jpg" alt="Hayimi photo 4" loading="lazy" />
+      <img src="photo_5.jpg" alt="Hayimi photo 5" loading="lazy" />
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="close" id="closeBtn">&times;</span>
+    <img src="" alt="Expanded view" id="lightbox-img">
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('closeBtn');
+    const galleryImages = document.querySelectorAll('.gallery-grid img');
+
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
