@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Events | Hayimi Movement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events - Hayimi Movement</title>
 
-  <!-- Fonts & Styles -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
   <style>
-    /* Base Reset */
+    /* Reset and Base Styles */
     * {
       margin: 0;
       padding: 0;
@@ -21,51 +23,67 @@
       color: #333;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
     /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background-color: #002855; /* Deep blue */
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .logo img {
-      height: 50px;
+      height: 40px;
+      width: auto;
     }
 
-    nav ul {
+    .logo span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
-    nav a {
-      font-weight: 500;
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
       transition: color 0.3s ease;
     }
 
-    nav a:hover {
-      color: #0077b6;
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ff6600;
     }
 
     .donate-btn {
       background-color: #ff6600;
       color: white;
       padding: 0.5rem 1rem;
+      border: none;
       border-radius: 5px;
       font-weight: bold;
+      cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
     .donate-btn:hover {
-      background-color: #d9480f;
+      background-color: #e65c00;
     }
 
     /* Hero Section */
@@ -133,7 +151,7 @@
     }
 
     /* Footer */
-    .footer {
+    footer {
       background-color: #333;
       color: white;
       text-align: center;
@@ -141,36 +159,66 @@
       font-size: 0.9rem;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
 
-      nav ul {
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
         flex-direction: column;
         gap: 1rem;
+        margin: 1rem 0;
+        width: 100%;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
       }
 
       .navbar {
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="navbar">
-    <div class="logo"><img src="Logo.jpg" alt="Hayimi Logo" /></div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="donate.html" class="donate-btn">Donate Today</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.jpg" alt="Hayimi Logo" />
+      <span>Hayimi Movement</span>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="donation.html" class="donate-btn">DONATE</a></li>
+    </ul>
+  </nav>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -183,21 +231,30 @@
     <article>
       <h2>Pride in the Park</h2>
       <p>A vibrant celebration of inclusion, joy, and community support. Music, food, and storytelling from local voices.</p>
-      <a href="donate.html" class="learn-btn">Support This Event</a>
+      <a href="donation.html" class="learn-btn">Support This Event</a>
     </article>
 
-    <!-- Future Event Placeholder -->
     <article>
       <h2>Healing Through Art</h2>
       <p>Workshops and exhibitions featuring local artists sharing stories of resilience and hope. Open to all ages.</p>
-      <a href="donate.html" class="learn-btn">Help Fund Art Supplies</a>
+      <a href="donation.html" class="learn-btn">Help Fund Art Supplies</a>
     </article>
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer>
     <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
 
 </body>
 </html>
