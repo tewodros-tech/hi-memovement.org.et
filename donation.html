@@ -5,87 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Donate | Hayimi Movement</title>
 
-  <!-- ✅ Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet" />
   <style>
-    /* ✅ Global Styles */
     body {
+      font-family: 'Open Sans', sans-serif;
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: #f9f9f9;
+      background-color: #f9f9f9;
       color: #333;
-      scroll-behavior: smooth;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* ✅ Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: #0077b6;
-      color: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo-text {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #fff;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links a {
-      font-weight: 600;
-      color: white;
-      transition: 0.3s;
-      padding: 0.5rem;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #6c757d;
-    }
-
-    .donate-btn {
-      background: #6c757d;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .donate-btn:hover {
-      background: #495057;
-    }
-
-    /* ✅ Hero Section */
     .donation-hero {
       background: linear-gradient(to right, #ff6600, #ff9966);
       color: white;
       text-align: center;
-      padding: 5rem 2rem;
+      padding: 4rem 2rem;
     }
 
     .donation-hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
@@ -95,176 +33,114 @@
       margin: 0 auto;
     }
 
-    /* ✅ Donation Boxes */
     .donation-options {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 2rem;
-      padding: 4rem 2rem;
-      max-width: 1200px;
+      padding: 3rem 2rem;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
     .donation-box {
+      flex: 1 1 45%;
       background-color: #fff;
       padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .donation-box:hover {
-      transform: translateY(-5px);
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .donation-box h2 {
       color: #ff6600;
-      font-size: 1.5rem;
       margin-bottom: 1rem;
     }
 
-    .donation-box p,
-    .donation-box ul {
+    .donation-box p, .donation-box ul {
       font-size: 1rem;
       line-height: 1.6;
     }
 
     .donation-box ul {
-      padding-left: 1.5rem;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .donation-box ul li {
-      margin-bottom: 0.5rem;
+      padding-left: 1rem;
     }
 
     .donation-box a {
       display: inline-block;
       margin-top: 1rem;
       padding: 0.75rem 1.5rem;
-      background: #0077b6;
+      background-color: #0077b6;
       color: white;
-      border-radius: 8px;
+      text-decoration: none;
+      border-radius: 5px;
       font-weight: bold;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s ease;
     }
 
     .donation-box a:hover {
-      background: #023e8a;
-      transform: scale(1.05);
+      background-color: #023e8a;
     }
 
-    /* ✅ Footer */
-    .footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 1.5rem 2rem;
-    }
-
-    .social-icons a {
-      color: #fff;
-      margin: 0 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .social-icons a:hover {
-      color: #6c757d;
-    }
-
-    /* ✅ Mobile Styles */
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-        background: #0077b6;
-        padding: 1rem;
-        border-radius: 10px;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
       .donation-options {
-        grid-template-columns: 1fr;
-      }
-
-      .donation-hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .donation-hero p {
-        font-size: 1rem;
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ Navbar -->
-  <nav class="navbar">
-    <div class="logo-text">Hayimi Movement</div>
-    <button class="menu-toggle">☰</button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="programs.html">Programs</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="events.html">Events</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="donation.html" class="donate-btn active">DONATE</a></li>
-    </ul>
-  </nav>
-
-  <!-- ✅ Hero Section -->
+  <!-- Hero Section -->
   <section class="donation-hero">
     <h1>Support the Hayimi Movement</h1>
     <p>Choose your preferred method to contribute and uplift Ethiopian voices.</p>
   </section>
 
-  <!-- ✅ Donation Options -->
+  <!-- Donation Options -->
   <section class="donation-options">
 
-    <!-- ✅ PayPal -->
+    <!-- PayPal -->
     <div class="donation-box">
       <h2>Donate via PayPal</h2>
       <p>Secure and fast. Click below to donate through PayPal.</p>
-      <a href="https://www.paypal.me/hayimimovement" target="_blank">Donate with PayPal</a>
+      <a href="https://www.paypal.com/donate/?hostedbuttonid=YOURHOSTEDBUTTONID" target="blank">Donate with PayPal</a>
     </div>
 
-    <!-- ✅ Apple Pay -->
+    <!-- Apple Pay -->
     <div class="donation-box">
       <h2>Donate via Apple Pay</h2>
       <p>Use Apple Pay through our secure Stripe gateway (coming soon) or donate via Apple’s donation partners.</p>
       <a href="https://support.apple.com/en-us/HT203987" target="_blank">Apple Pay Donation Info</a>
     </div>
 
-    <!-- ✅ Google Pay -->
+    <!-- Google Pay -->
     <div class="donation-box">
       <h2>Donate via Google Pay</h2>
       <p>Use Google Pay through supported platforms. You can also donate via PayPal using Google Pay.</p>
       <a href="https://pay.google.com/about/" target="_blank">Google Pay Donation Info</a>
     </div>
 
-    <!-- ✅ Mastercard -->
+    <!-- Mastercard Donate -->
     <div class="donation-box">
       <h2>Donate via Mastercard</h2>
       <p>Support humanitarian causes through Mastercard’s donation partners.</p>
-      <a href="https://give.mastercard.com" target="_blank">Donate with Mastercard</a>
+      <a href="https://www.mastercard.us/en-us/vision/corp-responsibility/mastercard-donate.html" target="_blank">Donate with Mastercard</a>
     </div>
 
-    <!-- ✅ Pay via CBE section with Play Store integration -->
+    <!-- CBE Mobile -->
     <div class="donation-box">
-      <h2>Pay via CBE Mobile App</h2>
-      <p>Use the Commercial Bank of Ethiopia Mobile App to send your donation directly to our account:</p>
+      <h2>Donate via CBE Mobile App</h2>
+      <p>Use the following account details in your CBE Mobile App:</p>
       <ul>
         <li><strong>Account Name:</strong> Hayimi Movement</li>
-        <li><strong>Account Number:</strong> 100012346789</li>
+        <li><strong>Account Number:</strong> 1000123456789</li>
         <li><strong>Bank:</strong> Commercial Bank of Ethiopia</li>
       </ul>
       <p>After payment, please email your receipt to <strong>donate@hayimi.org</strong></p>
-      [43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/szerintedmi/roadmap-radar-chart/tree/45ee5f9f7a1d44100313358e369abb025b935cea/README.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/JohnsonMauro/front-end-test/tree/26f4b872a8b0ccce55a04c9d0b89f535565c5c4e/src%2FPage.js?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "2")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/VergilKellley/salonspa/tree/b30eb1a326f77aebfc8a3600651f1e7765c87b3b/contactform.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "3")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/ArionoS/job10assignment/tree/b8a5f19dbd7e1b07783cf938d4d1dea2d8506819/resources%2Fviews%2Fhome%2Fnews.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "4")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/muhammadputradermawan/vclass/tree/28f640bb0a74f0a435b0f355491208e7b2c11444/application%2Fviews%2Fuser2%2Findex.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "5")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/markozugic/wp-themes/tree/cee414632a0f4d117616984eb614e0a539622477/wp-content%2Fthemes%2Fskrozzzfit%2Fheader.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "6")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/minu555/kalolsavam/tree/5aada50191c57d649abcad1a5ca33630f3dbc933/grouplist.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "7")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/prasangafdo/c_plus_band_new/tree/de369221e20bafc0966b9af7fe5db1e4070f83d8/resources%2Fviews%2Findex.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "8")[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/ktalwar18/sogo_voyager/tree/c2eaa2af860d827cd2f0c8fb08bc47058c6238de/resources%2Fviews%2Flayouts%2Fapp.blade.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "9")<a href
+      <a href="https://play.google.com/store/apps/details?id=com.combanketh.mobilebanking" target="_blank">Open CBE App</a>
+    </div>
+
+  </section>
+
+</body>
+</html>
+Adjust the look..the apperance like index.html and give me the full code.
