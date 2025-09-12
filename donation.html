@@ -23,6 +23,66 @@
       color: inherit;
     }
 
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #0077b6;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-text {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: white;
+      transition: 0.3s;
+      padding: 0.5rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #6c757d;
+    }
+
+    .donate-btn {
+      background: #6c757d;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .donate-btn:hover {
+      background: #495057;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+
     /* Hero Section */
     .donation-hero {
       background: linear-gradient(to right, #0077b6, #00b4d8);
@@ -57,7 +117,7 @@
       background-color: #fff;
       padding: 2rem;
       border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
     }
 
@@ -71,13 +131,21 @@
       margin-bottom: 1rem;
     }
 
-    .donation-box p, .donation-box ul {
+    .donation-box p,
+    .donation-box ul {
       font-size: 1rem;
       line-height: 1.6;
     }
 
     .donation-box ul {
-      padding-left: 1rem;
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .donation-box ul li {
+      margin-bottom: 0.5rem;
     }
 
     .donation-box a {
@@ -96,9 +164,42 @@
       transform: scale(1.05);
     }
 
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 2rem;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .social-icons a:hover {
+      color: #6c757d;
+    }
+
+    /* Mobile */
     @media (max-width: 768px) {
-      .donation-options {
-        grid-template-columns: 1fr;
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+        background: #0077b6;
+        padding: 1rem;
+        border-radius: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
       }
 
       .donation-hero h1 {
@@ -108,10 +209,29 @@
       .donation-hero p {
         font-size: 1rem;
       }
+
+      .donation-options {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-text">Hayimi Movement</div>
+    <button class="menu-toggle">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="donation.html" class="donate-btn active">DONATE</a></li>
+    </ul>
+  </nav>
 
   <!-- Hero Section -->
   <section class="donation-hero">
@@ -122,48 +242,11 @@
   <!-- Donation Options -->
   <section class="donation-options">
 
-    <!-- PayPal -->
     <div class="donation-box">
       <h2>Donate via PayPal</h2>
       <p>Secure and fast. Click below to donate through PayPal.</p>
       <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_HOSTED_BUTTON_ID" target="_blank">Donate with PayPal</a>
     </div>
 
-    <!-- Apple Pay -->
     <div class="donation-box">
       <h2>Donate via Apple Pay</h2>
-      <p>Use Apple Pay through our secure Stripe gateway (coming soon) or donate via Apple’s donation partners.</p>
-      <a href="https://support.apple.com/en-us/HT203987" target="_blank">Apple Pay Donation Info</a>
-    </div>
-
-    <!-- Google Pay -->
-    <div class="donation-box">
-      <h2>Donate via Google Pay</h2>
-      <p>Use Google Pay through supported platforms. You can also donate via PayPal using Google Pay.</p>
-      <a href="https://pay.google.com/about/" target="_blank">Google Pay Donation Info</a>
-    </div>
-
-    <!-- Mastercard Donate -->
-    <div class="donation-box">
-      <h2>Donate via Mastercard</h2>
-      <p>Support humanitarian causes through Mastercard’s donation partners.</p>
-      <a href="https://www.mastercard.us/en-us/vision/corp-responsibility/mastercard-donate.html" target="_blank">Donate with Mastercard</a>
-    </div>
-
-    <!-- CBE Mobile -->
-    <div class="donation-box">
-      <h2>Donate via CBE Mobile App</h2>
-      <p>Use the following account details in your CBE Mobile App:</p>
-      <ul>
-        <li><strong>Account Name:</strong> Hayimi Movement</li>
-        <li><strong>Account Number:</strong> 1000123456789</li>
-        <li><strong>Bank:</strong> Commercial Bank of Ethiopia</li>
-      </ul>
-      <p>After payment, please email your receipt to <strong>donate@hayimi.org</strong></p>
-      <a href="https://play.google.com/store/apps/details?id=com.combanketh.mobilebanking" target="_blank">Open CBE App</a>
-    </div>
-
-  </section>
-
-</body>
-</html>
