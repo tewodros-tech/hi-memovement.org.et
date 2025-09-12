@@ -147,6 +147,27 @@
       background-color: #023e8a;
     }
 
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
     /* Footer */
     .footer {
       background-color: #333;
@@ -217,51 +238,38 @@
 
   <!-- Events Section -->
   <section class="events-section">
-
     <article>
       <h2>Ashenda Revival</h2>
-      <p>Help us bring Ashenda back with fresh energy and dignity. This cultural celebration honors the strength of women and the resilience of Tigrayan families. Your support helps us provide shelter, food, and medical care to those displaced by conflict.</p>
+      <p>Help us bring Ashenda back with fresh energy and dignity. This cultural celebration honors the strength of women and the resilience of Tigrayan families.</p>
       <p><strong>Needs:</strong> Shelter, Food, Clothing, Medical Attention</p>
       <a href="donation.html" class="learn-btn">Donate to Ashenda Revival</a>
     </article>
 
     <article>
       <h2>Healing Through Art</h2>
-      <p>Local artists and youth come together to express stories of trauma, hope, and healing. Through workshops and exhibitions, we create safe spaces for emotional recovery and community bonding. Open to all ages and backgrounds.</p>
-      <p><strong>Support:</strong> Art supplies, venue sponsorship, volunteer facilitators</p>
+      <p>Local artists and youth come together to express stories of trauma, hope, and healing. Through workshops and exhibitions, we create safe spaces for emotional recovery and community bonding.</p>
       <a href="donation.html" class="learn-btn">Help Fund Art Supplies</a>
     </article>
 
     <article>
       <h2>Pride in the Park</h2>
-      <p>A vibrant celebration of inclusion, joy, and community support. Featuring music, storytelling, food, and cultural performances — this event uplifts marginalized voices and reminds us that unity is our greatest strength.</p>
-      <p><strong>Support:</strong> Food donations, volunteer coordination, event logistics</p>
+      <p>A vibrant celebration of inclusion, joy, and community support. Featuring music, storytelling, food, and cultural performances.</p>
       <a href="donation.html" class="learn-btn">Support This Event</a>
     </article>
 
     <article>
       <h2>Donation Drop-Off Locations</h2>
-      <p>We welcome in-kind donations at the following spots:</p>
       <ul>
         <li>Tryst Café / Mymia next to ABC</li>
         <li>Tryst Café Aloshe (Chichinina)</li>
         <li>Tryst Boutique Hotel (Imperial) behind Food Moya</li>
       </ul>
-      <p>For PayPal, Zelle, or CashApp donations: <strong>himemovement@gmail.com</strong></p>
+      <p>PayPal/Zelle/CashApp: <strong>himemovement@gmail.com</strong></p>
       <p>Contact: +251 988 13 1213 / +251 946 949875</p>
     </article>
-
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </footer>
-
-  <!-- Mobile Menu Script -->
-  <
+  <!-- Gallery Section -->
+  <section class="events-section">
+    <h2 style="text-align:center; color:#0077b6; margin-bottom:2rem;">Moments That Matter</h2>
+    <div
