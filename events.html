@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Events - Hayimi Movement</title>
 
-  <!-- Fonts & Icons -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
     body {
@@ -15,72 +14,6 @@
       margin: 0;
       background-color: #f9f9f9;
       color: #333;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo-text {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #0077b6;
-    }
-
-    .nav-container {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #ff6600;
-    }
-
-    .donate-btn {
-      background-color: #ff6600;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .donate-btn:hover {
-      background-color: #d9480f;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
     }
 
     /* Hero */
@@ -99,19 +32,30 @@
     .hero p {
       font-size: 1.2rem;
       max-width: 700px;
-      margin: 0 auto 2rem;
+      margin: 0 auto;
     }
 
-    /* Highlight Cards inside Hero */
-    .highlight-gallery {
+    /* Highlight Section */
+    .highlight-section {
+      background: linear-gradient(135deg, #ff6600, #ff944d);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: white;
+    }
+
+    .highlight-section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .image-gallery {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 20px;
-      margin-top: 2rem;
     }
 
-    .highlight-card {
+    .card {
       background: #fff;
       border-radius: 15px;
       overflow: hidden;
@@ -121,98 +65,22 @@
       color: #333;
     }
 
-    .highlight-card:hover {
+    .card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 25px rgba(0,0,0,0.3);
     }
 
-    .highlight-card img {
+    .card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
 
-    .highlight-card p {
+    .card p {
       padding: 15px;
       margin: 0;
       font-size: 1rem;
-    }
-
-    /* Events Section */
-    .events-section {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-
-    article {
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease;
-    }
-
-    article:hover {
-      transform: translateY(-5px);
-    }
-
-    article h2 {
-      color: #ff6600;
-      margin-bottom: 1rem;
-    }
-
-    article p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .learn-btn {
-      display: inline-block;
-      background-color: #0077b6;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .learn-btn:hover {
-      background-color: #023e8a;
-    }
-
-    /* Gallery Grid */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .gallery-grid div {
-      text-align: center;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .gallery-grid img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .caption {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #555;
+      line-height: 1.5;
     }
 
     /* Footer */
@@ -221,144 +89,37 @@
       color: white;
       text-align: center;
       padding: 1rem;
-    }
-
-    .social-icons {
-      margin-top: 0.5rem;
-    }
-
-    .social-icons a {
-      color: white;
-      margin: 0 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-        background: #fff;
-        padding: 1rem 2rem;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo-text">Hayimi Movement</div>
-    <button class="menu-toggle">☰</button>
-    <div class="nav-container">
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="events.html" class="active">Events</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="donation.html" class="donate-btn">DONATE</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section with Highlights -->
+  <!-- Hero Section -->
   <section class="hero">
     <h1>Upcoming Events</h1>
     <p>Join us in celebrating community, culture, and compassion. Every moment counts.</p>
+  </section>
 
-    <div class="highlight-gallery">
-      <div class="highlight-card">
-        <img src="photo_50.jpg" alt="Event Highlight 1">
+  <!-- Highlight Section -->
+  <section class="highlight-section">
+    <h2>Special Highlights</h2>
+    <div class="image-gallery">
+      <div class="card">
+        <img src="Photo_50.jpg" alt="Event Highlight 1">
         <p>Memorable moments from our recent event that inspired many hearts.</p>
       </div>
-      <div class="highlight-card">
-        <img src="photo_51.jpg" alt="Event Highlight 2">
+      <div class="card">
+        <img src="Photo_51.jpg" alt="Event Highlight 2">
         <p>A wonderful gathering full of energy, hope, and community spirit.</p>
       </div>
     </div>
   </section>
 
-  <!-- Events Section -->
-  <section class="events-section">
-    <article>
-      <h2>Ashenda Revival</h2>
-      <p>Help us bring Ashenda back with fresh energy and dignity. This cultural celebration honors the strength of women and the resilience of Tigrayan families.</p>
-      <p><strong>Needs:</strong> Shelter, Food, Clothing, Medical Attention</p>
-      <a href="donation.html" class="learn-btn">Donate to Ashenda Revival</a>
-    </article>
-
-    <article>
-      <h2>Healing Through Art</h2>
-      <p>Local artists and youth come together to express stories of trauma, hope, and healing. Through workshops and exhibitions, we create safe spaces for emotional recovery and community bonding.</p>
-      <a href="donation.html" class="learn-btn">Help Fund Art Supplies</a>
-    </article>
-
-    <article>
-      <h2>Pride in the Park</h2>
-      <p>A vibrant celebration of inclusion, joy, and community support. Featuring music, storytelling, food, and cultural performances.</p>
-      <a href="donation.html" class="learn-btn">Support This Event</a>
-    </article>
-
-    <article>
-      <h2>Donation Drop-Off Locations</h2>
-      <ul>
-        <li>Tryst Café / Mymia next to ABC</li>
-        <li>Tryst Café Aloshe (Chichinina)</li>
-        <li>Tryst Boutique Hotel (Imperial) behind Food Moya</li>
-      </ul>
-      <p>PayPal/Zelle/CashApp: <strong>himemovement@gmail.com</strong></p>
-      <p>Contact: +251 988 13 1213 / +251 946 949875</p>
-    </article>
-  </section>
-
-  <!-- Gallery Section -->
-  <section class="events-section">
-    <h2>Event Gallery</h2>
-    <div class="gallery-grid">
-      <div><img src="photo_40.jpg" alt="Event 40"><p class="caption">Event Moment</p></div>
-      <div><img src="photo_41.jpg" alt="Event 41"><p class="caption">Event Moment</p></div>
-      <div><img src="photo_42.jpg" alt="Event 42"><p class="caption">Event Moment</p></div>
-      <div><img src="photo_43.jpg" alt="Event 43"><p class="caption">Event Moment</p></div>
-      <div><img src="photo_44.jpg" alt="Event 44"><p class="caption">Event Moment</p></div>
-      <div><img src="photo_45.jpg" alt="Event 45"><p class="caption">Event Moment</p></div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
+    <p>&copy; 2025 Hayimi Movement. All Rights Reserved.</p>
   </footer>
-
-  <!-- Mobile Menu Script -->
-  <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-  </script>
 
 </body>
 </html>
