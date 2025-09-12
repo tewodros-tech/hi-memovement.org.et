@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
+    /* Base Styles */
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
@@ -26,8 +27,8 @@
     /* Navbar */
     .navbar {
       display: flex;
-      justify-content:space-between;
-      align-items:center;
+      justify-content: space-between;
+      align-items: center;
       padding: 1rem 2rem;
       background: #0077b6;
       color: #fff;
@@ -81,7 +82,7 @@
       color: white;
     }
 
-    /* Hero */
+    /* Hero Section */
     .donation-hero {
       background: linear-gradient(to right, #0077b6, #00b4d8);
       color: white;
@@ -100,7 +101,7 @@
       margin: 0 auto;
     }
 
-    /* Donation Options */
+    /* Donation Options Section */
     .donation-options {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -155,7 +156,7 @@
       color: #6c757d;
     }
 
-    /* Mobile */
+    /* Mobile Styles */
     @media(max-width:768px){
       .nav-links {
         display: none;
@@ -207,59 +208,47 @@
 
 <!-- Donation Options -->
 <section class="donation-options">
+
+  <!-- CBE Mobile Transfer -->
   <div class="donation-box">
-    <h2>Bank Transfer</h2>
-    <p>You can donate directly via Commercial Bank of Ethiopia (CBE Mobile):</p>
+    <h2>CBE Mobile Transfer</h2>
+    <p>To donate via Commercial Bank of Ethiopia:</p>
     <ul>
       <li><strong>Account Name:</strong> Hayimi Movement</li>
       <li><strong>Account Number:</strong> 1000123456789</li>
       <li><strong>Bank:</strong> Commercial Bank of Ethiopia</li>
     </ul>
+    <p>After sending your donation, please <a href="https://wa.me/251912345678" target="_blank">click here to confirm via WhatsApp</a>.</p>
   </div>
 
+  <!-- Chapa Integration -->
+  <div class="donation-box">
+    <h2>Donate via Chapa</h2>
+    <p>Securely donate using CBE Mobile, Telebirr, Visa, Mastercard, or international cards.</p>
+    <a href="https://checkout.chapa.co/pay/YOUR_PAYMENT_LINK" target="_blank" class="donate-btn" style="text-align:center; display:inline-block; margin-top:1rem;">Donate with Chapa</a>
+    <!-- Replace YOUR_PAYMENT_LINK with your actual Chapa payment link -->
+  </div>
+
+  <!-- International Payment Options -->
   <div class="donation-box">
     <h2>Online Payment</h2>
-    <p>We accept donations via PayPal, Mastercard, and Visa. Click below to donate securely:</p>
-    <ul>
-      <li><a href="#">Donate via PayPal</a></li>
-      <li><a href="#">Donate via Mastercard</a></li>
-      <li><a href="#">Donate via Visa</a></li>
-    </ul>
+    <p>We accept donations via PayPal, Mastercard, and Visa. Choose your preferred method below:</p>
+    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+      <a href="https://www.paypal.com/donate?hosted_button_id=YOUR_ID" target="_blank" class="donate-btn" style="text-align:center;">Donate via PayPal</a>
+      <a href="https://www.mastercard.com/global/donate" target="_blank" class="donate-btn" style="text-align:center;">Donate via Mastercard</a>
+      <a href="https://www.visa.com/global/donate" target="_blank" class="donate-btn" style="text-align:center;">Donate via Visa</a>
+    </div>
+    <!-- Replace YOUR_ID with your actual PayPal hosted button ID -->
   </div>
 
+  <!-- In-Kind Support -->
   <div class="donation-box">
     <h2>In-Kind Support</h2>
     <p>We also welcome donations of supplies, equipment, and services. Please contact us to coordinate your contribution.</p>
   </div>
 
+  <!-- Contact Info -->
   <div class="donation-box">
     <h2>Contact Us</h2>
     <p>If you have questions or need assistance with your donation, reach out to our team:</p>
     <ul>
-      <li>Email: support@hayimimovement.org</li>
-      <li>Phone: +251 912 345 678</li>
-    </ul>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-  <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-  </div>
-</footer>
-
-<script>
-// Mobile menu toggle
-const toggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-toggle.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-});
-</script>
-
-</body>
-</html>
