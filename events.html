@@ -112,7 +112,7 @@
       justify-content: center;
       gap: 1rem;
       margin-top: 2rem;
-      flex-wrap: wrap;
+      flex-wrap: wrap; /* allows stacking on small screens */
     }
 
     .hero-gallery img {
@@ -245,6 +245,18 @@
       .hero h1 {
         font-size: 2rem;
       }
+
+      /* Make hero images stack vertically on small screens */
+      .hero-gallery {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .hero-gallery img {
+        width: 80%; /* scale down images */
+        max-width: 300px;
+      }
     }
   </style>
 </head>
@@ -307,44 +319,4 @@
         <li>Tryst Café Aloshe (Chichinina)</li>
         <li>Tryst Boutique Hotel (Imperial) behind Food Moya</li>
       </ul>
-      <p>PayPal/Zelle/CashApp: <strong>himemovement@gmail.com</strong></p>
-      <p>Contact: +251 988 13 1213 / +251 946 949875</p>
-    </article>
-  </section>
-
-  <!-- Gallery Section -->
-  <section class="events-section">
-    <h2>Event Gallery</h2>
-    <div class="gallery-grid">
-      <!-- Only include images photo_40 to photo_45 -->
-      <div><a href="photo_40.jpg" target="_blank"><img src="photo_40.jpg" alt="Event 40"></a><p class="caption">Event Moment</p></div>
-      <div><a href="photo_41.jpg" target="_blank"><img src="photo_41.jpg" alt="Event 41"></a><p class="caption">Event Moment</p></div>
-      <div><a href="photo_42.jpg" target="_blank"><img src="photo_42.jpg" alt="Event 42"></a><p class="caption">Event Moment</p></div>
-      <div><a href="photo_43.jpg" target="_blank"><img src="photo_43.jpg" alt="Event 43"></a><p class="caption">Event Moment</p></div>
-      <div><a href="photo_44.jpg" target="_blank"><img src="photo_44.jpg" alt="Event 44"></a><p class="caption">Event Moment</p></div>
-      <div><a href="photo_45.jpg" target="_blank"><img src="photo_45.jpg" alt="Event 45"></a><p class="caption">Event Moment</p></div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </footer>
-
-  <!-- Mobile Menu Script -->
-  <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-  </script>
-
-</body>
-</html>
+      <p>PayPal/Zelle/CashApp: <strong>himem
