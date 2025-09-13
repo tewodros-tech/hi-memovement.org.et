@@ -267,6 +267,7 @@
   </div>
 </footer>
 
+<!-- Stripe JS -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   // Toggle navbar for mobile
@@ -285,10 +286,10 @@
   }
 
   // Stripe Checkout Button
-  const stripe = Stripe("YOUR_STRIPE_PUBLISHABLE_KEY"); // Replace with your Stripe key
+  const stripe = Stripe("YOUR_STRIPE_PUBLISHABLE_KEY"); // Replace with your Stripe Publishable Key
   document.getElementById("stripeBtn").addEventListener("click", () => {
     stripe.redirectToCheckout({
-      lineItems: [{price: "YOUR_STRIPE_PRICE_ID", quantity: 1}],
+      lineItems: [{price: "YOUR_STRIPE_PRICE_ID", quantity: 1}], // Replace with your Price ID
       mode: "payment",
       successUrl: window.location.origin + "/success.html",
       cancelUrl: window.location.origin + "/donation.html"
