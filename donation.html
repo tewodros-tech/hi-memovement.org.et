@@ -67,11 +67,13 @@
     .donate-btn {
       background: #6c757d;
       color: #fff;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 5px;
       font-weight: bold;
       transition: 0.3s;
       cursor: pointer;
+      border: none;
+      display: inline-block;
     }
 
     .donate-btn:hover {
@@ -122,6 +124,7 @@
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
+      text-align: center;
     }
 
     .donation-box:hover {
@@ -141,6 +144,7 @@
 
     .donation-box ul {
       padding-left: 1rem;
+      text-align: left;
     }
 
     /* Footer */
@@ -229,7 +233,7 @@
     </ul>
     <button onclick="copyCBE()" class="donate-btn" style="margin-top:1rem;">Copy Account Info</button>
     <p style="margin-top:1rem;">
-      <a href="https://play.google.com/store/apps/details?id=com.combanketh.cbe_mobile_app" target="_blank" class="donate-btn" style="display:inline-block; text-align:center;">
+      <a href="https://play.google.com/store/apps/details?id=com.combanketh.cbe_mobile_app" target="_blank" class="donate-btn">
         Open CBE Mobile App
       </a>
     </p>
@@ -239,10 +243,16 @@
   <!-- International Payments -->
   <div class="donation-box">
     <h2>International Payment</h2>
-    <p>Donate securely using global payment options:</p>
-    <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_ID" target="_blank" class="donate-btn" style="margin-top:1rem; display:inline-block;">Donate with PayPal</a>
-    <a href="https://www.mastercard.com/global/en/personal/get-support/ways-to-pay.html" target="_blank" class="donate-btn" style="margin-top:1rem; display:inline-block;">Donate with Mastercard</a>
-    <a href="https://visa.com" target="_blank" class="donate-btn" style="margin-top:1rem; display:inline-block;">Donate with Visa</a>
+    <p>Donate securely using PayPal, Mastercard, or Visa:</p>
+
+    <!-- PayPal Donate Button -->
+    <form action="https://www.paypal.com/donate" method="post" target="_blank" style="margin-top:1rem;">
+      <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_ID" />
+      <button type="submit" class="donate-btn">Donate with PayPal</button>
+    </form>
+
+    <!-- Stripe Checkout (for Visa/Mastercard) -->
+    <button id="stripeBtn" class="donate-btn" style="margin-top:1rem;">Donate with Card (Visa/Mastercard)</button>
   </div>
 
 </section>
@@ -257,6 +267,7 @@
   </div>
 </footer>
 
+<script src="https://js.stripe.com/v3/"></script>
 <script>
   // Toggle navbar for mobile
   const menuToggle = document.querySelector('.menu-toggle');
@@ -272,6 +283,17 @@
       alert("CBE Account info copied to clipboard!");
     });
   }
+
+  // Stripe Checkout Button
+  const stripe = Stripe("YOUR_STRIPE_PUBLISHABLE_KEY"); // Replace with your Stripe key
+  document.getElementById("stripeBtn").addEventListener("click", () => {
+    stripe.redirectToCheckout({
+      lineItems: [{price: "YOUR_STRIPE_PRICE_ID", quantity: 1}],
+      mode: "payment",
+      successUrl: window.location.origin + "/success.html",
+      cancelUrl: window.location.origin + "/donation.html"
+    });
+  });
 </script>
 
 </body>
