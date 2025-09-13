@@ -43,27 +43,29 @@
     .nav-links a:hover, .nav-links a.active { color: #6c757d; }
 
     .donate-btn {
-      background: #6c757d;
-      color: #fff;
       padding: 0.6rem 1.2rem;
       border-radius: 5px;
       font-weight: bold;
       transition: 0.3s;
       cursor: pointer;
       border: none;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
     }
 
-    .donate-btn:hover { background: #495057; }
+    /* Payment button colors */
+    .paypal { background: #003087; color: #fff; }
+    .paypal:hover { background: #001f5c; }
+    .stripe { background: #6772e5; color: #fff; }
+    .stripe:hover { background: #5469d4; }
+    .zelle { background: #4b0082; color: #fff; }
+    .zelle:hover { background: #2e004c; }
+    .cashapp { background: #00c244; color: #fff; }
+    .cashapp:hover { background: #009933; }
 
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: white;
-    }
+    .menu-toggle { display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: white; }
 
     .donation-hero {
       background: linear-gradient(to right, #0077b6, #00b4d8);
@@ -73,7 +75,6 @@
     }
 
     .donation-hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-
     .donation-hero p { font-size: 1.3rem; max-width: 700px; margin: 0 auto; }
 
     .donation-options {
@@ -109,12 +110,7 @@
       padding: 1.5rem 2rem;
     }
 
-    .social-icons a {
-      color: #fff;
-      margin: 0 0.5rem;
-      font-size: 1.2rem;
-    }
-
+    .social-icons a { color: #fff; margin: 0 0.5rem; font-size: 1.2rem; }
     .social-icons a:hover { color: #6c757d; }
 
     @media(max-width:768px){
@@ -126,13 +122,9 @@
         background: #0077b6;
         padding: 1rem 2rem;
       }
-
       .nav-links.show { display: flex; }
-
       .menu-toggle { display: block; }
-
       .donation-hero h1 { font-size: 2.2rem; }
-
       .donation-hero p { font-size: 1.1rem; }
     }
   </style>
@@ -170,35 +162,42 @@
       <li><strong>Account Number:</strong> 1000495519671</li>
       <li><strong>Bank:</strong> Commercial Bank of Ethiopia</li>
     </ul>
-    <button onclick="copyCBE()" class="donate-btn" style="margin-top:1rem;">Copy Account Info</button>
+    <button onclick="copyCBE()" class="donate-btn">
+      <i class="fas fa-copy"></i> Copy Account Info
+    </button>
     <p style="margin-top:1rem;">
       <a href="https://play.google.com/store/apps/details?id=com.cbe.mobile" target="_blank" class="donate-btn">
-        Open CBE Mobile App
+        <i class="fab fa-android"></i> Open CBE Mobile App
       </a>
     </p>
   </div>
 
   <div class="donation-box">
     <h2>International Payments</h2>
-    <p>Donate securely using PayPal, Mastercard, Zelle, or CashApp:</p>
+    <p>Donate securely using PayPal, Mastercard/Visa, Zelle, or CashApp:</p>
 
     <!-- PayPal -->
     <form action="https://www.paypal.com/donate" method="post" target="_blank" style="margin-top:1rem;">
       <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_ID" />
-      <button type="submit" class="donate-btn">Donate with PayPal</button>
+      <button type="submit" class="donate-btn paypal">
+        <i class="fab fa-paypal"></i> Donate with PayPal
+      </button>
     </form>
 
     <!-- Stripe Mastercard/Visa -->
-    <button id="stripeBtn" class="donate-btn" style="margin-top:1rem;">Donate with Card (Visa/Mastercard)</button>
+    <button id="stripeBtn" class="donate-btn stripe" style="margin-top:1rem;">
+      <i class="fab fa-cc-visa"></i>
+      <i class="fab fa-cc-mastercard"></i> Donate with Card
+    </button>
 
     <!-- Zelle -->
-    <button class="donate-btn" style="margin-top:1rem;" onclick="copyText('donate@hayimi.org')">
-      Donate via Zelle
+    <button class="donate-btn zelle" style="margin-top:1rem;" onclick="copyText('donate@hayimi.org')">
+      <i class="fas fa-university"></i> Donate via Zelle
     </button>
 
     <!-- CashApp -->
-    <button class="donate-btn" style="margin-top:1rem;" onclick="copyText('$Hayimi')">
-      Donate via CashApp
+    <button class="donate-btn cashapp" style="margin-top:1rem;" onclick="copyText('$Hayimi')">
+      <i class="fas fa-dollar-sign"></i> Donate via CashApp
     </button>
   </div>
 
@@ -215,27 +214,23 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-  // Navbar toggle
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
   menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
 
-  // Copy CBE
   function copyCBE() {
     const accountInfo = "Account Name: Hayimi Movement\nAccount Number: 1000495519671\nBank: Commercial Bank of Ethiopia";
     navigator.clipboard.writeText(accountInfo).then(() => alert("CBE Account info copied to clipboard!"));
   }
 
-  // Copy Zelle/CashApp
   function copyText(text) {
     navigator.clipboard.writeText(text).then(() => alert(text + " copied to clipboard!"));
   }
 
-  // Stripe Checkout
   const stripe = Stripe("YOUR_STRIPE_PUBLISHABLE_KEY"); // Replace with your key
   document.getElementById("stripeBtn").addEventListener("click", () => {
     stripe.redirectToCheckout({
-      lineItems: [{price: "YOUR_STRIPE_PRICE_ID", quantity: 1}], // Replace with price ID
+      lineItems: [{price: "YOUR_STRIPE_PRICE_ID", quantity: 1}], // Replace with your price ID
       mode: "payment",
       successUrl: window.location.origin + "/success.html",
       cancelUrl: window.location.origin + "/donation.html"
@@ -244,3 +239,4 @@
 </script>
 </body>
 </html>
+
