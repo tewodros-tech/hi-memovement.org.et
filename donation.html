@@ -216,7 +216,16 @@
 <script>
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
+
+  // Toggle menu
   menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+  // Close menu after clicking a link on mobile
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if(navLinks.classList.contains('show')) navLinks.classList.remove('show');
+    });
+  });
 
   function copyCBE() {
     const accountInfo = "Account Name: Hayimi Movement\nAccount Number: 1000495519671\nBank: Commercial Bank of Ethiopia";
@@ -233,6 +242,10 @@
       lineItems: [{price: "YOUR_STRIPE_PRICE_ID", quantity: 1}], // Replace with your price ID
       mode: "payment",
       successUrl: window.location.origin + "/success.html",
-      cancelUrl: window.location.origin + "/
-::contentReference[oaicite:0]{index=0}
- 
+      cancelUrl: window.location.origin + "/cancel.html"
+    });
+  });
+</script>
+
+</body>
+</html>
