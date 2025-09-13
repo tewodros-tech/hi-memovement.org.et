@@ -222,37 +222,41 @@
 <!-- Donation Options -->
 <section class="donation-options">
 
-  <!-- CBE Mobile Transfer -->
+  <!-- CBE Mobile Transfer (Local Option Display Only) -->
   <div class="donation-box">
-    <h2>CBE Mobile Transfer</h2>
-    <p>To donate via Commercial Bank of Ethiopia:</p>
+    <h2>CBE Mobile Transfer (Local)</h2>
+    <p>For reference only; international donors, please use the options below.</p>
     <ul>
       <li><strong>Account Name:</strong> Hayimi Movement</li>
-      <li><strong>Account Number:</strong> 1000123456789</li>
+      <li><strong>Account Number:</strong> 1000495519671</li>
       <li><strong>Bank:</strong> Commercial Bank of Ethiopia</li>
     </ul>
+    <!-- Copy button -->
     <button onclick="copyCBE()" class="donate-btn" style="margin-top:1rem;">Copy Account Info</button>
+    <!-- Correct CBE Mobile App link -->
     <p style="margin-top:1rem;">
-      <a href="https://play.google.com/store/apps/details?id=com.combanketh.cbe_mobile_app" target="_blank" class="donate-btn">
+      <a href="https://play.google.com/store/apps/details?id=com.cbe.mobile" target="_blank" class="donate-btn">
         Open CBE Mobile App
       </a>
     </p>
-    <p style="margin-top:1rem;">After sending your donation, <a href="https://wa.me/251912345678" target="_blank">confirm via WhatsApp</a>.</p>
   </div>
 
-  <!-- International Payments -->
+  <!-- International Payments (Active) -->
   <div class="donation-box">
-    <h2>International Payment</h2>
-    <p>Donate securely using PayPal, Mastercard, or Visa:</p>
+    <h2>International Payments</h2>
+    <p>Donate securely using PayPal, Zelle, or CashApp:</p>
 
-    <!-- PayPal Donate Button -->
+    <!-- PayPal -->
     <form action="https://www.paypal.com/donate" method="post" target="_blank" style="margin-top:1rem;">
       <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_ID" />
       <button type="submit" class="donate-btn">Donate with PayPal</button>
     </form>
 
-    <!-- Stripe Checkout (for Visa/Mastercard) -->
-    <button id="stripeBtn" class="donate-btn" style="margin-top:1rem;">Donate with Card (Visa/Mastercard)</button>
+    <!-- Zelle -->
+    <p style="margin-top:1rem;">Zelle: <strong>donate@hayimi.org</strong></p>
+
+    <!-- CashApp -->
+    <p style="margin-top:1rem;">CashApp: <strong>$Hayimi</strong></p>
   </div>
 
 </section>
@@ -267,8 +271,6 @@
   </div>
 </footer>
 
-<!-- Stripe JS -->
-<script src="https://js.stripe.com/v3/"></script>
 <script>
   // Toggle navbar for mobile
   const menuToggle = document.querySelector('.menu-toggle');
@@ -279,22 +281,11 @@
 
   // Copy CBE Account Info
   function copyCBE() {
-    const accountInfo = "Account Name: Hayimi Movement\nAccount Number: 1000123456789\nBank: Commercial Bank of Ethiopia";
+    const accountInfo = "Account Name: Hayimi Movement\nAccount Number: 1000495519671\nBank: Commercial Bank of Ethiopia";
     navigator.clipboard.writeText(accountInfo).then(() => {
       alert("CBE Account info copied to clipboard!");
     });
   }
-
-  // Stripe Checkout Button
-  const stripe = Stripe("YOUR_STRIPE_PUBLISHABLE_KEY"); // Replace with your Stripe Publishable Key
-  document.getElementById("stripeBtn").addEventListener("click", () => {
-    stripe.redirectToCheckout({
-      lineItems: [{price: "YOUR_STRIPE_PRICE_ID", quantity: 1}], // Replace with your Price ID
-      mode: "payment",
-      successUrl: window.location.origin + "/success.html",
-      cancelUrl: window.location.origin + "/donation.html"
-    });
-  });
 </script>
 
 </body>
