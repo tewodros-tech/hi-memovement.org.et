@@ -241,10 +241,10 @@
     </p>
   </div>
 
-  <!-- International Payments (Active) -->
+  <!-- International Payments -->
   <div class="donation-box">
     <h2>International Payments</h2>
-    <p>Donate securely using PayPal, Zelle, or CashApp:</p>
+    <p>Donate securely using PayPal, Mastercard, Zelle, or CashApp:</p>
 
     <!-- PayPal -->
     <form action="https://www.paypal.com/donate" method="post" target="_blank" style="margin-top:1rem;">
@@ -252,11 +252,18 @@
       <button type="submit" class="donate-btn">Donate with PayPal</button>
     </form>
 
+    <!-- Stripe Mastercard/Visa -->
+    <button id="stripeBtn" class="donate-btn" style="margin-top:1rem;">Donate with Card (Visa/Mastercard)</button>
+
     <!-- Zelle -->
-    <p style="margin-top:1rem;">Zelle: <strong>donate@hayimi.org</strong></p>
+    <button class="donate-btn" style="margin-top:1rem;" onclick="copyText('donate@hayimi.org')">
+      Donate via Zelle
+    </button>
 
     <!-- CashApp -->
-    <p style="margin-top:1rem;">CashApp: <strong>$Hayimi</strong></p>
+    <button class="donate-btn" style="margin-top:1rem;" onclick="copyText('$Hayimi')">
+      Donate via CashApp
+    </button>
   </div>
 
 </section>
@@ -271,6 +278,8 @@
   </div>
 </footer>
 
+<!-- Stripe JS -->
+<script src="https://js.stripe.com/v3/"></script>
 <script>
   // Toggle navbar for mobile
   const menuToggle = document.querySelector('.menu-toggle');
@@ -286,6 +295,24 @@
       alert("CBE Account info copied to clipboard!");
     });
   }
+
+  // Copy text for Zelle/CashApp
+  function copyText(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert(text + " copied to clipboard!");
+    });
+  }
+
+  // Stripe Checkout Button
+  const stripe = Stripe("YOUR_STRIPE_PUBLISHABLE_KEY"); // Replace with your Stripe Publishable Key
+  document.getElementById("stripeBtn").addEventListener("click", () => {
+    stripe.redirectToCheckout({
+      lineItems: [{price: "YOUR_STRIPE_PRICE_ID", quantity: 1}], // Replace with your Price ID
+      mode: "payment",
+      successUrl: window.location.origin + "/success.html",
+      cancelUrl: window.location.origin + "/donation.html"
+    });
+  });
 </script>
 
 </body>
