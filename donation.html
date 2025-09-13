@@ -185,20 +185,20 @@
     </form>
 
     <!-- Stripe Mastercard/Visa -->
-    <button id="stripeBtn" class="donate-btn stripe" style="margin-top:1rem;">
+    <a href="https://buy.stripe.com/YOUR_CHECKOUT_LINK" class="donate-btn stripe" style="margin-top:1rem;" target="_blank">
       <i class="fab fa-cc-visa"></i>
       <i class="fab fa-cc-mastercard"></i> Donate with Card
-    </button>
+    </a>
 
     <!-- Zelle -->
-    <button class="donate-btn zelle" style="margin-top:1rem;" onclick="copyText('donate@hayimi.org')">
+    <a href="https://www.zellepay.com/how-it-works" class="donate-btn zelle" style="margin-top:1rem;" target="_blank">
       <i class="fas fa-university"></i> Donate via Zelle
-    </button>
+    </a>
 
     <!-- CashApp -->
-    <button class="donate-btn cashapp" style="margin-top:1rem;" onclick="copyText('$Hayimi')">
+    <a href="https://cash.app/$Hayimi" class="donate-btn cashapp" style="margin-top:1rem;" target="_blank">
       <i class="fas fa-dollar-sign"></i> Donate via CashApp
-    </button>
+    </a>
   </div>
 
 </section>
@@ -212,12 +212,11 @@
   </div>
 </footer>
 
-<script src="https://js.stripe.com/v3/"></script>
 <script>
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
 
-  // Toggle menu
+  // Toggle mobile menu
   menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
 
   // Close menu after clicking a link on mobile
@@ -231,20 +230,6 @@
     const accountInfo = "Account Name: Hayimi Movement\nAccount Number: 1000495519671\nBank: Commercial Bank of Ethiopia";
     navigator.clipboard.writeText(accountInfo).then(() => alert("CBE Account info copied to clipboard!"));
   }
-
-  function copyText(text) {
-    navigator.clipboard.writeText(text).then(() => alert(text + " copied to clipboard!"));
-  }
-
-  const stripe = Stripe("YOUR_STRIPE_PUBLISHABLE_KEY"); // Replace with your key
-  document.getElementById("stripeBtn").addEventListener("click", () => {
-    stripe.redirectToCheckout({
-      lineItems: [{price: "YOUR_STRIPE_PRICE_ID", quantity: 1}], // Replace with your price ID
-      mode: "payment",
-      successUrl: window.location.origin + "/success.html",
-      cancelUrl: window.location.origin + "/cancel.html"
-    });
-  });
 </script>
 
 </body>
