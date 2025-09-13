@@ -18,12 +18,8 @@
       scroll-behavior: smooth;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
-    /* Navbar styles */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -36,33 +32,15 @@
       z-index: 1000;
     }
 
-    .logo-text {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #fff;
-    }
+    .logo-text { font-weight: bold; font-size: 1.5rem; color: #fff; }
 
-    .nav-container {
-      display: flex;
-      flex-direction: column;
-    }
+    .nav-container { display: flex; flex-direction: column; }
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
 
-    .nav-links a {
-      font-weight: 600;
-      color: white;
-      transition: 0.3s;
-    }
+    .nav-links a { font-weight: 600; color: white; transition: 0.3s; }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #6c757d;
-    }
+    .nav-links a:hover, .nav-links a.active { color: #6c757d; }
 
     .donate-btn {
       background: #6c757d;
@@ -76,9 +54,7 @@
       display: inline-block;
     }
 
-    .donate-btn:hover {
-      background: #495057;
-    }
+    .donate-btn:hover { background: #495057; }
 
     .menu-toggle {
       display: none;
@@ -89,7 +65,6 @@
       color: white;
     }
 
-    /* Hero section */
     .donation-hero {
       background: linear-gradient(to right, #0077b6, #00b4d8);
       color: white;
@@ -97,18 +72,10 @@
       padding: 5rem 2rem;
     }
 
-    .donation-hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+    .donation-hero h1 { font-size: 3rem; margin-bottom: 1rem; }
 
-    .donation-hero p {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
+    .donation-hero p { font-size: 1.3rem; max-width: 700px; margin: 0 auto; }
 
-    /* Donation boxes */
     .donation-options {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -127,27 +94,14 @@
       text-align: center;
     }
 
-    .donation-box:hover {
-      transform: translateY(-5px);
-    }
+    .donation-box:hover { transform: translateY(-5px); }
 
-    .donation-box h2 {
-      color: #0077b6;
-      margin-bottom: 1rem;
-    }
+    .donation-box h2 { color: #0077b6; margin-bottom: 1rem; }
 
-    .donation-box p,
-    .donation-box ul {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
+    .donation-box p, .donation-box ul { font-size: 1rem; line-height: 1.6; }
 
-    .donation-box ul {
-      padding-left: 1rem;
-      text-align: left;
-    }
+    .donation-box ul { padding-left: 1rem; text-align: left; }
 
-    /* Footer */
     .footer {
       background: #333;
       color: #fff;
@@ -161,11 +115,8 @@
       font-size: 1.2rem;
     }
 
-    .social-icons a:hover {
-      color: #6c757d;
-    }
+    .social-icons a:hover { color: #6c757d; }
 
-    /* Mobile styles */
     @media(max-width:768px){
       .nav-links {
         display: none;
@@ -176,27 +127,18 @@
         padding: 1rem 2rem;
       }
 
-      .nav-links.show {
-        display: flex;
-      }
+      .nav-links.show { display: flex; }
 
-      .menu-toggle {
-        display: block;
-      }
+      .menu-toggle { display: block; }
 
-      .donation-hero h1 {
-        font-size: 2.2rem;
-      }
+      .donation-hero h1 { font-size: 2.2rem; }
 
-      .donation-hero p {
-        font-size: 1.1rem;
-      }
+      .donation-hero p { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- Navbar -->
 <nav class="navbar">
   <div class="logo-text">Hayimi Movement</div>
   <button class="menu-toggle">☰</button>
@@ -213,16 +155,13 @@
   </div>
 </nav>
 
-<!-- Hero Section -->
 <section class="donation-hero">
   <h1>Support the Hayimi Movement</h1>
   <p>Your donation helps us provide education, healthcare, and humanitarian aid to communities across Ethiopia.</p>
 </section>
 
-<!-- Donation Options -->
 <section class="donation-options">
 
-  <!-- CBE Mobile Transfer (Local Option Display Only) -->
   <div class="donation-box">
     <h2>CBE Mobile Transfer (Local)</h2>
     <p>For reference only; international donors, please use the options below.</p>
@@ -231,9 +170,7 @@
       <li><strong>Account Number:</strong> 1000495519671</li>
       <li><strong>Bank:</strong> Commercial Bank of Ethiopia</li>
     </ul>
-    <!-- Copy button -->
     <button onclick="copyCBE()" class="donate-btn" style="margin-top:1rem;">Copy Account Info</button>
-    <!-- Correct CBE Mobile App link -->
     <p style="margin-top:1rem;">
       <a href="https://play.google.com/store/apps/details?id=com.cbe.mobile" target="_blank" class="donate-btn">
         Open CBE Mobile App
@@ -241,7 +178,6 @@
     </p>
   </div>
 
-  <!-- International Payments -->
   <div class="donation-box">
     <h2>International Payments</h2>
     <p>Donate securely using PayPal, Mastercard, Zelle, or CashApp:</p>
@@ -268,7 +204,6 @@
 
 </section>
 
-<!-- Footer -->
 <footer class="footer">
   <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
   <div class="social-icons">
@@ -278,42 +213,34 @@
   </div>
 </footer>
 
-<!-- Stripe JS -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-  // Toggle navbar for mobile
+  // Navbar toggle
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
 
-  // Copy CBE Account Info
+  // Copy CBE
   function copyCBE() {
     const accountInfo = "Account Name: Hayimi Movement\nAccount Number: 1000495519671\nBank: Commercial Bank of Ethiopia";
-    navigator.clipboard.writeText(accountInfo).then(() => {
-      alert("CBE Account info copied to clipboard!");
-    });
+    navigator.clipboard.writeText(accountInfo).then(() => alert("CBE Account info copied to clipboard!"));
   }
 
-  // Copy text for Zelle/CashApp
+  // Copy Zelle/CashApp
   function copyText(text) {
-    navigator.clipboard.writeText(text).then(() => {
-      alert(text + " copied to clipboard!");
-    });
+    navigator.clipboard.writeText(text).then(() => alert(text + " copied to clipboard!"));
   }
 
-  // Stripe Checkout Button
-  const stripe = Stripe("YOUR_STRIPE_PUBLISHABLE_KEY"); // Replace with your Stripe Publishable Key
+  // Stripe Checkout
+  const stripe = Stripe("YOUR_STRIPE_PUBLISHABLE_KEY"); // Replace with your key
   document.getElementById("stripeBtn").addEventListener("click", () => {
     stripe.redirectToCheckout({
-      lineItems: [{price: "YOUR_STRIPE_PRICE_ID", quantity: 1}], // Replace with your Price ID
+      lineItems: [{price: "YOUR_STRIPE_PRICE_ID", quantity: 1}], // Replace with price ID
       mode: "payment",
       successUrl: window.location.origin + "/success.html",
       cancelUrl: window.location.origin + "/donation.html"
     });
   });
 </script>
-
 </body>
 </html>
