@@ -36,11 +36,33 @@
     }
     .donate-btn:hover { background-color: #0096c7; }
     .hero {
-      background: linear-gradient(to right, #0077b6, #00b4d8);
+      background: linear-gradient(to right, #ff8800, #ffb347);
       color: white; text-align: center; padding: 4rem 2rem;
+      position: relative;
     }
     .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+    .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem auto; }
+
+    /* Highlighted attractive images inside hero */
+    .highlight-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .highlight-gallery img {
+      width: 280px; height: 180px; object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .highlight-gallery img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
     .events-section {
       max-width: 1000px; margin: 3rem auto; padding: 0 2rem;
     }
@@ -59,6 +81,7 @@
       transition: background-color 0.3s ease;
     }
     .learn-btn:hover { background-color: #023e8a; }
+
     .gallery-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem; margin-top: 2rem;
@@ -106,6 +129,12 @@
   <section class="hero">
     <h1>Upcoming Events</h1>
     <p>Join us in celebrating community, culture, and compassion. Every moment counts.</p>
+
+    <!-- Attractive highlighted images -->
+    <div class="highlight-gallery">
+      <img src="photo_50.jpg" alt="Special Event Highlight 50">
+      <img src="photo_51.jpg" alt="Special Event Highlight 51">
+    </div>
   </section>
 
   <!-- Events Section -->
@@ -124,6 +153,7 @@
       <a href="donation.html" class="learn-btn">Support the Movement</a>
     </article>
 
+    <!-- Gallery Grid -->
     <div class="gallery-grid">
       <div><img src="photo_5.jpg" alt="Event photo 5"><div class="caption">A moment of care and connection.</div></div>
       <div><img src="photo_6.jpg" alt="Event photo 6"><div class="caption">Community gathering in action.</div></div>
@@ -137,3 +167,19 @@
       <div><img src="photo_44.jpg" alt="Event photo 44"><div class="caption">Ashenda celebration in full spirit.</div></div>
       <div><img src="photo_45.jpg" alt="Event photo 45"><div class="caption">Healing through art and unity.</div></div>
       <div><img src="photo_45.jpg" alt="Event photo 46"><div class="caption">Healing through art and unity.</div></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
+
+</body>
+</html>
