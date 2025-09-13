@@ -236,24 +236,43 @@
     <p style="margin-top:1rem;">After sending your donation, <a href="https://wa.me/251912345678" target="_blank">confirm via WhatsApp</a>.</p>
   </div>
 
-  <!-- Chapa Integration -->
-  <div class="donation-box">
-    <h2>Donate via Chapa</h2>
-    <p>Securely donate using CBE Mobile, Telebirr, Visa, Mastercard, or international cards.</p>
-    <a href="https://checkout.chapa.co/pay/YOUR_PAYMENT_LINK" target="_blank" class="donate-btn" style="text-align:center; display:inline-block; margin-top:1rem;">Donate with Chapa</a>
-    <!-- Replace YOUR_PAYMENT_LINK with your actual Chapa payment link -->
-  </div>
-
   <!-- International Payments -->
   <div class="donation-box">
     <h2>International Payment</h2>
-    <p>Coming soon: PayPal, Mastercard, and Visa support for global donors.</p>
-    <button disabled class="donate-btn" style="opacity:0.6;">PayPal (Coming Soon)</button>
-    <button disabled class="donate-btn" style="opacity:0.6;">Mastercard (Coming Soon)</button>
-    <button disabled class="donate-btn" style="opacity:0.6;">Visa (Coming Soon)</button>
+    <p>Donate securely using global payment options:</p>
+    <a href="https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_ID" target="_blank" class="donate-btn" style="margin-top:1rem; display:inline-block;">Donate with PayPal</a>
+    <a href="https://www.mastercard.com/global/en/personal/get-support/ways-to-pay.html" target="_blank" class="donate-btn" style="margin-top:1rem; display:inline-block;">Donate with Mastercard</a>
+    <a href="https://visa.com" target="_blank" class="donate-btn" style="margin-top:1rem; display:inline-block;">Donate with Visa</a>
   </div>
 
-  <!-- In-Kind Support -->
-  <div class="donation-box">
-    <h2>In-Kind Support</h2>
-    <p>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
+
+<script>
+  // Toggle navbar for mobile
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+
+  // Copy CBE Account Info
+  function copyCBE() {
+    const accountInfo = "Account Name: Hayimi Movement\nAccount Number: 1000123456789\nBank: Commercial Bank of Ethiopia";
+    navigator.clipboard.writeText(accountInfo).then(() => {
+      alert("CBE Account info copied to clipboard!");
+    });
+  }
+</script>
+
+</body>
+</html>
