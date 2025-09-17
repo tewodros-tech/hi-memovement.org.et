@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About Us - Hayimi Movement</title>
+<title>About Us - HI-ME Movement</title>
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
@@ -120,111 +120,4 @@
     animation: fadeInUp 1s ease forwards;
   }
   .slide:nth-child(even) { animation-delay: 0.3s; }
-  .slide:nth-child(odd) { animation-delay: 0.6s; }
-
-  .slide h2 { color: #002855; font-size: 2rem; margin-bottom: 1rem; }
-  .slide p { font-size: 1.1rem; line-height: 1.8; margin: 1rem 0; }
-
-  .highlight { color: #ffc107; font-weight: bold; }
-
-  /* Footer */
-  footer {
-    background-color: #002855;
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 0.95rem;
-  }
-  .social-icons a {
-    color: white;
-    margin: 0 0.5rem;
-    font-size: 1.3rem;
-    transition: 0.3s;
-  }
-  .social-icons a:hover { color: #ffc107; }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .nav-links { display: none; flex-direction: column; gap: 1rem; margin-top: 1rem; }
-    .nav-links.show { display: flex; }
-    .menu-toggle { display: block; }
-    .hero-about h1 { font-size: 2rem; }
-    .hero-about p { font-size: 1rem; }
-    .about-section { padding: 2rem 1rem; }
-  }
-</style>
-</head>
-<body>
-
-<nav class="navbar">
-  <div class="logo">
-    <img src="Hime.png" alt="Hayimi Logo">
-    <span>Hayimi Movement</span>
-  </div>
-  <button class="menu-toggle">☰</button>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="programs.html">Programs</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="donation.html" class="donate-btn">DONATE</a></li>
-  </ul>
-</nav>
-
-<section class="hero-about">
-  <h1>About Hayimi Movement</h1>
-  <p>Spreading love and hope to families in need—through compassion, resilience, and community-driven action. We believe every life deserves dignity and support.</p>
-</section>
-
-<section class="about-section">
-  <div class="slide">
-    <h2>Our Mission</h2>
-    <p>At <span class="highlight">Hayimi Movement</span>, our mission is to empower communities by providing access to <strong>education</strong>, <strong>healthcare</strong>, and <strong>humanitarian support</strong>. We aim to build a society where <span class="highlight">every individual thrives</span> regardless of circumstance.</p>
-  </div>
-  <div class="slide">
-    <h2>Our Vision</h2>
-    <p>We envision a world where <span class="highlight">no family is left behind</span>. Through advocacy, sustainable development programs, and community engagement, we work to create <span class="highlight">resilient and self-sufficient communities</span>.</p>
-  </div>
-  <div class="slide">
-    <h2>What We Do</h2>
-    <p>We provide direct support to internally displaced people, people with disabilities, and vulnerable families. Our programs include educational workshops, health initiatives, emergency relief, and community empowerment projects.</p>
-  </div>
-  <div class="slide">
-    <h2>Why Choose Us?</h2>
-    <p>With transparency, dedication, and measurable impact, <span class="highlight">Hayimi Movement</span> ensures that every contribution directly helps those in need. Join us in creating meaningful change that lasts.</p>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-  </div>
-</footer>
-
-<script>
-  const toggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  toggle.addEventListener('click', () => navLinks.classList.toggle('show'));
-
-  // Fade-in effect when scrolling
-  const slides = document.querySelectorAll('.slide');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.2 });
-
-  slides.forEach(slide => observer.observe(slide));
-</script>
-
-</body>
-</html>
+  .slide:nth-child(odd) { animation-delay: 0.6s;
