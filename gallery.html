@@ -8,7 +8,7 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
-<!-- Font Awesome for social icons -->
+<!-- Font Awesome -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <style>
@@ -91,7 +91,7 @@
 
   .highlight { color: #ffc107; font-weight: bold; }
 
-  /* Gallery */
+  /* Gallery Tabs */
   .gallery-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -100,13 +100,39 @@
   .gallery-section h2 {
     text-align: center;
     font-size: 2.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: #002855;
   }
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .tabs button {
+    background-color: #002855;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .tabs button:hover, .tabs button.active {
+    background-color: #ffc107;
+    color: #002855;
+  }
+
+  /* Gallery Grid */
   .gallery-grid {
-    display: grid;
+    display: none; /* hidden by default */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
+  }
+  .gallery-grid.active {
+    display: grid; /* only active category visible */
   }
   .gallery-grid img {
     width: 100%;
@@ -116,9 +142,7 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     transition: transform 0.3s ease;
   }
-  .gallery-grid img:hover {
-    transform: scale(1.05);
-  }
+  .gallery-grid img:hover { transform: scale(1.05); }
 
   /* Footer */
   footer {
@@ -187,15 +211,50 @@
   </div>
 </section>
 
-<!-- Hawasa Gallery -->
+<!-- Gallery with Categories -->
 <section class="gallery-section">
-  <h2>Hawasa</h2>
-  <div class="gallery-grid">
-    <img src="hawasa-1.jpg" alt="Hawasa 1">
-    <img src="hawasa-3.jpg" alt="Hawasa 3">
-    <img src="hawasa-4.jpg" alt="Hawasa 4">
-    <img src="hawasa-5.jpg" alt="Hawasa 5">
-    <img src="hawasa-6.jpg" alt="Hawasa 6">
+  <h2>Our Work in Pictures</h2>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" data-target="hawassa">Hawassa</button>
+    <button class="tab-btn" data-target="mekele">Mekele</button>
+    <button class="tab-btn" data-target="humera">Humera</button>
+    <button class="tab-btn" data-target="gerji">Gerji Shoeshine Boy</button>
+    <button class="tab-btn" data-target="virginia">Virginia</button>
+  </div>
+
+  <!-- Hawassa -->
+  <div class="gallery-grid active" id="hawassa">
+    <img src="hawasa-1.jpg" alt="Hawassa 1">
+    <img src="hawasa-3.jpg" alt="Hawassa 3">
+    <img src="hawasa-4.jpg" alt="Hawassa 4">
+    <img src="hawasa-5.jpg" alt="Hawassa 5">
+    <img src="hawasa-6.jpg" alt="Hawassa 6">
+  </div>
+
+  <!-- Mekele -->
+  <div class="gallery-grid" id="mekele">
+    <img src="mekele-1.jpg" alt="Mekele 1">
+    <img src="mekele-2.jpg" alt="Mekele 2">
+  </div>
+
+  <!-- Humera -->
+  <div class="gallery-grid" id="humera">
+    <img src="humera-1.jpg" alt="Humera 1">
+    <img src="humera-2.jpg" alt="Humera 2">
+  </div>
+
+  <!-- Gerji Shoeshine Boy -->
+  <div class="gallery-grid" id="gerji">
+    <img src="gerji-1.jpg" alt="Gerji Shoeshine Boy 1">
+    <img src="gerji-2.jpg" alt="Gerji Shoeshine Boy 2">
+  </div>
+
+  <!-- Virginia -->
+  <div class="gallery-grid" id="virginia">
+    <img src="virginia-1.jpg" alt="Virginia 1">
+    <img src="virginia-2.jpg" alt="Virginia 2">
   </div>
 </section>
 
@@ -212,8 +271,20 @@
 <script>
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav-links');
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('show');
+  toggle.addEventListener('click', () => nav.classList.toggle('show'));
+
+  // Gallery tab switching
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const grids = document.querySelectorAll('.gallery-grid');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      grids.forEach(g => g.classList.remove('active'));
+
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.target).classList.add('active');
+    });
   });
 </script>
 
