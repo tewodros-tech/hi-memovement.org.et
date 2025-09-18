@@ -151,4 +151,71 @@
 
 <nav class="navbar">
   <div class="logo">HI-ME Movement</div>
-  <but
+  <button class="menu-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donation.html" class="donate-btn">DONATE</a></li>
+  </ul>
+</nav>
+
+<section class="hero-about">
+  <h1>About HI-ME Movement</h1>
+  <p>Spreading love and hope to families in need—through compassion, resilience, and community-driven action. We believe every life deserves dignity and support.</p>
+</section>
+
+<section class="about-section">
+  <div class="slide">
+    <h2>Our Mission</h2>
+    <p>At <span class="highlight">HI-ME Movement</span>, our mission is to empower communities by providing access to <strong>education</strong>, <strong>healthcare</strong>, and <strong>humanitarian support</strong>. We aim to build a society where <span class="highlight">every individual thrives</span> regardless of circumstance.</p>
+  </div>
+  <div class="slide">
+    <h2>Our Vision</h2>
+    <p>We envision a world where <span class="highlight">no family is left behind</span>. Through advocacy, sustainable development programs, and community engagement, we work to create <span class="highlight">resilient and self-sufficient communities</span>.</p>
+  </div>
+  <div class="slide">
+    <h2>What We Do</h2>
+    <p>We provide direct support to internally displaced people, people with disabilities, and vulnerable families. Our programs include educational workshops, health initiatives, emergency relief, and community empowerment projects.</p>
+  </div>
+  <div class="slide">
+    <h2>Why Choose Us?</h2>
+    <p>With transparency, dedication, and measurable impact, <span class="highlight">HI-ME Movement</span> ensures that every contribution directly helps those in need. Join us in creating meaningful change that lasts.</p>
+  </div>
+</section>
+
+<!-- Hawasa Gallery -->
+<section class="gallery-section">
+  <h2>Hawasa</h2>
+  <div class="gallery-grid">
+    <img src="hawasa-1.jpg" alt="Hawasa 1">
+    <img src="hawasa-3.jpg" alt="Hawasa 3">
+    <img src="hawasa-4.jpg" alt="Hawasa 4">
+    <img src="hawasa-5.jpg" alt="Hawasa 5">
+    <img src="hawasa-6.jpg" alt="Hawasa 6">
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 HI-ME Movement. All rights reserved.</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>
