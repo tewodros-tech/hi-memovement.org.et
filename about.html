@@ -35,7 +35,14 @@
   }
 
   .logo { display: flex; align-items: center; gap: 0.5rem; }
-  .logo img { height: 50px; width: auto; }
+
+  /* FIXED SIZE but keeps full image visible */
+  .logo img {
+    height: 100px;  /* adjust size as needed */
+    width: auto;
+    object-fit: contain;
+  }
+
   .logo span { font-size: 1.2rem; font-weight: bold; color: white; }
 
   .nav-links { display: flex; gap: 1.5rem; list-style: none; }
@@ -209,21 +216,10 @@
 
 <script>
   const toggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  toggle.addEventListener('click', () => navLinks.classList.toggle('show'));
-
-  // Fade-in effect when scrolling
-  const slides = document.querySelectorAll('.slide');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.2 });
-
-  slides.forEach(slide => observer.observe(slide));
+  const nav = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
 </script>
 
 </body>
