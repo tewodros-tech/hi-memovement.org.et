@@ -3,136 +3,152 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gallery - Hayimi Movement</title>
+<title>About Us - HI-ME Movement</title>
 
-<!-- Fonts & Icons -->
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<!-- Font Awesome for social icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <style>
-  body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: #f9f9f9; color: #333; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
   a { text-decoration: none; color: inherit; }
 
   /* Navbar */
-  .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: #002855; color: white; position: sticky; top: 0; z-index: 1000; }
-  .logo { display: flex; align-items: center; gap: 0.5rem; }
-  .logo img { height: 50px; width: auto; }
-  .logo span { font-size: 1.2rem; font-weight: bold; color: white; }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #002855;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo { font-size: 1.4rem; font-weight: bold; }
+
   .nav-links { display: flex; gap: 1.5rem; list-style: none; }
   .nav-links a { color: white; font-weight: 600; transition: 0.3s; }
-  .nav-links a:hover, .nav-links a.active { color: #6c757d; }
-  .donate-btn { background-color: #6c757d; color: white; padding: 0.5rem 1rem; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-  .donate-btn:hover { background-color: #495057; }
-  .menu-toggle { display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: white; }
+  .nav-links a:hover, .nav-links a.active { color: #ffc107; }
 
-  /* Hero */
-  .hero { background: url('logo.jpg') center/cover no-repeat; color: white; padding: 6rem 2rem; text-align: center; position: relative; }
-  .hero::before { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index:0; }
-  .hero h1, .hero p { position: relative; z-index: 1; }
-  .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-  .hero p { font-size: 1.3rem; max-width:700px; margin:0 auto; }
+  .donate-btn {
+    background-color: #ffc107;
+    color: #002855;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  .donate-btn:hover { background-color: #e0a800; }
 
-  /* Gallery Grid */
-  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0; max-width: 1000px; margin-left:auto; margin-right:auto; }
-  .gallery-grid img { width: 100%; height: 250px; border-radius: 10px; object-fit: cover; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-  .gallery-grid img:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
 
-  /* Lightbox */
-  .lightbox { display: none; position: fixed; z-index: 2000; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.9); justify-content:center; align-items:center; }
-  .lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; box-shadow:0 4px 12px rgba(0,0,0,0.3); }
-  .lightbox .close { position: absolute; top:20px; right:30px; font-size:2rem; color:white; cursor:pointer; font-weight:bold; }
+  /* Hero Section */
+  .hero-about {
+    background-color: #002855;
+    color: white;
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+  .hero-about h1 { font-size: 3rem; margin-bottom: 1rem; }
+  .hero-about p { font-size: 1.3rem; max-width: 700px; margin: 0 auto; }
+
+  /* About Section */
+  .about-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .slide {
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  .slide h2 { color: #002855; font-size: 2rem; margin-bottom: 1rem; }
+  .slide p { font-size: 1.1rem; line-height: 1.8; margin: 1rem 0; }
+
+  .highlight { color: #ffc107; font-weight: bold; }
+
+  /* Gallery */
+  .gallery-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+  .gallery-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #002855;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .gallery-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+  }
+  .gallery-grid img:hover {
+    transform: scale(1.05);
+  }
 
   /* Footer */
-  footer { background-color: #333; color: white; text-align: center; padding: 1rem; font-size: 0.9rem; }
-  .social-icons a { color: white; margin: 0 0.5rem; font-size: 1.2rem; }
-  .social-icons a:hover { color: #6c757d; }
+  footer {
+    background-color: #002855;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.95rem;
+  }
+  .social-icons a {
+    color: white;
+    margin: 0 0.5rem;
+    font-size: 1.3rem;
+    transition: 0.3s;
+  }
+  .social-icons a:hover { color: #ffc107; }
 
-  @media(max-width:768px){
-    .nav-links { display:none; flex-direction: column; gap:1rem; margin-top:1rem; }
-    .nav-links.show { display:flex; }
-    .menu-toggle { display:block; }
-    .hero h1 { font-size: 2rem; }
-    .hero p { font-size: 1rem; }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-links { display: none; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+    .nav-links.show { display: flex; }
+    .menu-toggle { display: block; }
+    .hero-about h1 { font-size: 2rem; }
+    .hero-about p { font-size: 1rem; }
+    .about-section { padding: 2rem 1rem; }
   }
 </style>
 </head>
 <body>
 
 <nav class="navbar">
-  <div class="logo">
-    <img src="logo.jpg" alt="Hayimi Logo">
-    <span>Hayimi Movement</span>
-  </div>
-  <button class="menu-toggle">☰</button>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="programs.html">Programs</a></li>
-    <li><a href="gallery.html" class="active">Gallery</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="donation.html" class="donate-btn">DONATE</a></li>
-  </ul>
-</nav>
-
-<section class="hero">
-  <h1>Gallery</h1>
-  <p>Capturing moments of hope, joy, and community impact.</p>
-</section>
-
-<main class="gallery-grid">
-  <!-- Images photo_30.jpg to photo_40.jpg -->
-  <img src="photo_30.jpg" alt="Hayimi photo 30" />
-  <img src="photo_31.jpg" alt="Hayimi photo 31" />
-  <img src="photo_32.jpg" alt="Hayimi photo 32" />
-  <img src="photo_33.jpg" alt="Hayimi photo 33" />
-  <img src="photo_34.jpg" alt="Hayimi photo 34" />
-  <img src="photo_35.jpg" alt="Hayimi photo 35" />
-  <img src="photo_36.jpg" alt="Hayimi photo 36" />
-  <img src="photo_37.jpg" alt="Hayimi photo 37" />
-  <img src="photo_38.jpg" alt="Hayimi photo 38" />
-  <img src="photo_39.jpg" alt="Hayimi photo 39" />
-  <img src="photo_40.jpg" alt="Hayimi photo 40" />
-</main>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <span class="close" id="closeBtn">&times;</span>
-  <img src="" alt="Expanded view" id="lightbox-img">
-</div>
-
-<footer>
-  <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-  </div>
-</footer>
-
-<script>
-  // Mobile menu toggle
-  const toggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  toggle.addEventListener('click', () => navLinks.classList.toggle('show'));
-
-  // Lightbox functionality
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const closeBtn = document.getElementById('closeBtn');
-  const galleryImages = document.querySelectorAll('.gallery-grid img');
-
-  galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      lightbox.style.display = 'flex';
-      lightboxImg.src = img.src;
-    });
-  });
-
-  closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
-  lightbox.addEventListener('click', e => { if(e.target === lightbox) lightbox.style.display = 'none'; });
-</script>
-
-</body>
-</html>
+  <div class="logo">HI-ME Movement</div>
+  <but
