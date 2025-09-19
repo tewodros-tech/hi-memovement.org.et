@@ -9,7 +9,6 @@
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
-      padding: 0;
       background: #f9f9f9;
     }
 
@@ -33,9 +32,7 @@
       text-decoration: none;
       font-weight: 600;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
+    nav a:hover { text-decoration: underline; }
     .donate-btn {
       background: white;
       color: #007acc;
@@ -45,39 +42,42 @@
       text-decoration: none;
     }
 
+    /* Section container */
+    section {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    section h2 {
+      color: #007acc;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    section p {
+      color: #333;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
     /* Slideshow */
     .slideshow-container {
       position: relative;
-      max-width: 1000px;
-      margin: 50px auto;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
-      overflow: hidden;
+      max-width: 100%;
+      margin: auto;
     }
     .mySlides {
       display: none;
       text-align: center;
-      padding: 20px;
     }
     .mySlides img, .mySlides video {
       width: 100%;
       max-height: 500px;
       object-fit: cover;
       border-radius: 8px;
-    }
-    .text {
-      margin-top: 15px;
-    }
-    .text h2 {
-      color: #007acc;
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-    .text p {
-      font-size: 16px;
-      color: #333;
-      line-height: 1.6;
     }
 
     /* Controls */
@@ -86,7 +86,6 @@
       position: absolute;
       top: 50%;
       padding: 16px;
-      margin-top: -22px;
       color: white;
       font-weight: bold;
       font-size: 22px;
@@ -102,20 +101,18 @@
     /* Dots */
     .dot-container {
       text-align: center;
-      margin: 20px;
+      margin: 15px 0;
     }
     .dot {
-      height: 15px;
-      width: 15px;
-      margin: 0 4px;
+      height: 12px;
+      width: 12px;
+      margin: 0 3px;
       background-color: #bbb;
       border-radius: 50%;
       display: inline-block;
       cursor: pointer;
     }
-    .active, .dot:hover {
-      background-color: #007acc;
-    }
+    .active, .dot:hover { background-color: #007acc; }
   </style>
 </head>
 <body>
@@ -133,139 +130,99 @@
   </nav>
 </header>
 
-<div class="slideshow-container">
+<!-- Mekele Section -->
+<section>
+  <h2>Mekele</h2>
+  <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. HI-ME works in Mekele to provide humanitarian aid, child support, and women’s empowerment programs designed to bring sustainable opportunities to the community.</p>
+  <div class="slideshow-container" id="mekele-slideshow">
+    <div class="mySlides"><img src="mekele-2.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-3.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-4.jpg" alt="Mekele"></div>
+    <!-- Continue adding up to mekele-31 -->
+    <div class="mySlides"><img src="mekele-31.jpg" alt="Mekele"></div>
+    <a class="prev" onclick="plusSlides(-1, 'mekele')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 'mekele')">&#10095;</a>
+  </div>
+  <div class="dot-container" id="mekele-dots"></div>
+</section>
 
-  <!-- Hawassa images -->
-  <!-- hawasa-1 to hawasa-6 -->
-  <div class="mySlides">
-    <img src="hawasa-1.jpg" alt="Hawassa">
-    <div class="text">
-      <h2>Hawassa</h2>
-      <p>Hawassa is a vibrant city in southern Ethiopia, known for Lake Hawassa and its breathtaking scenery. 
-      It is a hub for education, trade, and cultural exchange. The HI-ME Movement has carried out multiple 
-      projects here, supporting schools, providing healthcare outreach, and building sustainable livelihoods 
-      for local communities.</p>
+<!-- Humera Section -->
+<section>
+  <h2>Humera</h2>
+  <p>Humera, located in northwestern Ethiopia, has endured many challenges but remains a community of strength. HI-ME delivers humanitarian assistance, education programs, and health services here.</p>
+  <div class="slideshow-container" id="humera-slideshow">
+    <div class="mySlides"><img src="humera-1.jpg" alt="Humera"></div>
+    <div class="mySlides"><img src="humera-2.jpg" alt="Humera"></div>
+    <div class="mySlides"><img src="humera-3.jpg" alt="Humera"></div>
+    <div class="mySlides"><img src="humera-4.jpg" alt="Humera"></div>
+    <div class="mySlides"><img src="humera-5.jpg" alt="Humera"></div>
+    <div class="mySlides"><img src="humera-6.jpg" alt="Humera"></div>
+    <a class="prev" onclick="plusSlides(-1, 'humera')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 'humera')">&#10095;</a>
+  </div>
+  <div class="dot-container" id="humera-dots"></div>
+</section>
+
+<!-- Hawassa Section -->
+<section>
+  <h2>Hawassa</h2>
+  <p>Hawassa, a vibrant city in southern Ethiopia, is known for Lake Hawassa and its breathtaking scenery. HI-ME supports schools, healthcare outreach, and livelihoods here.</p>
+  <div class="slideshow-container" id="hawassa-slideshow">
+    <div class="mySlides"><img src="hawasa-1.jpg" alt="Hawassa"></div>
+    <div class="mySlides"><img src="hawasa-2.jpg" alt="Hawassa"></div>
+    <div class="mySlides"><img src="hawasa-3.jpg" alt="Hawassa"></div>
+    <div class="mySlides"><img src="hawasa-4.jpg" alt="Hawassa"></div>
+    <div class="mySlides"><img src="hawasa-5.jpg" alt="Hawassa"></div>
+    <div class="mySlides"><img src="hawasa-6.jpg" alt="Hawassa"></div>
+    <a class="prev" onclick="plusSlides(-1, 'hawassa')">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 'hawassa')">&#10095;</a>
+  </div>
+  <div class="dot-container" id="hawassa-dots"></div>
+</section>
+
+<!-- Gerji Shoeshine -->
+<section>
+  <h2>Gerji Shoeshine Boy</h2>
+  <p>In Gerji, Addis Ababa, a young shoeshine boy inspired us. HI-ME aims to provide education and vocational training to children like him, helping them build a brighter future.</p>
+  <div class="slideshow-container" id="gerji-slideshow">
+    <div class="mySlides">
+      <video controls>
+        <source src="Shoeshine.MOV" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
-  <div class="mySlides"><img src="hawasa-2.jpg" alt="Hawassa"></div>
-  <div class="mySlides"><img src="hawasa-3.jpg" alt="Hawassa"></div>
-  <div class="mySlides"><img src="hawasa-4.jpg" alt="Hawassa"></div>
-  <div class="mySlides"><img src="hawasa-5.jpg" alt="Hawassa"></div>
-  <div class="mySlides"><img src="hawasa-6.jpg" alt="Hawassa"></div>
+</section>
 
-  <!-- Mekele images -->
-  <!-- mekele-2 to mekele-31 -->
-  <div class="mySlides">
-    <img src="mekele-2.jpg" alt="Mekele">
-    <div class="text">
-      <h2>Mekele</h2>
-      <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. The HI-ME Movement’s 
-      activities in Mekele focus on humanitarian aid, child support, and women’s empowerment programs 
-      designed to bring hope and sustainable opportunities to the people of this historic city.</p>
+<!-- Virginia -->
+<section>
+  <h2>Virginia</h2>
+  <p>Virginia, USA, is home to a strong diaspora community that partners with HI-ME Movement to support projects in Ethiopia. Events and fundraisers here sustain the mission back home.</p>
+  <div class="slideshow-container" id="virginia-slideshow">
+    <div class="mySlides">
+      <video controls>
+        <source src="IMG_9347.MOV" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
-  <!-- Generate mekele-3 to mekele-31 -->
-  <!-- Only images, no repeated text -->
-  <!-- I’ll write them in a loop style for clarity -->
-  <!-- Start Mekele loop -->
-  <!-- (You can copy-paste these blocks for each image file) -->
-  <!-- Example for mekele-3: -->
-  <div class="mySlides"><img src="mekele-3.jpg" alt="Mekele"></div>
-  <div class="mySlides"><img src="mekele-4.jpg" alt="Mekele"></div>
-  <div class="mySlides"><img src="mekele-5.jpg" alt="Mekele"></div>
-  <!-- … continue up to mekele-31 -->
-  <!-- Last example -->
-  <div class="mySlides"><img src="mekele-31.jpg" alt="Mekele"></div>
-
-  <!-- Humera images -->
-  <!-- humera-1 to humera-6 -->
-  <div class="mySlides">
-    <img src="humera-1.jpg" alt="Humera">
-    <div class="text">
-      <h2>Humera</h2>
-      <p>Humera, located in northwestern Ethiopia, has endured many challenges but remains a community of 
-      incredible strength. HI-ME is working to deliver humanitarian assistance, education programs, 
-      and health services to help the people of Humera recover and thrive.</p>
-    </div>
-  </div>
-  <div class="mySlides"><img src="humera-2.jpg" alt="Humera"></div>
-  <div class="mySlides"><img src="humera-3.jpg" alt="Humera"></div>
-  <div class="mySlides"><img src="humera-4.jpg" alt="Humera"></div>
-  <div class="mySlides"><img src="humera-5.jpg" alt="Humera"></div>
-  <div class="mySlides"><img src="humera-6.jpg" alt="Humera"></div>
-
-  <!-- Gerji Shoeshine -->
-  <div class="mySlides">
-    <video controls>
-      <source src="Shoeshine.MOV" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="text">
-      <h2>Gerji Shoeshine Boy</h2>
-      <p>In Gerji, Addis Ababa, a young boy making a living by shining shoes inspired us. His story reflects 
-      the resilience and determination of many Ethiopian youths who strive for a better future. HI-ME 
-      Movement’s outreach programs aim to provide education and vocational training to empower 
-      children like him.</p>
-    </div>
-  </div>
-
-  <!-- Virginia -->
-  <div class="mySlides">
-    <video controls>
-      <source src="IMG_9347.MOV" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="text">
-      <h2>Virginia</h2>
-      <p>Virginia, USA, is home to a supportive diaspora community that partners with the HI-ME Movement 
-      to strengthen connections and resources for projects in Ethiopia. Events, fundraisers, and 
-      cultural exchanges held in Virginia help sustain the mission of empowering local communities 
-      back home.</p>
-    </div>
-  </div>
-
-  <!-- Controls -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-
-<div class="dot-container">
-  <!-- For simplicity, auto-generate based on total number of slides -->
-  <!-- You will need to adjust this number based on total slides -->
-  <!-- Example: 6 Hawassa + 30 Mekele + 6 Humera + 2 videos = 44 dots -->
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <!-- Repeat until 44 dots -->
-  <!-- … -->
-</div>
+</section>
 
 <script>
-let slideIndex = 1;
-showSlides(slideIndex);
+function initSlides(slideshowId, dotsId) {
+  let slideIndex = 1;
+  const container = document.getElementById(slideshowId);
+  const slides = container.getElementsByClassName("mySlides");
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+  if (dotsId) {
+    const dotsContainer = document.getElementById(dotsId);
+    for (let i = 0; i < slides.length; i++) {
+      let dot = document.createElement("span");
+      dot.classList.add("dot");
+      dot.onclick = () => { showSlides(i+1); };
+      dotsContainer.appendChild(dot);
+    }
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  if (dots[slideIndex-1]) dots[slideIndex-1].className += " active";
-}
-</script>
 
-</body>
-</html>
+  function showSlides(n) {
+    if (n > slides.length) slideIndex = 1;
