@@ -3,80 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HI-ME Gallery</title>
+  <title>HI-ME Movement - Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       margin: 0;
-      background: #f4f4f4;
+      padding: 0;
+      background: #f9f9f9;
     }
 
+    /* Navbar */
     header {
-      background: #222;
-      padding: 15px;
-      text-align: center;
+      background: #007acc;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-
     header h1 {
-      color: #fff;
       margin: 0;
+      color: white;
+      font-size: 22px;
+      font-weight: 700;
     }
-
-    nav {
-      margin-top: 10px;
-    }
-
     nav a {
-      color: #fff;
-      text-decoration: none;
+      color: white;
       margin: 0 15px;
-      font-weight: bold;
+      text-decoration: none;
+      font-weight: 600;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
+    .donate-btn {
+      background: white;
+      color: #007acc;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-weight: 700;
+      text-decoration: none;
+    }
 
+    /* Slideshow */
     .slideshow-container {
       position: relative;
       max-width: 1000px;
-      margin: 40px auto;
-      background: #000;
-      border-radius: 12px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
       overflow: hidden;
     }
-
     .mySlides {
       display: none;
       text-align: center;
-      color: white;
       padding: 20px;
     }
-
-    .title {
-      font-size: 28px;
-      font-weight: bold;
-      margin: 15px 0;
-    }
-
-    .description {
-      font-size: 16px;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 10px auto;
-      color: #f1f1f1;
-    }
-
-    .inner-gallery img, .inner-gallery video {
+    .mySlides img, .mySlides video {
       width: 100%;
       max-height: 500px;
       object-fit: cover;
-      border-radius: 12px;
-      display: none;
+      border-radius: 8px;
     }
-
-    .inner-gallery img.active, .inner-gallery video.active {
-      display: block;
+    .text {
+      margin-top: 15px;
+    }
+    .text h2 {
+      color: #007acc;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    .text p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
     }
 
     /* Controls */
@@ -88,151 +89,121 @@
       margin-top: -22px;
       color: white;
       font-weight: bold;
-      font-size: 24px;
+      font-size: 22px;
+      background: rgba(0,0,0,0.5);
       border-radius: 50%;
       user-select: none;
-      background: rgba(0,0,0,0.5);
       transition: 0.3s;
     }
-
-    .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
-    }
-
-    .prev { left: 10px; }
-    .next { right: 10px; }
+    .prev { left: 20px; }
+    .next { right: 20px; }
+    .prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
 
     /* Dots */
     .dot-container {
       text-align: center;
-      margin: 15px 0;
+      margin: 20px;
     }
     .dot {
-      cursor: pointer;
       height: 15px;
       width: 15px;
-      margin: 0 5px;
+      margin: 0 4px;
       background-color: #bbb;
       border-radius: 50%;
       display: inline-block;
-      transition: background-color 0.6s ease;
+      cursor: pointer;
     }
     .active, .dot:hover {
-      background-color: #717171;
-    }
-
-    footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
+      background-color: #007acc;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>HI-ME Gallery</h1>
+  <h1>HI-ME Movement</h1>
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
     <a href="gallery.html">Gallery</a>
+    <a href="events.html">Events</a>
     <a href="contact.html">Contact</a>
+    <a href="#" class="donate-btn">DONATE</a>
   </nav>
 </header>
 
 <div class="slideshow-container">
 
-  <!-- Slide 1: Hawassa -->
+  <!-- Hawassa -->
   <div class="mySlides">
-    <div class="title">Hawassa</div>
-    <div class="description">
-      Hawassa, nestled on the shores of Lake Hawassa, is a vibrant Ethiopian city full of cultural heritage, fishing traditions, and natural beauty. 
-      Below are snapshots from around the city and lake.
-    </div>
-    <div class="inner-gallery" id="hawassa-gallery">
-      <img src="hawasa-1.jpg" class="active">
-      <img src="hawasa-2.jpg">
-      <img src="hawasa-3.jpg">
-      <img src="hawasa-4.jpg">
-      <img src="hawasa-5.jpg">
-      <img src="hawasa-6.jpg">
+    <img src="hawasa-1.jpg" alt="Hawassa">
+    <div class="text">
+      <h2>Hawassa</h2>
+      <p>Hawassa is a vibrant city in southern Ethiopia, known for Lake Hawassa and its breathtaking scenery. 
+      It is a hub for education, trade, and cultural exchange. The HI-ME Movement has carried out multiple 
+      projects here, supporting schools, providing healthcare outreach, and building sustainable livelihoods 
+      for local communities.</p>
     </div>
   </div>
 
-  <!-- Slide 2: Mekele -->
+  <!-- Mekele -->
   <div class="mySlides">
-    <div class="title">Mekele</div>
-    <div class="description">
-      Mekele, capital of Tigray, carries immense history, heritage, and resilience. 
-      Below are snapshots across the city and surrounding landscapes.
-    </div>
-    <div class="inner-gallery" id="mekele-gallery">
-      <!-- Mekele images 1–31 -->
-      <img src="mekele-1.jpg" class="active">
-      <img src="mekele-2.jpg">
-      <img src="mekele-3.jpg">
-      <img src="mekele-4.jpg">
-      <img src="mekele-5.jpg">
-      <!-- Continue up to -->
-      <img src="mekele-31.jpg">
+    <img src="mekele-2.jpg" alt="Mekele">
+    <div class="text">
+      <h2>Mekele</h2>
+      <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. The HI-ME Movement’s 
+      activities in Mekele focus on humanitarian aid, child support, and women’s empowerment programs 
+      designed to bring hope and sustainable opportunities to the people of this historic city.</p>
     </div>
   </div>
 
-  <!-- Slide 3: Humera -->
+  <!-- Humera -->
   <div class="mySlides">
-    <div class="title">Humera</div>
-    <div class="description">
-      Humera is Ethiopia’s sesame capital, known for its endless golden fields and its blend of cultures. 
-      Explore the glimpses below.
-    </div>
-    <div class="inner-gallery" id="humera-gallery">
-      <img src="humera-1.jpg" class="active">
-      <img src="humera-2.jpg">
-      <img src="humera-3.jpg">
-      <img src="humera-4.jpg">
-      <img src="humera-5.jpg">
-      <img src="humera-6.jpg">
+    <img src="humera-1.jpg" alt="Humera">
+    <div class="text">
+      <h2>Humera</h2>
+      <p>Humera, located in northwestern Ethiopia, has endured many challenges but remains a community of 
+      incredible strength. HI-ME is working to deliver humanitarian assistance, education programs, 
+      and health services to help the people of Humera recover and thrive.</p>
     </div>
   </div>
 
-  <!-- Slide 4: Gerji / Shoe Shine -->
+  <!-- Gerji Shoeshine -->
   <div class="mySlides">
-    <div class="title">Gerji (Shoe Shine)</div>
-    <div class="description">
-      Shoe shining in Addis Ababa, especially in Gerji, is more than a job—it represents resilience, dignity, and determination. 
-      Watch this short clip to experience it firsthand.
-    </div>
-    <div class="inner-gallery" id="gerji-gallery">
-      <video controls class="active">
-        <source src="Shoeshine.MOV" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <video controls>
+      <source src="Shoeshine.MOV" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="text">
+      <h2>Gerji Shoeshine Boy</h2>
+      <p>In Gerji, Addis Ababa, a young boy making a living by shining shoes inspired us. His story reflects 
+      the resilience and determination of many Ethiopian youths who strive for a better future. HI-ME 
+      Movement’s outreach programs aim to provide education and vocational training to empower 
+      children like him.</p>
     </div>
   </div>
 
-  <!-- Slide 5: Virginia -->
+  <!-- Virginia -->
   <div class="mySlides">
-    <div class="title">Virginia</div>
-    <div class="description">
-      Virginia, USA, is a state where modern living meets rich American history. 
-      Watch this clip to see its landscapes and charm.
-    </div>
-    <div class="inner-gallery" id="virginia-gallery">
-      <video controls class="active">
-        <source src="IMG_9347.MOV" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <video controls>
+      <source src="IMG_9347.MOV" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="text">
+      <h2>Virginia</h2>
+      <p>Virginia, USA, is home to a supportive diaspora community that partners with the HI-ME Movement 
+      to strengthen connections and resources for projects in Ethiopia. Events, fundraisers, and 
+      cultural exchanges held in Virginia help sustain the mission of empowering local communities 
+      back home.</p>
     </div>
   </div>
 
-  <!-- Navigation buttons -->
+  <!-- Controls -->
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 
-<!-- Dots -->
 <div class="dot-container">
   <span class="dot" onclick="currentSlide(1)"></span>
   <span class="dot" onclick="currentSlide(2)"></span>
@@ -241,51 +212,33 @@
   <span class="dot" onclick="currentSlide(5)"></span>
 </div>
 
-<footer>
-  <p>© 2025 HI-ME Movement | All Rights Reserved</p>
-</footer>
-
 <script>
-  let slideIndex = 1;
-  showSlides(slideIndex);
+let slideIndex = 1;
+showSlides(slideIndex);
 
-  function plusSlides(n) { showSlides(slideIndex += n); }
-  function currentSlide(n) { showSlides(slideIndex = n); }
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-  function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
   }
-
-  // Inner gallery auto-rotation
-  function rotateInnerGallery(galleryId) {
-    const gallery = document.getElementById(galleryId);
-    if (!gallery) return;
-    const items = gallery.querySelectorAll("img, video");
-    let current = 0;
-    setInterval(() => {
-      items[current].classList.remove("active");
-      current = (current + 1) % items.length;
-      items[current].classList.add("active");
-    }, 4000); // change every 4s
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
   }
-
-  rotateInnerGallery("hawassa-gallery");
-  rotateInnerGallery("mekele-gallery");
-  rotateInnerGallery("humera-gallery");
-  rotateInnerGallery("gerji-gallery");
-  rotateInnerGallery("virginia-gallery");
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
 </script>
 
 </body>
