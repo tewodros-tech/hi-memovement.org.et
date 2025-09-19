@@ -11,10 +11,36 @@
       background: #f4f4f4;
     }
 
+    header {
+      background: #222;
+      padding: 15px;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #fff;
+      margin: 0;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     .slideshow-container {
       position: relative;
       max-width: 1000px;
-      margin: auto;
+      margin: 40px auto;
       background: #000;
       border-radius: 12px;
       overflow: hidden;
@@ -25,13 +51,6 @@
       text-align: center;
       color: white;
       padding: 20px;
-    }
-
-    .mySlides img {
-      width: 100%;
-      max-height: 500px;
-      object-fit: cover;
-      border-radius: 12px;
     }
 
     .title {
@@ -48,7 +67,19 @@
       color: #f1f1f1;
     }
 
-    /* Next & previous buttons */
+    .inner-gallery img, .inner-gallery video {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: none;
+    }
+
+    .inner-gallery img.active, .inner-gallery video.active {
+      display: block;
+    }
+
+    /* Controls */
     .prev, .next {
       cursor: pointer;
       position: absolute;
@@ -68,12 +99,8 @@
       background-color: rgba(0,0,0,0.8);
     }
 
-    .prev {
-      left: 10px;
-    }
-    .next {
-      right: 10px;
-    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
 
     /* Dots */
     .dot-container {
@@ -93,101 +120,173 @@
     .active, .dot:hover {
       background-color: #717171;
     }
+
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
 
-  <h2 style="text-align:center; margin: 20px 0;">HI-ME Gallery</h2>
+<header>
+  <h1>HI-ME Gallery</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <div class="slideshow-container">
+<div class="slideshow-container">
 
-    <!-- Slide 1 -->
-    <div class="mySlides">
-      <img src="hawassa.jpg" alt="Hawassa">
-      <div class="title">Hawassa</div>
-      <div class="description">
-        Hawassa, nestled along the shores of Lake Hawassa in southern Ethiopia, is a vibrant city known for its breathtaking sunrise views, bustling fish markets, and peaceful lakeside promenades. The lake serves as a hub for fishermen and pelicans alike, while the nearby Sidama cultural heritage adds unique traditions and flavors to the city’s identity. Hawassa has also grown into a center for industry and education, offering a harmonious blend of nature and urban life.
-      </div>
+  <!-- Slide 1: Hawassa -->
+  <div class="mySlides">
+    <div class="title">Hawassa</div>
+    <div class="description">
+      Hawassa, nestled on the shores of Lake Hawassa, is a vibrant Ethiopian city full of cultural heritage, fishing traditions, and natural beauty. 
+      Below are snapshots from around the city and lake.
     </div>
-
-    <!-- Slide 2 -->
-    <div class="mySlides">
-      <img src="mekele.jpg" alt="Mekele">
-      <div class="title">Mekele</div>
-      <div class="description">
-        Mekele, the capital of the Tigray region, is a city rich in history and resilience. Famous for its rock-hewn churches nearby and the stunning landscapes of the Tigray highlands, Mekele embodies both tradition and modern progress. It has long been a center of trade, education, and culture, with landmarks such as Emperor Yohannes IV’s Palace serving as historical reminders. Despite challenges, Mekele remains a symbol of strength and cultural pride.
-      </div>
+    <div class="inner-gallery" id="hawassa-gallery">
+      <img src="hawasa-1.jpg" class="active">
+      <img src="hawasa-2.jpg">
+      <img src="hawasa-3.jpg">
+      <img src="hawasa-4.jpg">
+      <img src="hawasa-5.jpg">
+      <img src="hawasa-6.jpg">
     </div>
-
-    <!-- Slide 3 -->
-    <div class="mySlides">
-      <img src="humera.jpg" alt="Humera">
-      <div class="title">Humera</div>
-      <div class="description">
-        Humera, located in the northwestern corner of Ethiopia, is known as the heartland of sesame production. Endless golden fields stretch toward the horizon, reflecting the agricultural strength of the region. The town’s multicultural setting, with influences from neighboring Sudan and Eritrea, creates a unique blend of languages, foods, and traditions. Humera is not only a trade hub but also a gateway to understanding Ethiopia’s agricultural backbone.
-      </div>
-    </div>
-
-    <!-- Slide 4 -->
-    <div class="mySlides">
-      <img src="virginia.jpg" alt="Virginia">
-      <div class="title">Virginia</div>
-      <div class="description">
-        Virginia, located on the east coast of the United States, is a state steeped in history and natural beauty. Known as the birthplace of America, it boasts colonial landmarks, Civil War battlefields, and scenic drives through the Blue Ridge Mountains. From the bustling metropolitan area of Northern Virginia to the tranquil beaches along the Chesapeake Bay, Virginia offers a striking balance of heritage and modern living. It remains a place where history and progress meet.
-      </div>
-    </div>
-
-    <!-- Slide 5 -->
-    <div class="mySlides">
-      <img src="shoeshine.jpg" alt="Shoe Shine">
-      <div class="title">Shoe Shine</div>
-      <div class="description">
-        The tradition of shoe shining, particularly in cities like Addis Ababa, represents both hard work and resilience. Shoeshine boys, often young entrepreneurs, set up simple wooden boxes along busy streets, offering affordable services while embodying determination and pride. Beyond the shine, this practice tells a deeper story of survival, dignity, and the everyday hustle that shapes urban Ethiopian life. The shoeshine culture is a powerful reminder of perseverance and aspiration.
-      </div>
-    </div>
-
-    <!-- Buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
 
-  <!-- Dots -->
-  <div class="dot-container">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-    <span class="dot" onclick="currentSlide(5)"></span>
+  <!-- Slide 2: Mekele -->
+  <div class="mySlides">
+    <div class="title">Mekele</div>
+    <div class="description">
+      Mekele, capital of Tigray, carries immense history, heritage, and resilience. 
+      Below are snapshots across the city and surrounding landscapes.
+    </div>
+    <div class="inner-gallery" id="mekele-gallery">
+      <!-- Mekele images 1–31 -->
+      <img src="mekele-1.jpg" class="active">
+      <img src="mekele-2.jpg">
+      <img src="mekele-3.jpg">
+      <img src="mekele-4.jpg">
+      <img src="mekele-5.jpg">
+      <!-- Continue up to -->
+      <img src="mekele-31.jpg">
+    </div>
   </div>
 
-  <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+  <!-- Slide 3: Humera -->
+  <div class="mySlides">
+    <div class="title">Humera</div>
+    <div class="description">
+      Humera is Ethiopia’s sesame capital, known for its endless golden fields and its blend of cultures. 
+      Explore the glimpses below.
+    </div>
+    <div class="inner-gallery" id="humera-gallery">
+      <img src="humera-1.jpg" class="active">
+      <img src="humera-2.jpg">
+      <img src="humera-3.jpg">
+      <img src="humera-4.jpg">
+      <img src="humera-5.jpg">
+      <img src="humera-6.jpg">
+    </div>
+  </div>
 
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
+  <!-- Slide 4: Gerji / Shoe Shine -->
+  <div class="mySlides">
+    <div class="title">Gerji (Shoe Shine)</div>
+    <div class="description">
+      Shoe shining in Addis Ababa, especially in Gerji, is more than a job—it represents resilience, dignity, and determination. 
+      Watch this short clip to experience it firsthand.
+    </div>
+    <div class="inner-gallery" id="gerji-gallery">
+      <video controls class="active">
+        <source src="Shoeshine.MOV" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
 
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
+  <!-- Slide 5: Virginia -->
+  <div class="mySlides">
+    <div class="title">Virginia</div>
+    <div class="description">
+      Virginia, USA, is a state where modern living meets rich American history. 
+      Watch this clip to see its landscapes and charm.
+    </div>
+    <div class="inner-gallery" id="virginia-gallery">
+      <video controls class="active">
+        <source src="IMG_9347.MOV" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
 
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
+  <!-- Navigation buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<!-- Dots -->
+<div class="dot-container">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+</div>
+
+<footer>
+  <p>© 2025 HI-ME Movement | All Rights Reserved</p>
+</footer>
+
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) { showSlides(slideIndex += n); }
+  function currentSlide(n) { showSlides(slideIndex = n); }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
     }
-  </script>
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+  }
+
+  // Inner gallery auto-rotation
+  function rotateInnerGallery(galleryId) {
+    const gallery = document.getElementById(galleryId);
+    if (!gallery) return;
+    const items = gallery.querySelectorAll("img, video");
+    let current = 0;
+    setInterval(() => {
+      items[current].classList.remove("active");
+      current = (current + 1) % items.length;
+      items[current].classList.add("active");
+    }, 4000); // change every 4s
+  }
+
+  rotateInnerGallery("hawassa-gallery");
+  rotateInnerGallery("mekele-gallery");
+  rotateInnerGallery("humera-gallery");
+  rotateInnerGallery("gerji-gallery");
+  rotateInnerGallery("virginia-gallery");
+</script>
 
 </body>
 </html>
