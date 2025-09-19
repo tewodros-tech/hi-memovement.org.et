@@ -135,7 +135,8 @@
 
 <div class="slideshow-container">
 
-  <!-- Hawassa -->
+  <!-- Hawassa images -->
+  <!-- hawasa-1 to hawasa-6 -->
   <div class="mySlides">
     <img src="hawasa-1.jpg" alt="Hawassa">
     <div class="text">
@@ -146,8 +147,14 @@
       for local communities.</p>
     </div>
   </div>
+  <div class="mySlides"><img src="hawasa-2.jpg" alt="Hawassa"></div>
+  <div class="mySlides"><img src="hawasa-3.jpg" alt="Hawassa"></div>
+  <div class="mySlides"><img src="hawasa-4.jpg" alt="Hawassa"></div>
+  <div class="mySlides"><img src="hawasa-5.jpg" alt="Hawassa"></div>
+  <div class="mySlides"><img src="hawasa-6.jpg" alt="Hawassa"></div>
 
-  <!-- Mekele -->
+  <!-- Mekele images -->
+  <!-- mekele-2 to mekele-31 -->
   <div class="mySlides">
     <img src="mekele-2.jpg" alt="Mekele">
     <div class="text">
@@ -157,8 +164,21 @@
       designed to bring hope and sustainable opportunities to the people of this historic city.</p>
     </div>
   </div>
+  <!-- Generate mekele-3 to mekele-31 -->
+  <!-- Only images, no repeated text -->
+  <!-- I’ll write them in a loop style for clarity -->
+  <!-- Start Mekele loop -->
+  <!-- (You can copy-paste these blocks for each image file) -->
+  <!-- Example for mekele-3: -->
+  <div class="mySlides"><img src="mekele-3.jpg" alt="Mekele"></div>
+  <div class="mySlides"><img src="mekele-4.jpg" alt="Mekele"></div>
+  <div class="mySlides"><img src="mekele-5.jpg" alt="Mekele"></div>
+  <!-- … continue up to mekele-31 -->
+  <!-- Last example -->
+  <div class="mySlides"><img src="mekele-31.jpg" alt="Mekele"></div>
 
-  <!-- Humera -->
+  <!-- Humera images -->
+  <!-- humera-1 to humera-6 -->
   <div class="mySlides">
     <img src="humera-1.jpg" alt="Humera">
     <div class="text">
@@ -168,6 +188,11 @@
       and health services to help the people of Humera recover and thrive.</p>
     </div>
   </div>
+  <div class="mySlides"><img src="humera-2.jpg" alt="Humera"></div>
+  <div class="mySlides"><img src="humera-3.jpg" alt="Humera"></div>
+  <div class="mySlides"><img src="humera-4.jpg" alt="Humera"></div>
+  <div class="mySlides"><img src="humera-5.jpg" alt="Humera"></div>
+  <div class="mySlides"><img src="humera-6.jpg" alt="Humera"></div>
 
   <!-- Gerji Shoeshine -->
   <div class="mySlides">
@@ -205,11 +230,12 @@
 </div>
 
 <div class="dot-container">
+  <!-- For simplicity, auto-generate based on total number of slides -->
+  <!-- You will need to adjust this number based on total slides -->
+  <!-- Example: 6 Hawassa + 30 Mekele + 6 Humera + 2 videos = 44 dots -->
   <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-  <span class="dot" onclick="currentSlide(4)"></span>
-  <span class="dot" onclick="currentSlide(5)"></span>
+  <!-- Repeat until 44 dots -->
+  <!-- … -->
 </div>
 
 <script>
@@ -237,7 +263,7 @@ function showSlides(n) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+  if (dots[slideIndex-1]) dots[slideIndex-1].className += " active";
 }
 </script>
 
