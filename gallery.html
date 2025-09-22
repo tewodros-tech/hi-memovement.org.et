@@ -97,22 +97,6 @@
     .prev { left: 20px; }
     .next { right: 20px; }
     .prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
-
-    /* Dots */
-    .dot-container {
-      text-align: center;
-      margin: 15px 0;
-    }
-    .dot {
-      height: 12px;
-      width: 12px;
-      margin: 0 3px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      cursor: pointer;
-    }
-    .active, .dot:hover { background-color: #007acc; }
   </style>
 </head>
 <body>
@@ -130,43 +114,19 @@
   </nav>
 </header>
 
-<!-- Mekele Section (includes both videos + images from your uploaded list) -->
+<!-- Mekele Section -->
 <section>
   <h2>Mekele</h2>
   <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. HI-ME works in Mekele to provide humanitarian aid, child support, and women’s empowerment programs designed to bring sustainable opportunities to the community.</p>
   
   <div class="slideshow-container" id="mekele-slideshow">
     <!-- Videos -->
-    <div class="mySlides">
-      <video controls>
-        <source src="mekele-3.MOV" type="video/mp4">
-      </video>
-    </div>
-    <div class="mySlides">
-      <video controls>
-        <source src="mekele-21.MOV" type="video/mp4">
-      </video>
-    </div>
-    <div class="mySlides">
-      <video controls>
-        <source src="mekele-23.MOV" type="video/mp4">
-      </video>
-    </div>
-    <div class="mySlides">
-      <video controls>
-        <source src="mekele-24.MOV" type="video/mp4">
-      </video>
-    </div>
-    <div class="mySlides">
-      <video controls>
-        <source src="mekele-26.MOV" type="video/mp4">
-      </video>
-    </div>
-    <div class="mySlides">
-      <video controls>
-        <source src="mekele-27.MP4" type="video/mp4">
-      </video>
-    </div>
+    <div class="mySlides"><video controls><source src="mekele-3.MOV" type="video/mp4"></video></div>
+    <div class="mySlides"><video controls><source src="mekele-21.MOV" type="video/mp4"></video></div>
+    <div class="mySlides"><video controls><source src="mekele-23.MOV" type="video/mp4"></video></div>
+    <div class="mySlides"><video controls><source src="mekele-24.MOV" type="video/mp4"></video></div>
+    <div class="mySlides"><video controls><source src="mekele-26.MOV" type="video/mp4"></video></div>
+    <div class="mySlides"><video controls><source src="mekele-27.MP4" type="video/mp4"></video></div>
 
     <!-- Images -->
     <div class="mySlides"><img src="mekele-4.jpg" alt="Mekele"></div>
@@ -182,9 +142,6 @@
     <a class="prev" onclick="plusSlides(-1, 'mekele')">&#10094;</a>
     <a class="next" onclick="plusSlides(1, 'mekele')">&#10095;</a>
   </div>
-  
-  <!-- Dots navigation -->
-  <div class="dot-container" id="mekele-dots"></div>
 </section>
 
 <!-- Humera Section -->
@@ -201,7 +158,6 @@
     <a class="prev" onclick="plusSlides(-1, 'humera')">&#10094;</a>
     <a class="next" onclick="plusSlides(1, 'humera')">&#10095;</a>
   </div>
-  <div class="dot-container" id="humera-dots"></div>
 </section>
 
 <!-- Hawassa Section -->
@@ -218,7 +174,6 @@
     <a class="prev" onclick="plusSlides(-1, 'hawassa')">&#10094;</a>
     <a class="next" onclick="plusSlides(1, 'hawassa')">&#10095;</a>
   </div>
-  <div class="dot-container" id="hawassa-dots"></div>
 </section>
 
 <!-- Gerji Shoeshine -->
@@ -226,11 +181,7 @@
   <h2>Gerji Shoeshine Boy</h2>
   <p>In Gerji, Addis Ababa, a young shoeshine boy inspired us. HI-ME aims to provide education and vocational training to children like him, helping them build a brighter future.</p>
   <div class="slideshow-container" id="gerji-slideshow">
-    <div class="mySlides">
-      <video controls>
-        <source src="Shoeshine.MOV" type="video/mp4">
-      </video>
-    </div>
+    <div class="mySlides"><video controls><source src="Shoeshine.MOV" type="video/mp4"></video></div>
   </div>
 </section>
 
@@ -239,83 +190,49 @@
   <h2>Virginia</h2>
   <p>Virginia, USA, is home to a strong diaspora community that partners with HI-ME Movement to support projects in Ethiopia. Events and fundraisers here sustain the mission back home.</p>
   <div class="slideshow-container" id="virginia-slideshow">
-    <div class="mySlides">
-      <video controls>
-        <source src="IMG_9347.MOV" type="video/mp4">
-      </video>
-    </div>
+    <div class="mySlides"><video controls><source src="IMG_9347.MOV" type="video/mp4"></video></div>
   </div>
 </section>
 
 <!-- Slideshow JavaScript -->
 <script>
-/**
- * Initializes a slideshow with dots and controls.
- * Supports both <img> and <video> slides.
- * Pauses videos when moving to the next slide.
- */
-function initSlides(slideshowId, dotsId) {
+function initSlides(slideshowId) {
   let slideIndex = 1;
   const container = document.getElementById(slideshowId);
   const slides = container.getElementsByClassName("mySlides");
 
-  // Create dots if dots container is provided
-  if (dotsId) {
-    const dotsContainer = document.getElementById(dotsId);
-    for (let i = 0; i < slides.length; i++) {
-      let dot = document.createElement("span");
-      dot.classList.add("dot");
-      dot.onclick = () => { showSlides(i + 1); };
-      dotsContainer.appendChild(dot);
-    }
-  }
-
-  // Show slides function
   function showSlides(n) {
     if (n > slides.length) { slideIndex = 1; }
     else if (n < 1) { slideIndex = slides.length; }
     else { slideIndex = n; }
 
-    // Hide all slides and pause videos
     for (let i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
       let video = slides[i].querySelector("video");
       if (video) {
         video.pause();
-        video.currentTime = 0; // reset video to start
+        video.currentTime = 0;
       }
     }
 
-    // Remove "active" from all dots
-    if (dotsId) {
-      let dots = document.getElementById(dotsId).getElementsByClassName("dot");
-      for (let i = 0; i < dots.length; i++) {
-        dots[i].classList.remove("active");
-      }
-      dots[slideIndex - 1].classList.add("active");
-    }
-
-    // Show current slide
     slides[slideIndex - 1].style.display = "block";
   }
 
-  // Public functions for arrow navigation
   window.plusSlides = function(n, id) {
     if (id === slideshowId) {
       showSlides(slideIndex + n);
     }
   }
 
-  // Initialize first slide
   showSlides(slideIndex);
 }
 
-// Initialize all slideshows after page loads
 window.onload = function() {
-  initSlides("mekele-slideshow", "mekele-dots");
-  initSlides("humera-slideshow", "humera-dots");
-  initSlides("hawassa-slideshow", "hawassa-dots");
-  // Gerji & Virginia have only one video each → no dots needed
+  initSlides("mekele-slideshow");
+  initSlides("humera-slideshow");
+  initSlides("hawassa-slideshow");
+  initSlides("gerji-slideshow");
+  initSlides("virginia-slideshow");
 };
 </script>
 
