@@ -80,7 +80,7 @@
       border-radius: 8px;
     }
 
-    /* Controls */
+    /* Controls (arrows) */
     .prev, .next {
       cursor: pointer;
       position: absolute;
@@ -130,19 +130,60 @@
   </nav>
 </header>
 
-<!-- Mekele Section -->
+<!-- Mekele Section (includes both videos + images from your uploaded list) -->
 <section>
   <h2>Mekele</h2>
   <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. HI-ME works in Mekele to provide humanitarian aid, child support, and women’s empowerment programs designed to bring sustainable opportunities to the community.</p>
+  
   <div class="slideshow-container" id="mekele-slideshow">
-    <div class="mySlides"><img src="mekele-2.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-3.jpg" alt="Mekele"></div>
+    <!-- Videos -->
+    <div class="mySlides">
+      <video controls>
+        <source src="mekele-3.MOV" type="video/mp4">
+      </video>
+    </div>
+    <div class="mySlides">
+      <video controls>
+        <source src="mekele-21.MOV" type="video/mp4">
+      </video>
+    </div>
+    <div class="mySlides">
+      <video controls>
+        <source src="mekele-23.MOV" type="video/mp4">
+      </video>
+    </div>
+    <div class="mySlides">
+      <video controls>
+        <source src="mekele-24.MOV" type="video/mp4">
+      </video>
+    </div>
+    <div class="mySlides">
+      <video controls>
+        <source src="mekele-26.MOV" type="video/mp4">
+      </video>
+    </div>
+    <div class="mySlides">
+      <video controls>
+        <source src="mekele-27.MP4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Images -->
     <div class="mySlides"><img src="mekele-4.jpg" alt="Mekele"></div>
-    <!-- Continue adding up to mekele-31 -->
+    <div class="mySlides"><img src="mekele-5.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-6.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-7.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-9.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-28.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-30.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-31.jpg" alt="Mekele"></div>
+
+    <!-- Controls -->
     <a class="prev" onclick="plusSlides(-1, 'mekele')">&#10094;</a>
     <a class="next" onclick="plusSlides(1, 'mekele')">&#10095;</a>
   </div>
+  
+  <!-- Dots navigation -->
   <div class="dot-container" id="mekele-dots"></div>
 </section>
 
@@ -188,7 +229,6 @@
     <div class="mySlides">
       <video controls>
         <source src="Shoeshine.MOV" type="video/mp4">
-        Your browser does not support the video tag.
       </video>
     </div>
   </div>
@@ -202,27 +242,82 @@
     <div class="mySlides">
       <video controls>
         <source src="IMG_9347.MOV" type="video/mp4">
-        Your browser does not support the video tag.
       </video>
     </div>
   </div>
 </section>
 
+<!-- Slideshow JavaScript -->
 <script>
+/**
+ * Initializes a slideshow with dots and controls.
+ * Supports both <img> and <video> slides.
+ * Pauses videos when moving to the next slide.
+ */
 function initSlides(slideshowId, dotsId) {
   let slideIndex = 1;
   const container = document.getElementById(slideshowId);
   const slides = container.getElementsByClassName("mySlides");
 
+  // Create dots if dots container is provided
   if (dotsId) {
     const dotsContainer = document.getElementById(dotsId);
     for (let i = 0; i < slides.length; i++) {
       let dot = document.createElement("span");
       dot.classList.add("dot");
-      dot.onclick = () => { showSlides(i+1); };
+      dot.onclick = () => { showSlides(i + 1); };
       dotsContainer.appendChild(dot);
     }
   }
 
+  // Show slides function
   function showSlides(n) {
-    if (n > slides.length) slideIndex = 1;
+    if (n > slides.length) { slideIndex = 1; }
+    else if (n < 1) { slideIndex = slides.length; }
+    else { slideIndex = n; }
+
+    // Hide all slides and pause videos
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      let video = slides[i].querySelector("video");
+      if (video) {
+        video.pause();
+        video.currentTime = 0; // reset video to start
+      }
+    }
+
+    // Remove "active" from all dots
+    if (dotsId) {
+      let dots = document.getElementById(dotsId).getElementsByClassName("dot");
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
+      dots[slideIndex - 1].classList.add("active");
+    }
+
+    // Show current slide
+    slides[slideIndex - 1].style.display = "block";
+  }
+
+  // Public functions for arrow navigation
+  window.plusSlides = function(n, id) {
+    if (id === slideshowId) {
+      showSlides(slideIndex + n);
+    }
+  }
+
+  // Initialize first slide
+  showSlides(slideIndex);
+}
+
+// Initialize all slideshows after page loads
+window.onload = function() {
+  initSlides("mekele-slideshow", "mekele-dots");
+  initSlides("humera-slideshow", "humera-dots");
+  initSlides("hawassa-slideshow", "hawassa-dots");
+  // Gerji & Virginia have only one video each → no dots needed
+};
+</script>
+
+</body>
+</html>
