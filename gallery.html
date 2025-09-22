@@ -79,10 +79,48 @@
   <h2>Mekele</h2>
   <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. HI-ME works in Mekele to provide humanitarian aid, child support, and women’s empowerment programs.</p>
   <div class="slideshow-container" id="mekele-slideshow">
+    <!-- Videos -->
     <div class="mySlides"><video controls><source src="mekele-3.MOV" type="video/mp4"></video></div>
     <div class="mySlides"><video controls><source src="mekele-21.MOV" type="video/mp4"></video></div>
+    <div class="mySlides"><video controls><source src="mekele-23.MOV" type="video/mp4"></video></div>
+    <div class="mySlides"><video controls><source src="mekele-24.MOV" type="video/mp4"></video></div>
+    <div class="mySlides"><video controls><source src="mekele-26.MOV" type="video/mp4"></video></div>
+    <div class="mySlides"><video controls><source src="mekele-27.MP4" type="video/mp4"></video></div>
+
+    <!-- Images 1–31 sequentially -->
+    <div class="mySlides"><img src="mekele-1.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-2.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-3.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-4.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-5.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-6.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-7.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-8.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-9.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-10.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-11.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-12.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-13.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-14.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-15.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-16.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-17.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-18.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-19.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-20.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-21.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-22.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-23.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-24.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-25.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-26.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-27.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-28.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-29.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-30.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-31.jpg" alt="Mekele"></div>
+
+    <!-- Navigation Arrows -->
     <a class="prev" onclick="plusSlides('mekele-slideshow', -1)">&#10094;</a>
     <a class="next" onclick="plusSlides('mekele-slideshow', 1)">&#10095;</a>
   </div>
@@ -96,6 +134,9 @@
     <div class="mySlides"><img src="humera-1.jpg" alt="Humera"></div>
     <div class="mySlides"><img src="humera-2.jpg" alt="Humera"></div>
     <div class="mySlides"><img src="humera-3.jpg" alt="Humera"></div>
+    <div class="mySlides"><img src="humera-4.jpg" alt="Humera"></div>
+    <div class="mySlides"><img src="humera-5.jpg" alt="Humera"></div>
+    <div class="mySlides"><img src="humera-6.jpg" alt="Humera"></div>
     <a class="prev" onclick="plusSlides('humera-slideshow', -1)">&#10094;</a>
     <a class="next" onclick="plusSlides('humera-slideshow', 1)">&#10095;</a>
   </div>
@@ -109,6 +150,9 @@
     <div class="mySlides"><img src="hawasa-1.jpg" alt="Hawassa"></div>
     <div class="mySlides"><img src="hawasa-2.jpg" alt="Hawassa"></div>
     <div class="mySlides"><img src="hawasa-3.jpg" alt="Hawassa"></div>
+    <div class="mySlides"><img src="hawasa-4.jpg" alt="Hawassa"></div>
+    <div class="mySlides"><img src="hawasa-5.jpg" alt="Hawassa"></div>
+    <div class="mySlides"><img src="hawasa-6.jpg" alt="Hawassa"></div>
     <a class="prev" onclick="plusSlides('hawassa-slideshow', -1)">&#10094;</a>
     <a class="next" onclick="plusSlides('hawassa-slideshow', 1)">&#10095;</a>
   </div>
@@ -134,13 +178,10 @@
 
 <!-- JavaScript -->
 <script>
-/* 
-Global object to store the current slide index of each slideshow
-Key: slideshowId, Value: slide number
-*/
+/* Global object to store slide index for each slideshow */
 let slideIndexes = {};
 
-/* Initialize all slideshows on page load */
+/* Initialize slideshow */
 function initSlides(slideshowId) {
   slideIndexes[slideshowId] = 1; // start at first slide
   showSlides(slideIndexes[slideshowId], slideshowId);
@@ -154,9 +195,9 @@ function plusSlides(slideshowId, n) {
 /* Show slide function */
 function showSlides(n, slideshowId) {
   let slides = document.querySelectorAll(`#${slideshowId} .mySlides`);
-  if (slides.length === 0) return;
+  if (!slides.length) return;
 
-  // Wrap around slides
+  // Wrap around
   if (n > slides.length) slideIndexes[slideshowId] = 1;
   if (n < 1) slideIndexes[slideshowId] = slides.length;
 
@@ -164,22 +205,4 @@ function showSlides(n, slideshowId) {
   slides.forEach(slide => {
     slide.style.display = "none";
     let video = slide.querySelector("video");
-    if (video) { video.pause(); video.currentTime = 0; }
-  });
-
-  // Show current slide
-  slides[slideIndexes[slideshowId]-1].style.display = "block";
-}
-
-/* Initialize all slideshows */
-window.addEventListener('load', () => {
-  initSlides('mekele-slideshow');
-  initSlides('humera-slideshow');
-  initSlides('hawassa-slideshow');
-  initSlides('gerji-slideshow');
-  initSlides('virginia-slideshow');
-});
-</script>
-
-</body>
-</html>
+    if (video)
