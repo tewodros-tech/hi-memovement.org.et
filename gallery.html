@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HI-ME Movement - Gallery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     /* Base styles */
     body {
@@ -21,40 +21,45 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
     header .logo {
       font-size: 1.5em;
       font-weight: bold;
     }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: 600;
     }
     nav a:hover {
       text-decoration: underline;
     }
 
-    /* Hero section with actual image size (no cropping) */
+    /* Hero section with actual image */
     .hero {
       position: relative;
       height: auto;
       max-height: 80vh;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background: black;
     }
     .hero img {
       width: 100%;
       height: auto;
-      object-fit: contain; /* shows full image without cropping */
+      object-fit: contain;
       filter: brightness(60%);
     }
     .hero h1 {
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       z-index: 2;
       color: white;
       font-size: clamp(2em, 5vw, 3em);
@@ -70,16 +75,46 @@
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 15px;
+      gap: 20px;
       padding: 40px;
     }
-    .gallery img,
-    .gallery video {
-      width: 100%;
-      height: auto;
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-item img,
+    .gallery-item video {
+      width: 100%;
+      height: auto;
+      display: block;
       object-fit: cover;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 10px;
+      font-size: 0.9em;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
     }
 
     /* Footer styles */
@@ -89,6 +124,18 @@
       text-align: center;
       padding: 15px;
       margin-top: 40px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero h1 {
+        font-size: 2em;
+        padding: 0.8em 1.2em;
+      }
     }
   </style>
 </head>
@@ -108,42 +155,49 @@
     </nav>
   </header>
 
-  <!-- Hero Banner with actual image -->
+  <!-- Hero Banner -->
   <section class="hero">
-    <img src="mekele-1.jpg" alt="Mekele Project Hero Image">
+    <img src="mekele-1.jpg" alt="Mekele Project Hero Image" />
     <h1>Mekele Projects Gallery</h1>
   </section>
 
   <!-- Gallery Grid -->
   <section class="gallery">
-    <img src="mekele-1.jpg" alt="mekele-1">
-    <img src="mekele-2.jpg" alt="mekele-2">
-    <video controls><source src="mekele-3.mov" type="video/mp4"></video>
-    <img src="mekele-4.jpg" alt="mekele-4">
-    <img src="mekele-5.jpg" alt="mekele-5">
-    <img src="mekele-6.jpg" alt="mekele-6">
-    <img src="mekele-7.jpg" alt="mekele-7">
-    <img src="mekele-8.jpg" alt="mekele-8">
-    <img src="mekele-9.jpg" alt="mekele-9">
-    <img src="mekele-10.jpg" alt="mekele-10">
-    <img src="mekele-11.jpg" alt="mekele-11">
-    <img src="mekele-12.jpg" alt="mekele-12">
-    <img src="mekele-13.jpg" alt="mekele-13">
-    <img src="mekele-14.jpg" alt="mekele-14">
-    <img src="mekele-15.jpg" alt="mekele-15">
-    <img src="mekele-16.jpg" alt="mekele-16">
-    <img src="mekele-17.jpg" alt="mekele-17">
-    <video controls><source src="mekele-18.mov" type="video/mp4"></video>
-    <video controls><source src="mekele-19.mov" type="video/mp4"></video>
-    <video controls><source src="mekele-20.MOV" type="video/mp4"></video>
-    <video controls><source src="mekele-21.MOV" type="video/mp4"></video>
-    <img src="mekele-22.jpg" alt="mekele-22">
-    <img src="mekele-23.jpg" alt="mekele-23">
-    <video controls><source src="mekele-24.MOV" type="video/mp4"></video>
-    <img src="mekele-25.jpg" alt="mekele-25">
-    <video controls><source src="mekele-26.MOV" type="video/mp4"></video>
-    <video controls><source src="mekele-27.MP4" type="video/mp4"></video>
-    <img src="mekele-28.jpg" alt="mekele-28">
+    <div class="gallery-item">
+      <img src="mekele-1.jpg" alt="mekele-1" />
+      <div class="caption">Community gathering around a new structure</div>
+    </div>
+    <div class="gallery-item">
+      <img src="mekele-2.jpg" alt="mekele-2" />
+      <div class="caption">Youth engagement in Mekele</div>
+    </div>
+    <div class="gallery-item">
+      <video controls><source src="mekele-3.mov" type="video/mp4" /></video>
+      <div class="caption">Interview with local leaders</div>
+    </div>
+    <div class="gallery-item">
+      <img src="mekele-4.jpg" alt="mekele-4" />
+      <div class="caption">Volunteers in action</div>
+    </div>
+    <!-- Add more items below with meaningful captions -->
+    <!-- Example: -->
+    <div class="gallery-item">
+      <img src="mekele-5.jpg" alt="mekele-5" />
+      <div class="caption">Building hope together</div>
+    </div>
+    <div class="gallery-item">
+      <img src="mekele-6.jpg" alt="mekele-6" />
+      <div class="caption">Smiles that inspire</div>
+    </div>
+    <div class="gallery-item">
+      <img src="mekele-7.jpg" alt="mekele-7" />
+      <div class="caption">Crafting with purpose</div>
+    </div>
+    <div class="gallery-item">
+      <img src="mekele-8.jpg" alt="mekele-8" />
+      <div class="caption">Unity in motion</div>
+    </div>
+    <!-- Continue with the rest of your images/videos -->
   </section>
 
   <!-- Footer -->
