@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HI-ME Movement - Gallery</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Lightbox2 CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
   <style>
-    /* Base styles */
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background: #f8f8f8;
     }
 
-    /* Header styles */
     header {
       background: #0077b6;
       color: white;
@@ -41,7 +41,6 @@
       text-decoration: underline;
     }
 
-    /* Hero section with actual image */
     .hero {
       position: relative;
       height: auto;
@@ -71,7 +70,6 @@
       max-width: 90%;
     }
 
-    /* Gallery grid layout */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -117,7 +115,6 @@
       opacity: 1;
     }
 
-    /* Footer styles */
     footer {
       background: #0077b6;
       color: white;
@@ -126,7 +123,6 @@
       margin-top: 40px;
     }
 
-    /* Responsive tweaks */
     @media (max-width: 600px) {
       nav {
         flex-direction: column;
@@ -164,11 +160,15 @@
   <!-- Gallery Grid -->
   <section class="gallery">
     <div class="gallery-item">
-      <img src="mekele-1.jpg" alt="mekele-1" />
+      <a href="mekele-1.jpg" data-lightbox="gallery" data-title="Community gathering around a new structure">
+        <img src="mekele-1.jpg" alt="mekele-1" />
+      </a>
       <div class="caption">Community gathering around a new structure</div>
     </div>
     <div class="gallery-item">
-      <img src="mekele-2.jpg" alt="mekele-2" />
+      <a href="mekele-2.jpg" data-lightbox="gallery" data-title="Youth engagement in Mekele">
+        <img src="mekele-2.jpg" alt="mekele-2" />
+      </a>
       <div class="caption">Youth engagement in Mekele</div>
     </div>
     <div class="gallery-item">
@@ -176,28 +176,12 @@
       <div class="caption">Interview with local leaders</div>
     </div>
     <div class="gallery-item">
-      <img src="mekele-4.jpg" alt="mekele-4" />
+      <a href="mekele-4.jpg" data-lightbox="gallery" data-title="Volunteers in action">
+        <img src="mekele-4.jpg" alt="mekele-4" />
+      </a>
       <div class="caption">Volunteers in action</div>
     </div>
-    <!-- Add more items below with meaningful captions -->
-    <!-- Example: -->
-    <div class="gallery-item">
-      <img src="mekele-5.jpg" alt="mekele-5" />
-      <div class="caption">Building hope together</div>
-    </div>
-    <div class="gallery-item">
-      <img src="mekele-6.jpg" alt="mekele-6" />
-      <div class="caption">Smiles that inspire</div>
-    </div>
-    <div class="gallery-item">
-      <img src="mekele-7.jpg" alt="mekele-7" />
-      <div class="caption">Crafting with purpose</div>
-    </div>
-    <div class="gallery-item">
-      <img src="mekele-8.jpg" alt="mekele-8" />
-      <div class="caption">Unity in motion</div>
-    </div>
-    <!-- Continue with the rest of your images/videos -->
+    <!-- Add more items below with lightbox links and captions -->
   </section>
 
   <!-- Footer -->
@@ -205,5 +189,7 @@
     <p>&copy; 2025 HI-ME Movement. All Rights Reserved.</p>
   </footer>
 
+  <!-- Lightbox2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 </body>
 </html>
