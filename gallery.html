@@ -74,9 +74,8 @@
       text-align: center;
     }
     .mySlides img, .mySlides video {
-      width: 100%;
-      max-height: 500px;
-      object-fit: cover;
+      max-width: 100%;
+      height: auto; /* keep actual aspect ratio */
       border-radius: 8px;
     }
 
@@ -121,25 +120,37 @@
   <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. HI-ME works in Mekele to provide humanitarian aid, child support, and women’s empowerment programs designed to bring sustainable opportunities to the community.</p>
   
   <div class="slideshow-container" id="mekele-slideshow">
-    <!-- Videos -->
-    <div class="mySlides"><video controls><source src="mekele-3.MOV" type="video/mp4"></video></div>
-    <div class="mySlides"><video controls><source src="mekele-21.MOV" type="video/mp4"></video></div>
-    <div class="mySlides"><video controls><source src="mekele-23.MOV" type="video/mp4"></video></div>
-    <div class="mySlides"><video controls><source src="mekele-24.MOV" type="video/mp4"></video></div>
-    <div class="mySlides"><video controls><source src="mekele-26.MOV" type="video/mp4"></video></div>
-    <div class="mySlides"><video controls><source src="mekele-27.MP4" type="video/mp4"></video></div>
-
-    <!-- Images -->
+    <!-- Mekele 1–28 -->
+    <div class="mySlides"><img src="mekele-1.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-2.jpg" alt="Mekele"></div>
+    <div class="mySlides"><video controls><source src="mekele-3.mov" type="video/mp4"></video></div>
     <div class="mySlides"><img src="mekele-4.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-5.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-6.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-7.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-8.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-9.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-10.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-11.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-12.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-13.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-14.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-15.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-16.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-17.jpg" alt="Mekele"></div>
+    <div class="mySlides"><video controls><source src="mekele-18.mov" type="video/mp4"></video></div>
+    <div class="mySlides"><video controls><source src="mekele-19.mov" type="video/mp4"></video></div>
+    <div class="mySlides"><img src="mekele-20.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-21.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-22.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-23.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-24.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-25.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-26.jpg" alt="Mekele"></div>
+    <div class="mySlides"><img src="mekele-27.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-28.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-30.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-31.jpg" alt="Mekele"></div>
 
-    <!-- Controls (pass the actual slideshow element id) -->
+    <!-- Controls -->
     <a class="prev" onclick="plusSlides('mekele-slideshow', -1)" aria-label="Previous">&#10094;</a>
     <a class="next" onclick="plusSlides('mekele-slideshow', 1)" aria-label="Next">&#10095;</a>
   </div>
@@ -185,7 +196,6 @@
   <p>In Gerji, Addis Ababa, a young shoeshine boy inspired us. HI-ME aims to provide education and vocational training to children like him, helping them build a brighter future.</p>
   <div class="slideshow-container" id="gerji-slideshow">
     <div class="mySlides"><video controls><source src="Shoeshine.MOV" type="video/mp4"></video></div>
-    <!-- no arrows because single slide -->
   </div>
 </section>
 
@@ -195,64 +205,41 @@
   <p>Virginia, USA, is home to a strong diaspora community that partners with HI-ME Movement to support projects in Ethiopia. Events and fundraisers here sustain the mission back home.</p>
   <div class="slideshow-container" id="virginia-slideshow">
     <div class="mySlides"><video controls><source src="IMG_9347.MOV" type="video/mp4"></video></div>
-    <!-- no arrows because single slide -->
   </div>
 </section>
 
-<!-- Fixed slideshow JavaScript -->
+<!-- Slideshow JS -->
 <script>
-  // Global registry to store slideshow state per slideshow element id
   const slideshows = {};
 
   function initSlides(slideshowId) {
     const container = document.getElementById(slideshowId);
     if (!container) return;
-
     const slides = Array.from(container.getElementsByClassName('mySlides'));
-    slideshows[slideshowId] = {
-      slides: slides,
-      slideIndex: 1
-    };
-
-    // show first slide
+    slideshows[slideshowId] = { slides: slides, slideIndex: 1 };
     showSlides(slideshowId);
   }
 
-  // showSlides: if n is provided (1 or -1 etc) it will move relatively; if omitted it shows current index
   function showSlides(slideshowId, n) {
     const s = slideshows[slideshowId];
     if (!s) return;
-
-    if (typeof n === 'number') {
-      s.slideIndex = s.slideIndex + n;
-    }
-
-    // normalize
+    if (typeof n === 'number') s.slideIndex += n;
     if (s.slideIndex > s.slides.length) s.slideIndex = 1;
     if (s.slideIndex < 1) s.slideIndex = s.slides.length;
-    if (s.slides.length === 0) return;
 
-    // hide all and pause videos
     for (let i = 0; i < s.slides.length; i++) {
       const el = s.slides[i];
       el.style.display = 'none';
       const v = el.querySelector('video');
-      if (v) {
-        v.pause();
-        v.currentTime = 0;
-      }
+      if (v) { v.pause(); v.currentTime = 0; }
     }
-
-    // show current
     s.slides[s.slideIndex - 1].style.display = 'block';
   }
 
-  // single global function used by arrow buttons
   function plusSlides(slideshowId, n) {
     showSlides(slideshowId, n);
   }
 
-  // Initialize all slideshows after page loads
   window.addEventListener('load', function() {
     initSlides('mekele-slideshow');
     initSlides('humera-slideshow');
