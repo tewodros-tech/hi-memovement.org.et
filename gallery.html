@@ -2,30 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HI-ME Movement - Gallery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <!-- Lightbox2 CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HI-ME Movement - Empowering Communities</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: #f8f8f8;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
     }
 
+    /* Navbar */
     header {
-      background: #0077b6;
-      color: white;
+      background: #007acc;
       padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
-    header .logo {
-      font-size: 1.5em;
-      font-weight: bold;
+    header h1 {
+      margin: 0;
+      color: white;
+      font-size: 22px;
+      font-weight: 700;
     }
     nav {
       display: flex;
@@ -40,82 +41,84 @@
     nav a:hover {
       text-decoration: underline;
     }
+    .donate-btn {
+      background: white;
+      color: #007acc;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-weight: 700;
+      text-decoration: none;
+    }
 
+    /* Hero Banner */
     .hero {
       position: relative;
-      height: auto;
-      max-height: 80vh;
-      overflow: hidden;
-      background: black;
-    }
-    .hero img {
       width: 100%;
-      height: auto;
-      object-fit: contain;
-      filter: brightness(60%);
+      height: 70vh;
+      background: url('hero-banner.jpg') no-repeat center center / cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
-    .hero h1 {
+    .hero::before {
+      content: "";
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-content {
+      position: relative;
       z-index: 2;
       color: white;
-      font-size: clamp(2em, 5vw, 3em);
-      font-weight: 700;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 1em 2em;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 90%;
+      max-width: 800px;
+      padding: 20px;
+    }
+    .hero-content h2 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .hero-content p {
+      font-size: 1.2em;
+      line-height: 1.6;
     }
 
+    /* Section container */
+    section {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    section h2 {
+      color: #007acc;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    section p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Gallery Grid */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
-      padding: 40px;
     }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-item:hover {
-      transform: scale(1.02);
-    }
-
-    .gallery-item img {
+    .gallery img {
       width: 100%;
       height: auto;
-      display: block;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       object-fit: cover;
     }
 
-    .caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      padding: 10px;
-      font-size: 0.9em;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .gallery-item:hover .caption {
-      opacity: 1;
-    }
-
     footer {
-      background: #0077b6;
+      background: #007acc;
       color: white;
       text-align: center;
       padding: 15px;
@@ -123,13 +126,11 @@
     }
 
     @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
+      .hero-content h2 {
+        font-size: 1.8em;
       }
-      .hero h1 {
-        font-size: 2em;
-        padding: 0.8em 1.2em;
+      .hero-content p {
+        font-size: 1em;
       }
     }
   </style>
@@ -138,7 +139,7 @@
 
   <!-- Navbar -->
   <header>
-    <div class="logo">HI-ME Movement</div>
+    <h1>HI-ME Movement</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -146,73 +147,32 @@
       <a href="gallery.html">Gallery</a>
       <a href="events.html">Events</a>
       <a href="contact.html">Contact</a>
-      <a href="donate.html"><strong>Donate</strong></a>
+      <a href="#" class="donate-btn">DONATE</a>
     </nav>
   </header>
 
   <!-- Hero Banner -->
   <section class="hero">
-    <img src="mekele-1.jpg" alt="Mekele Project Hero Image" />
-    <h1>Mekele Projects Gallery</h1>
+    <div class="hero-content">
+      <h2>Empowering Communities in Ethiopia</h2>
+      <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
+    </div>
   </section>
 
-  <!-- Gallery Grid -->
-  <section class="gallery">
-    <div class="gallery-item">
-      <a href="mekele-1.jpg" data-lightbox="gallery" data-title="Community gathering around a new structure">
-        <img src="mekele-1.jpg" alt="mekele-1" />
-      </a>
-      <div class="caption">Community gathering around a new structure</div>
+  <!-- Mekele Gallery Section -->
+  <section>
+    <h2>Mekele Projects</h2>
+    <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. HI-ME works in Mekele to provide humanitarian aid, child support, and women’s empowerment programs designed to bring sustainable opportunities to the community.</p>
+    <div class="gallery">
+      <img src="mekele-4.jpg" alt="Mekele 4">
+      <img src="mekele-5.jpg" alt="Mekele 5">
+      <img src="mekele-6.jpg" alt="Mekele 6">
+      <img src="mekele-7.jpg" alt="Mekele 7">
+      <img src="mekele-9.jpg" alt="Mekele 9">
+      <img src="mekele-28.jpg" alt="Mekele 28">
+      <img src="mekele-30.jpg" alt="Mekele 30">
+      <img src="mekele-31.jpg" alt="Mekele 31">
     </div>
-    <div class="gallery-item">
-      <a href="mekele-2.jpg" data-lightbox="gallery" data-title="Youth engagement in Mekele">
-        <img src="mekele-2.jpg" alt="mekele-2" />
-      </a>
-      <div class="caption">Youth engagement in Mekele</div>
-    </div>
-    <div class="gallery-item">
-      <a href="mekele-4.jpg" data-lightbox="gallery" data-title="Volunteers in action">
-        <img src="mekele-4.jpg" alt="mekele-4" />
-      </a>
-      <div class="caption">Volunteers in action</div>
-    </div>
-    <div class="gallery-item">
-      <a href="mekele-5.jpg" data-lightbox="gallery" data-title="Building hope together">
-        <img src="mekele-5.jpg" alt="mekele-5" />
-      </a>
-      <div class="caption">Building hope together</div>
-    </div>
-    <div class="gallery-item">
-      <a href="mekele-6.jpg" data-lightbox="gallery" data-title="Smiles that inspire">
-        <img src="mekele-6.jpg" alt="mekele-6" />
-      </a>
-      <div class="caption">Smiles that inspire</div>
-    </div>
-    <div class="gallery-item">
-      <a href="mekele-7.jpg" data-lightbox="gallery" data-title="Crafting with purpose">
-        <img src="mekele-7.jpg" alt="mekele-7" />
-      </a>
-      <div class="caption">Crafting with purpose</div>
-    </div>
-    <div class="gallery-item">
-      <a href="mekele-8.jpg" data-lightbox="gallery" data-title="Unity in motion">
-        <img src="mekele-8.jpg" alt="mekele-8" />
-      </a>
-      <div class="caption">Unity in motion</div>
-    </div>
-    <div class="gallery-item">
-      <a href="mekele-9.jpg" data-lightbox="gallery" data-title="Shared vision, shared strength">
-        <img src="mekele-9.jpg" alt="mekele-9" />
-      </a>
-      <div class="caption">Shared vision, shared strength</div>
-    </div>
-    <div class="gallery-item">
-      <a href="mekele-10.jpg" data-lightbox="gallery" data-title="Empowering the next generation">
-        <img src="mekele-10.jpg" alt="mekele-10" />
-      </a>
-      <div class="caption">Empowering the next generation</div>
-    </div>
-    <!-- Add more image items as needed -->
   </section>
 
   <!-- Footer -->
@@ -220,7 +180,5 @@
     <p>&copy; 2025 HI-ME Movement. All Rights Reserved.</p>
   </footer>
 
-  <!-- Lightbox2 JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 </body>
 </html>
