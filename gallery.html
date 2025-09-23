@@ -1,63 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HI-ME Movement - Gallery</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  body { font-family: 'Montserrat', sans-serif; margin: 0; background: #f9f9f9; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HI-ME Movement - Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+    }
 
-  /* Navbar */
-  header {
-    background: #007acc;
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  header h1 { color: white; margin: 0; font-size: 22px; font-weight: 700; }
-  nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: 600; }
-  nav a:hover { text-decoration: underline; }
-  .donate-btn { background: white; color: #007acc; padding: 8px 16px; border-radius: 5px; font-weight: 700; text-decoration: none; }
+    /* Navbar */
+    header {
+      background: #007acc;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      color: white;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover { text-decoration: underline; }
+    .donate-btn {
+      background: white;
+      color: #007acc;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-weight: 700;
+      text-decoration: none;
+    }
 
-  /* Sections */
-  section {
-    max-width: 1100px;
-    margin: 50px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  }
-  section h2 { color: #007acc; font-size: 28px; margin-bottom: 10px; }
-  section p { color: #333; font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
+    /* Section container */
+    section {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    section h2 {
+      color: #007acc;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    section p {
+      color: #333;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
 
-  /* Slideshow container */
-  .slideshow-container { position: relative; max-width: 100%; margin: auto; }
-  .mySlides { display: none; text-align: center; }
-  .mySlides img, .mySlides video {
-    width: 100%; max-height: 500px; object-fit: cover; border-radius: 8px;
-  }
+    /* Slideshow */
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+    }
+    .mySlides {
+      display: none;
+      text-align: center;
+    }
+    .mySlides img, .mySlides video {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
-  /* Arrows */
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 22px;
-    background: rgba(0,0,0,0.5);
-    border-radius: 50%;
-    user-select: none;
-    transform: translateY(-50%);
-  }
-  .prev { left: 20px; }
-  .next { right: 20px; }
-  .prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
-</style>
+    /* Controls (arrows) */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 22px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      user-select: none;
+      transition: 0.3s;
+      transform: translateY(-50%);
+    }
+    .prev { left: 20px; }
+    .next { right: 20px; }
+    .prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
+  </style>
 </head>
 <body>
 
@@ -77,7 +118,8 @@
 <!-- Mekele Section -->
 <section>
   <h2>Mekele</h2>
-  <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. HI-ME works in Mekele to provide humanitarian aid, child support, and women’s empowerment programs.</p>
+  <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. HI-ME works in Mekele to provide humanitarian aid, child support, and women’s empowerment programs designed to bring sustainable opportunities to the community.</p>
+  
   <div class="slideshow-container" id="mekele-slideshow">
     <!-- Videos -->
     <div class="mySlides"><video controls><source src="mekele-3.MOV" type="video/mp4"></video></div>
@@ -87,42 +129,19 @@
     <div class="mySlides"><video controls><source src="mekele-26.MOV" type="video/mp4"></video></div>
     <div class="mySlides"><video controls><source src="mekele-27.MP4" type="video/mp4"></video></div>
 
-    <!-- Images 1–31 sequentially -->
-    <div class="mySlides"><img src="mekele-1.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-2.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-3.jpg" alt="Mekele"></div>
+    <!-- Images -->
     <div class="mySlides"><img src="mekele-4.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-5.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-6.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-7.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-8.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-9.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-10.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-11.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-12.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-13.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-14.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-15.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-16.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-17.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-18.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-19.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-20.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-21.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-22.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-23.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-24.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-25.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-26.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-27.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-28.jpg" alt="Mekele"></div>
-    <div class="mySlides"><img src="mekele-29.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-30.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-31.jpg" alt="Mekele"></div>
 
-    <!-- Navigation Arrows -->
-    <a class="prev" onclick="plusSlides('mekele-slideshow', -1)">&#10094;</a>
-    <a class="next" onclick="plusSlides('mekele-slideshow', 1)">&#10095;</a>
+    <!-- Controls (pass the actual slideshow element id) -->
+    <a class="prev" onclick="plusSlides('mekele-slideshow', -1)" aria-label="Previous">&#10094;</a>
+    <a class="next" onclick="plusSlides('mekele-slideshow', 1)" aria-label="Next">&#10095;</a>
   </div>
 </section>
 
@@ -137,8 +156,9 @@
     <div class="mySlides"><img src="humera-4.jpg" alt="Humera"></div>
     <div class="mySlides"><img src="humera-5.jpg" alt="Humera"></div>
     <div class="mySlides"><img src="humera-6.jpg" alt="Humera"></div>
-    <a class="prev" onclick="plusSlides('humera-slideshow', -1)">&#10094;</a>
-    <a class="next" onclick="plusSlides('humera-slideshow', 1)">&#10095;</a>
+
+    <a class="prev" onclick="plusSlides('humera-slideshow', -1)" aria-label="Previous">&#10094;</a>
+    <a class="next" onclick="plusSlides('humera-slideshow', 1)" aria-label="Next">&#10095;</a>
   </div>
 </section>
 
@@ -153,56 +173,94 @@
     <div class="mySlides"><img src="hawasa-4.jpg" alt="Hawassa"></div>
     <div class="mySlides"><img src="hawasa-5.jpg" alt="Hawassa"></div>
     <div class="mySlides"><img src="hawasa-6.jpg" alt="Hawassa"></div>
-    <a class="prev" onclick="plusSlides('hawassa-slideshow', -1)">&#10094;</a>
-    <a class="next" onclick="plusSlides('hawassa-slideshow', 1)">&#10095;</a>
+
+    <a class="prev" onclick="plusSlides('hawassa-slideshow', -1)" aria-label="Previous">&#10094;</a>
+    <a class="next" onclick="plusSlides('hawassa-slideshow', 1)" aria-label="Next">&#10095;</a>
   </div>
 </section>
 
-<!-- Gerji Shoeshine Section -->
+<!-- Gerji Shoeshine -->
 <section>
   <h2>Gerji Shoeshine Boy</h2>
-  <p>In Gerji, Addis Ababa, a young shoeshine boy inspired us. HI-ME aims to provide education and vocational training to children like him.</p>
+  <p>In Gerji, Addis Ababa, a young shoeshine boy inspired us. HI-ME aims to provide education and vocational training to children like him, helping them build a brighter future.</p>
   <div class="slideshow-container" id="gerji-slideshow">
     <div class="mySlides"><video controls><source src="Shoeshine.MOV" type="video/mp4"></video></div>
+    <!-- no arrows because single slide -->
   </div>
 </section>
 
-<!-- Virginia Section -->
+<!-- Virginia -->
 <section>
   <h2>Virginia</h2>
-  <p>Virginia, USA, is home to a strong diaspora community that partners with HI-ME Movement to support projects in Ethiopia.</p>
+  <p>Virginia, USA, is home to a strong diaspora community that partners with HI-ME Movement to support projects in Ethiopia. Events and fundraisers here sustain the mission back home.</p>
   <div class="slideshow-container" id="virginia-slideshow">
     <div class="mySlides"><video controls><source src="IMG_9347.MOV" type="video/mp4"></video></div>
+    <!-- no arrows because single slide -->
   </div>
 </section>
 
-<!-- JavaScript -->
+<!-- Fixed slideshow JavaScript -->
 <script>
-/* Global object to store slide index for each slideshow */
-let slideIndexes = {};
+  // Global registry to store slideshow state per slideshow element id
+  const slideshows = {};
 
-/* Initialize slideshow */
-function initSlides(slideshowId) {
-  slideIndexes[slideshowId] = 1; // start at first slide
-  showSlides(slideIndexes[slideshowId], slideshowId);
-}
+  function initSlides(slideshowId) {
+    const container = document.getElementById(slideshowId);
+    if (!container) return;
 
-/* Arrow navigation function */
-function plusSlides(slideshowId, n) {
-  showSlides(slideIndexes[slideshowId] += n, slideshowId);
-}
+    const slides = Array.from(container.getElementsByClassName('mySlides'));
+    slideshows[slideshowId] = {
+      slides: slides,
+      slideIndex: 1
+    };
 
-/* Show slide function */
-function showSlides(n, slideshowId) {
-  let slides = document.querySelectorAll(`#${slideshowId} .mySlides`);
-  if (!slides.length) return;
+    // show first slide
+    showSlides(slideshowId);
+  }
 
-  // Wrap around
-  if (n > slides.length) slideIndexes[slideshowId] = 1;
-  if (n < 1) slideIndexes[slideshowId] = slides.length;
+  // showSlides: if n is provided (1 or -1 etc) it will move relatively; if omitted it shows current index
+  function showSlides(slideshowId, n) {
+    const s = slideshows[slideshowId];
+    if (!s) return;
 
-  // Hide all slides and pause videos
-  slides.forEach(slide => {
-    slide.style.display = "none";
-    let video = slide.querySelector("video");
-    if (video)
+    if (typeof n === 'number') {
+      s.slideIndex = s.slideIndex + n;
+    }
+
+    // normalize
+    if (s.slideIndex > s.slides.length) s.slideIndex = 1;
+    if (s.slideIndex < 1) s.slideIndex = s.slides.length;
+    if (s.slides.length === 0) return;
+
+    // hide all and pause videos
+    for (let i = 0; i < s.slides.length; i++) {
+      const el = s.slides[i];
+      el.style.display = 'none';
+      const v = el.querySelector('video');
+      if (v) {
+        v.pause();
+        v.currentTime = 0;
+      }
+    }
+
+    // show current
+    s.slides[s.slideIndex - 1].style.display = 'block';
+  }
+
+  // single global function used by arrow buttons
+  function plusSlides(slideshowId, n) {
+    showSlides(slideshowId, n);
+  }
+
+  // Initialize all slideshows after page loads
+  window.addEventListener('load', function() {
+    initSlides('mekele-slideshow');
+    initSlides('humera-slideshow');
+    initSlides('hawassa-slideshow');
+    initSlides('gerji-slideshow');
+    initSlides('virginia-slideshow');
+  });
+</script>
+
+</body>
+</html>
