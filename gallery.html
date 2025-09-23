@@ -12,6 +12,20 @@
       background: #f4f4f4;
       color: #333;
     }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+    }
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.1em;
+    }
     h2 {
       text-align: center;
       margin: 30px 0 15px;
@@ -41,21 +55,16 @@
       cursor: pointer;
       position: absolute;
       top: 50%;
-      width: auto;
       padding: 12px;
-      margin-top: -22px;
       color: #fff;
       font-weight: bold;
       font-size: 24px;
       transition: 0.3s;
-      border-radius: 0 4px 4px 0;
+      border-radius: 3px;
       user-select: none;
       background: rgba(0,0,0,0.4);
     }
-    .next {
-      right: 0;
-      border-radius: 4px 0 0 4px;
-    }
+    .next { right: 0; }
     .prev:hover, .next:hover {
       background: rgba(0,0,0,0.8);
     }
@@ -63,11 +72,17 @@
 </head>
 <body>
 
+  <header>
+    <h1>HI-ME Movement Gallery</h1>
+    <p>Explore our journey through images and videos from different cities</p>
+  </header>
+
+  <!-- Mekele -->
   <h2>Mekele</h2>
   <div class="slideshow-container" id="mekele-slideshow">
     <div class="mySlides"><img src="mekele-1.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-2.jpg" alt="Mekele"></div>
-    <div class="mySlides"><video controls><source src="mekele-3.MOV" type="video/quicktime"></video></div>
+    <div class="mySlides"><video controls playsinline><source src="mekele-3.MOV" type="video/quicktime"></video></div>
     <div class="mySlides"><img src="mekele-4.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-5.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-6.jpg" alt="Mekele"></div>
@@ -82,22 +97,22 @@
     <div class="mySlides"><img src="mekele-15.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-16.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-17.jpg" alt="Mekele"></div>
-    <div class="mySlides"><video controls><source src="mekele-18.MOV" type="video/quicktime"></video></div>
-    <div class="mySlides"><video controls><source src="mekele-19.MOV" type="video/quicktime"></video></div>
-    <div class="mySlides"><video controls><source src="mekele-20.MOV" type="video/quicktime"></video></div>
-    <div class="mySlides"><video controls><source src="mekele-21.MOV" type="video/quicktime"></video></div>
+    <div class="mySlides"><video controls playsinline><source src="mekele-18.MOV" type="video/quicktime"></video></div>
+    <div class="mySlides"><video controls playsinline><source src="mekele-19.MOV" type="video/quicktime"></video></div>
+    <div class="mySlides"><video controls playsinline><source src="mekele-20.MOV" type="video/quicktime"></video></div>
+    <div class="mySlides"><video controls playsinline><source src="mekele-21.MOV" type="video/quicktime"></video></div>
     <div class="mySlides"><img src="mekele-22.jpg" alt="Mekele"></div>
     <div class="mySlides"><img src="mekele-23.jpg" alt="Mekele"></div>
-    <div class="mySlides"><video controls><source src="mekele-24.MOV" type="video/quicktime"></video></div>
+    <div class="mySlides"><video controls playsinline><source src="mekele-24.MOV" type="video/quicktime"></video></div>
     <div class="mySlides"><img src="mekele-25.jpg" alt="Mekele"></div>
-    <div class="mySlides"><video controls><source src="mekele-26.MOV" type="video/quicktime"></video></div>
-    <div class="mySlides"><video controls><source src="mekele-27.MP4" type="video/mp4"></video></div>
+    <div class="mySlides"><video controls playsinline><source src="mekele-26.MOV" type="video/quicktime"></video></div>
+    <div class="mySlides"><video controls playsinline><source src="mekele-27.MP4" type="video/mp4"></video></div>
     <div class="mySlides"><img src="mekele-28.jpg" alt="Mekele"></div>
-
     <a class="prev" onclick="plusSlides('mekele-slideshow', -1)">&#10094;</a>
     <a class="next" onclick="plusSlides('mekele-slideshow', 1)">&#10095;</a>
   </div>
 
+  <!-- Humera -->
   <h2>Humera</h2>
   <div class="slideshow-container" id="humera-slideshow">
     <div class="mySlides"><img src="humera-1.jpg" alt="Humera"></div>
@@ -108,6 +123,7 @@
     <a class="next" onclick="plusSlides('humera-slideshow', 1)">&#10095;</a>
   </div>
 
+  <!-- Hawassa -->
   <h2>Hawassa</h2>
   <div class="slideshow-container" id="hawassa-slideshow">
     <div class="mySlides"><img src="hawasa-1.jpg" alt="Hawassa"></div>
@@ -122,17 +138,17 @@
 
   <script>
     function plusSlides(slideshowId, n) {
-      const slideshows = document.querySelectorAll(`#${slideshowId} .mySlides`);
+      const slides = document.querySelectorAll(`#${slideshowId} .mySlides`);
       let current = -1;
-      slideshows.forEach((slide, i) => {
+      slides.forEach((slide, i) => {
         if (slide.style.display === "block") current = i;
         slide.style.display = "none";
       });
       if (current === -1) current = 0;
       let next = current + n;
-      if (next >= slideshows.length) next = 0;
-      if (next < 0) next = slideshows.length - 1;
-      slideshows[next].style.display = "block";
+      if (next >= slides.length) next = 0;
+      if (next < 0) next = slides.length - 1;
+      slides[next].style.display = "block";
     }
 
     function initSlideshows() {
@@ -142,7 +158,6 @@
         if (slides.length > 0) slides[0].style.display = "block";
       });
     }
-
     window.onload = initSlideshows;
   </script>
 
