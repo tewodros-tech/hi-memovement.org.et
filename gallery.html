@@ -1,23 +1,158 @@
-.hero {
-  position: relative;
-  height: 60vh;
-  overflow: hidden;
-}
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* change to contain if you don't want crop */
-  filter: brightness(60%);
-}
-.hero h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 3em;
-  font-weight: 700;
-  background: rgba(0,0,0,0.5);
-  padding: 20px 40px;
-  border-radius: 10px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HI-ME Movement - Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base styles */
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f8f8f8;
+    }
+
+    /* Header styles */
+    header {
+      background: #0077b6;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero section with improved layering and responsiveness */
+    .hero {
+      position: relative;
+      height: 60vh;
+      min-height: 300px; /* Ensures visibility on smaller screens */
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('mekele-1.jpg') no-repeat center center / cover;
+      filter: brightness(60%);
+      z-index: 1;
+    }
+    .hero h1 {
+      position: relative;
+      z-index: 2;
+      color: white;
+      font-size: clamp(2em, 5vw, 3em); /* Responsive font size */
+      font-weight: 700;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1em 2em;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    /* Gallery grid layout */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      padding: 40px;
+    }
+    .gallery img,
+    .gallery video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      object-fit: cover;
+    }
+
+    /* Footer styles */
+    footer {
+      background: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">HI-ME Movement</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+      <a href="donate.html"><strong>Donate</strong></a>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <h1>Mekele Projects Gallery</h1>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="gallery">
+    <img src="mekele-1.jpg" alt="mekele-1">
+    <img src="mekele-2.jpg" alt="mekele-2">
+    <video controls><source src="mekele-3.mov" type="video/mp4"></video>
+    <img src="mekele-4.jpg" alt="mekele-4">
+    <img src="mekele-5.jpg" alt="mekele-5">
+    <img src="mekele-6.jpg" alt="mekele-6">
+    <img src="mekele-7.jpg" alt="mekele-7">
+    <img src="mekele-8.jpg" alt="mekele-8">
+    <img src="mekele-9.jpg" alt="mekele-9">
+    <img src="mekele-10.jpg" alt="mekele-10">
+    <img src="mekele-11.jpg" alt="mekele-11">
+    <img src="mekele-12.jpg" alt="mekele-12">
+    <img src="mekele-13.jpg" alt="mekele-13">
+    <img src="mekele-14.jpg" alt="mekele-14">
+    <img src="mekele-15.jpg" alt="mekele-15">
+    <img src="mekele-16.jpg" alt="mekele-16">
+    <img src="mekele-17.jpg" alt="mekele-17">
+    <video controls><source src="mekele-18.mov" type="video/mp4"></video>
+    <video controls><source src="mekele-19.mov" type="video/mp4"></video>
+    <video controls><source src="mekele-20.MOV" type="video/mp4"></video>
+    <video controls><source src="mekele-21.MOV" type="video/mp4"></video>
+    <img src="mekele-22.jpg" alt="mekele-22">
+    <img src="mekele-23.jpg" alt="mekele-23">
+    <video controls><source src="mekele-24.MOV" type="video/mp4"></video>
+    <img src="mekele-25.jpg" alt="mekele-25">
+    <video controls><source src="mekele-26.MOV" type="video/mp4"></video>
+    <video controls><source src="mekele-27.MP4" type="video/mp4"></video>
+    <img src="mekele-28.jpg" alt="mekele-28">
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 HI-ME Movement. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
