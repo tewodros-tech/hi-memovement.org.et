@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HI-ME Movement - Empowering Communities</title>
+  <title>HI-ME Movement - Gallery</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -20,7 +20,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      position: relative;
     }
     header h1 {
       margin: 0;
@@ -28,11 +28,21 @@
       font-size: 20px;
       font-weight: 700;
     }
+
+    /* Hamburger button */
+    .menu-toggle {
+      font-size: 24px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none; /* hidden on desktop */
+    }
+
+    /* Nav menu default */
     nav {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
+      gap: 15px;
     }
     nav a {
       color: white;
@@ -51,6 +61,30 @@
       font-weight: 700;
       text-decoration: none;
       font-size: 14px;
+    }
+
+    /* Mobile version */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block; /* show burger */
+      }
+      nav {
+        display: none; /* hide initially */
+        flex-direction: column;
+        background: #007acc;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 15px 20px;
+      }
+      nav a {
+        padding: 10px 0;
+        font-size: 16px;
+      }
+      nav.show {
+        display: flex; /* show when active */
+      }
     }
 
     /* Hero Banner */
@@ -74,115 +108,66 @@
       position: relative;
       z-index: 2;
       color: white;
-      max-width: 90%;
-      padding: 10px;
+      max-width: 800px;
+      padding: 20px;
     }
     .hero-content h2 {
-      font-size: 1.8em;
+      font-size: 2em;
       margin-bottom: 10px;
     }
     .hero-content p {
-      font-size: 1em;
-      line-height: 1.5;
+      font-size: 1.1em;
+      line-height: 1.6;
     }
 
     /* Section container */
     section {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 15px;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
       background: white;
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
     section h2 {
       color: #007acc;
-      font-size: 22px;
+      font-size: 24px;
       margin-bottom: 10px;
     }
     section p {
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.6;
       margin-bottom: 20px;
     }
 
-    /* Slideshow */
-    .slideshow-container {
-      position: relative;
-      max-width: 100%;
-      margin: auto;
+    /* Gallery Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 15px;
     }
-    .mySlides {
-      display: none;
-    }
-    .mySlides img {
+    .gallery img {
       width: 100%;
+      height: auto;
       border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       object-fit: cover;
-      max-height: 400px;
-    }
-    /* Buttons */
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      padding: 12px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 16px;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-      background: rgba(0,0,0,0.5);
-    }
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-    }
-    .prev:hover, .next:hover {
-      background: rgba(0,0,0,0.8);
     }
 
     footer {
       background: #007acc;
       color: white;
       text-align: center;
-      padding: 12px;
-      margin-top: 30px;
-      font-size: 14px;
+      padding: 15px;
+      margin-top: 40px;
     }
 
-    /* Mobile adjustments */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        flex-direction: column;
-        width: 100%;
-      }
-      .hero {
-        height: 50vh;
-      }
+    @media (max-width: 600px) {
       .hero-content h2 {
-        font-size: 1.5em;
+        font-size: 1.6em;
       }
       .hero-content p {
-        font-size: 0.9em;
-      }
-      section {
-        margin: 20px;
-        padding: 10px;
-      }
-      section h2 {
-        font-size: 18px;
-      }
-      section p {
-        font-size: 13px;
-      }
-      .mySlides img {
-        max-height: 250px;
+        font-size: 1em;
       }
     }
   </style>
@@ -192,7 +177,8 @@
   <!-- Navbar -->
   <header>
     <h1>HI-ME Movement</h1>
-    <nav>
+    <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+    <nav id="nav-menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="programs.html">Programs</a>
@@ -211,103 +197,81 @@
     </div>
   </section>
 
-  <!-- ================= Cities Sections with Auto-Play Slideshows ================= -->
-
-  <!-- Mekele -->
+  <!-- Mekele Section -->
   <section>
     <h2>Mekele Projects</h2>
-    <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. HI-ME works in Mekele to provide humanitarian aid, child support, and women’s empowerment programs.</p>
-    <div class="slideshow-container" id="mekele-slideshow">
-      <div class="mySlides"><img src="mekele-4.jpg" alt="Mekele 4"></div>
-      <div class="mySlides"><img src="mekele-5.jpg" alt="Mekele 5"></div>
-      <div class="mySlides"><img src="mekele-6.jpg" alt="Mekele 6"></div>
-      <div class="mySlides"><img src="mekele-7.jpg" alt="Mekele 7"></div>
-      <div class="mySlides"><img src="mekele-9.jpg" alt="Mekele 9"></div>
-      <div class="mySlides"><img src="mekele-28.jpg" alt="Mekele 28"></div>
-      <div class="mySlides"><img src="mekele-30.jpg" alt="Mekele 30"></div>
-      <div class="mySlides"><img src="mekele-31.jpg" alt="Mekele 31"></div>
-      <a class="prev" onclick="plusSlides(-1, 'mekele')">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 'mekele')">&#10095;</a>
+    <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. HI-ME works in Mekele to provide humanitarian aid, child support, and women’s empowerment programs designed to bring sustainable opportunities to the community.</p>
+    <div class="gallery">
+      <img src="mekele-4.jpg" alt="Mekele 4">
+      <img src="mekele-5.jpg" alt="Mekele 5">
+      <img src="mekele-6.jpg" alt="Mekele 6">
+      <img src="mekele-7.jpg" alt="Mekele 7">
     </div>
   </section>
 
-  <!-- Hawassa -->
+  <!-- Hawassa Section -->
   <section>
     <h2>Hawassa Projects</h2>
     <p>Hawassa, known for its beautiful lake, is a hub of education and culture. HI-ME supports children’s education, environmental conservation, and youth skill development in Hawassa.</p>
-    <div class="slideshow-container" id="hawassa-slideshow">
-      <div class="mySlides"><img src="hawassa-1.jpg" alt="Hawassa 1"></div>
-      <div class="mySlides"><img src="hawassa-2.jpg" alt="Hawassa 2"></div>
-      <div class="mySlides"><img src="hawassa-3.jpg" alt="Hawassa 3"></div>
-      <div class="mySlides"><img src="hawassa-4.jpg" alt="Hawassa 4"></div>
-      <a class="prev" onclick="plusSlides(-1, 'hawassa')">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 'hawassa')">&#10095;</a>
+    <div class="gallery">
+      <img src="hawassa-1.jpg" alt="Hawassa 1">
+      <img src="hawassa-2.jpg" alt="Hawassa 2">
+      <img src="hawassa-3.jpg" alt="Hawassa 3">
     </div>
   </section>
 
-  <!-- Axum -->
+  <!-- Axum Section -->
   <section>
     <h2>Axum Projects</h2>
     <p>Axum, a UNESCO World Heritage site, is a city of history and tradition. HI-ME works on cultural preservation, community health programs, and women’s empowerment initiatives.</p>
-    <div class="slideshow-container" id="axum-slideshow">
-      <div class="mySlides"><img src="axum-1.jpg" alt="Axum 1"></div>
-      <div class="mySlides"><img src="axum-2.jpg" alt="Axum 2"></div>
-      <div class="mySlides"><img src="axum-3.jpg" alt="Axum 3"></div>
-      <a class="prev" onclick="plusSlides(-1, 'axum')">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 'axum')">&#10095;</a>
+    <div class="gallery">
+      <img src="axum-1.jpg" alt="Axum 1">
+      <img src="axum-2.jpg" alt="Axum 2">
+      <img src="axum-3.jpg" alt="Axum 3">
     </div>
   </section>
 
-  <!-- Arba Minch -->
+  <!-- Arba Minch Section -->
   <section>
     <h2>Arba Minch Projects</h2>
     <p>Arba Minch, surrounded by lakes and national parks, is rich in biodiversity. HI-ME focuses on sustainable farming, health clinics, and access to clean water for rural communities.</p>
-    <div class="slideshow-container" id="arbaminch-slideshow">
-      <div class="mySlides"><img src="arbaminch-1.jpg" alt="Arba Minch 1"></div>
-      <div class="mySlides"><img src="arbaminch-2.jpg" alt="Arba Minch 2"></div>
-      <div class="mySlides"><img src="arbaminch-3.jpg" alt="Arba Minch 3"></div>
-      <a class="prev" onclick="plusSlides(-1, 'arbaminch')">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 'arbaminch')">&#10095;</a>
+    <div class="gallery">
+      <img src="arbaminch-1.jpg" alt="Arba Minch 1">
+      <img src="arbaminch-2.jpg" alt="Arba Minch 2">
+      <img src="arbaminch-3.jpg" alt="Arba Minch 3">
     </div>
   </section>
 
-  <!-- Addis Ababa -->
+  <!-- Addis Ababa Section -->
   <section>
     <h2>Addis Ababa Projects</h2>
     <p>Addis Ababa, Ethiopia’s capital, is the heart of national development. HI-ME supports street children, vocational training, and community-driven development programs.</p>
-    <div class="slideshow-container" id="addis-slideshow">
-      <div class="mySlides"><img src="addis-1.jpg" alt="Addis Ababa 1"></div>
-      <div class="mySlides"><img src="addis-2.jpg" alt="Addis Ababa 2"></div>
-      <div class="mySlides"><img src="addis-3.jpg" alt="Addis Ababa 3"></div>
-      <div class="mySlides"><img src="addis-4.jpg" alt="Addis Ababa 4"></div>
-      <a class="prev" onclick="plusSlides(-1, 'addis')">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 'addis')">&#10095;</a>
+    <div class="gallery">
+      <img src="addis-1.jpg" alt="Addis Ababa 1">
+      <img src="addis-2.jpg" alt="Addis Ababa 2">
+      <img src="addis-3.jpg" alt="Addis Ababa 3">
     </div>
   </section>
 
-  <!-- Dire Dawa -->
+  <!-- Dire Dawa Section -->
   <section>
     <h2>Dire Dawa Projects</h2>
     <p>Dire Dawa is a diverse city with rich cultural heritage. HI-ME focuses on youth employment, small business support, and health outreach programs in the region.</p>
-    <div class="slideshow-container" id="diredawa-slideshow">
-      <div class="mySlides"><img src="diredawa-1.jpg" alt="Dire Dawa 1"></div>
-      <div class="mySlides"><img src="diredawa-2.jpg" alt="Dire Dawa 2"></div>
-      <div class="mySlides"><img src="diredawa-3.jpg" alt="Dire Dawa 3"></div>
-      <a class="prev" onclick="plusSlides(-1, 'diredawa')">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 'diredawa')">&#10095;</a>
+    <div class="gallery">
+      <img src="diredawa-1.jpg" alt="Dire Dawa 1">
+      <img src="diredawa-2.jpg" alt="Dire Dawa 2">
+      <img src="diredawa-3.jpg" alt="Dire Dawa 3">
     </div>
   </section>
 
-  <!-- Lalibela -->
+  <!-- Lalibela Section -->
   <section>
     <h2>Lalibela Projects</h2>
     <p>Lalibela, famous for its rock-hewn churches, is a spiritual and historical landmark. HI-ME supports tourism-driven local businesses, child sponsorship, and community healthcare initiatives.</p>
-    <div class="slideshow-container" id="lalibela-slideshow">
-      <div class="mySlides"><img src="lalibela-1.jpg" alt="Lalibela 1"></div>
-      <div class="mySlides"><img src="lalibela-2.jpg" alt="Lalibela 2"></div>
-      <div class="mySlides"><img src="lalibela-3.jpg" alt="Lalibela 3"></div>
-      <a class="prev" onclick="plusSlides(-1, 'lalibela')">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 'lalibela')">&#10095;</a>
+    <div class="gallery">
+      <img src="lalibela-1.jpg" alt="Lalibela 1">
+      <img src="lalibela-2.jpg" alt="Lalibela 2">
+      <img src="lalibela-3.jpg" alt="Lalibela 3">
     </div>
   </section>
 
@@ -316,42 +280,10 @@
     <p>&copy; 2025 HI-ME Movement. All Rights Reserved.</p>
   </footer>
 
-  <!-- Script for slideshows -->
   <script>
-    const slideshows = {};
-
-    function initSlideshows() {
-      const containers = document.querySelectorAll('.slideshow-container');
-      containers.forEach(container => {
-        const id = container.id;
-        slideshows[id] = { index: 1, slides: container.getElementsByClassName('mySlides') };
-        showSlides(1, id);
-
-        // Auto-play every 5 seconds
-        setInterval(() => {
-          plusSlides(1, id);
-        }, 5000);
-      });
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('show');
     }
-
-    function plusSlides(n, id) {
-      showSlides(slideshows[id].index += n, id);
-    }
-
-    function showSlides(n, id) {
-      const slideshow = slideshows[id];
-      if (!slideshow) return;
-      const slides = slideshow.slides;
-      if (n > slides.length) { slideshow.index = 1 }
-      if (n < 1) { slideshow.index = slides.length }
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[slideshow.index - 1].style.display = "block";
-    }
-
-    window.onload = initSlideshows;
   </script>
-
 </body>
 </html>
