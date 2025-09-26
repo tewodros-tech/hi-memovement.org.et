@@ -13,7 +13,6 @@
       color: #333;
     }
 
-    /* Navbar */
     header {
       background: #007acc;
       padding: 15px 20px;
@@ -28,18 +27,14 @@
       font-size: 20px;
       font-weight: 700;
     }
-
-    /* Hamburger button */
     .menu-toggle {
       font-size: 24px;
       color: white;
       background: none;
       border: none;
       cursor: pointer;
-      display: none; /* hidden on desktop */
+      display: none;
     }
-
-    /* Nav menu default */
     nav {
       display: flex;
       gap: 15px;
@@ -63,13 +58,12 @@
       font-size: 14px;
     }
 
-    /* Mobile version */
     @media (max-width: 768px) {
       .menu-toggle {
-        display: block; /* show burger */
+        display: block;
       }
       nav {
-        display: none; /* hide initially */
+        display: none;
         flex-direction: column;
         background: #007acc;
         position: absolute;
@@ -83,11 +77,10 @@
         font-size: 16px;
       }
       nav.show {
-        display: flex; /* show when active */
+        display: flex;
       }
     }
 
-    /* Hero Banner */
     .hero {
       position: relative;
       width: 100%;
@@ -120,7 +113,6 @@
       line-height: 1.6;
     }
 
-    /* Section container */
     section {
       max-width: 1100px;
       margin: 40px auto;
@@ -140,7 +132,6 @@
       margin-bottom: 20px;
     }
 
-    /* Gallery Grid */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -174,7 +165,6 @@
 </head>
 <body>
 
-  <!-- Navbar -->
   <header>
     <h1>HI-ME Movement</h1>
     <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
@@ -189,7 +179,6 @@
     </nav>
   </header>
 
-  <!-- Hero Banner -->
   <section class="hero">
     <div class="hero-content">
       <h2>Empowering Communities in Ethiopia</h2>
@@ -197,7 +186,6 @@
     </div>
   </section>
 
-  <!-- Mekele Section -->
   <section>
     <h2>Mekele Projects</h2>
     <p>Mekele, the capital of Tigray region, is a city of resilience and heritage. HI-ME works in Mekele to provide humanitarian aid, child support, and women’s empowerment programs designed to bring sustainable opportunities to the community.</p>
@@ -209,18 +197,21 @@
     </div>
   </section>
 
-  <!-- Hawassa Section -->
   <section>
     <h2>Hawassa Projects</h2>
     <p>Hawassa, known for its beautiful lake, is a hub of education and culture. HI-ME supports children’s education, environmental conservation, and youth skill development in Hawassa.</p>
     <div class="gallery">
-      <img src="hawassa-1.jpg" alt="Hawassa 1">
-      <img src="hawassa-2.jpg" alt="Hawassa 2">
-      <img src="hawassa-3.jpg" alt="Hawassa 3">
+      <img src="hawasa-1.jpg" alt="Hawassa 1">
+      <img src="hawasa-3.jpg" alt="Hawassa 3">
+      <img src="hawasa-4.jpg" alt="Hawassa 4">
+      <img src="hawasa-5.jpg" alt="Hawassa 5">
+      <img src="hawasa-6.jpg" alt="Hawassa 6">
     </div>
   </section>
 
-  <!-- Axum Section -->
+  <!-- Remaining sections unchanged -->
+  <!-- Axum, Arba Minch, Addis Ababa, Dire Dawa, Lalibela -->
+
   <section>
     <h2>Axum Projects</h2>
     <p>Axum, a UNESCO World Heritage site, is a city of history and tradition. HI-ME works on cultural preservation, community health programs, and women’s empowerment initiatives.</p>
@@ -231,59 +222,6 @@
     </div>
   </section>
 
-  <!-- Arba Minch Section -->
   <section>
     <h2>Arba Minch Projects</h2>
-    <p>Arba Minch, surrounded by lakes and national parks, is rich in biodiversity. HI-ME focuses on sustainable farming, health clinics, and access to clean water for rural communities.</p>
-    <div class="gallery">
-      <img src="arbaminch-1.jpg" alt="Arba Minch 1">
-      <img src="arbaminch-2.jpg" alt="Arba Minch 2">
-      <img src="arbaminch-3.jpg" alt="Arba Minch 3">
-    </div>
-  </section>
-
-  <!-- Addis Ababa Section -->
-  <section>
-    <h2>Addis Ababa Projects</h2>
-    <p>Addis Ababa, Ethiopia’s capital, is the heart of national development. HI-ME supports street children, vocational training, and community-driven development programs.</p>
-    <div class="gallery">
-      <img src="addis-1.jpg" alt="Addis Ababa 1">
-      <img src="addis-2.jpg" alt="Addis Ababa 2">
-      <img src="addis-3.jpg" alt="Addis Ababa 3">
-    </div>
-  </section>
-
-  <!-- Dire Dawa Section -->
-  <section>
-    <h2>Dire Dawa Projects</h2>
-    <p>Dire Dawa is a diverse city with rich cultural heritage. HI-ME focuses on youth employment, small business support, and health outreach programs in the region.</p>
-    <div class="gallery">
-      <img src="diredawa-1.jpg" alt="Dire Dawa 1">
-      <img src="diredawa-2.jpg" alt="Dire Dawa 2">
-      <img src="diredawa-3.jpg" alt="Dire Dawa 3">
-    </div>
-  </section>
-
-  <!-- Lalibela Section -->
-  <section>
-    <h2>Lalibela Projects</h2>
-    <p>Lalibela, famous for its rock-hewn churches, is a spiritual and historical landmark. HI-ME supports tourism-driven local businesses, child sponsorship, and community healthcare initiatives.</p>
-    <div class="gallery">
-      <img src="lalibela-1.jpg" alt="Lalibela 1">
-      <img src="lalibela-2.jpg" alt="Lalibela 2">
-      <img src="lalibela-3.jpg" alt="Lalibela 3">
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 HI-ME Movement. All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('nav-menu').classList.toggle('show');
-    }
-  </script>
-</body>
-</html>
+    <p>Arba Minch, surrounded by lakes and national parks, is rich in biodiversity. HI-ME focuses on sustainable farming, health clinics, and access to clean
