@@ -20,10 +20,47 @@ a { text-decoration:none; color:inherit; }
 .donate-btn:hover { background:#495057; }
 .menu-toggle { display:none; font-size:1.5rem; background:none; border:none; cursor:pointer; color:white; }
 
-/* Hero */
-.hero { background:url('photo_10.jpg') center/cover no-repeat; height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; text-align:center; position:relative; }
-.hero::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); }
-.hero h1, .hero p { position:relative; z-index:1; }
+/* Hero Section with Sliding Background */
+.hero {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+.hero-slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 100%;
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+.hero-slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+.hero h1, .hero p {
+  position: relative;
+  z-index: 2;
+}
 .hero h1 { font-size:3.5rem; margin-bottom:1rem; }
 .hero p { font-size:1.5rem; max-width:800px; }
 
@@ -88,8 +125,13 @@ a { text-decoration:none; color:inherit; }
   </ul>
 </nav>
 
-<!-- Hero -->
+<!-- Hero Section with Sliding Background -->
 <section class="hero">
+  <div class="hero-slides">
+    <img src="Cover_One.jpg" alt="Cover One">
+    <img src="Cover_Two.jpg" alt="Cover Two">
+    <img src="Cover_Three.jpg" alt="Cover Three">
+  </div>
   <h1>Empowering Communities in Ethiopia</h1>
   <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
 </section>
@@ -128,7 +170,7 @@ a { text-decoration:none; color:inherit; }
       <img src="photo_10.jpg" alt="HI-ME 10">
       <img src="photo_11.jpg" alt="HI-ME 11">
       <img src="photo_12.jpg" alt="HI-ME 12">
-      <img src="photo_13.jpg" alt="HI-ME 13">
+      <img src="photo_13.jpg" alt="HI-ME 13
       <img src="photo_14.jpg" alt="HI-ME 14">
       <img src="photo_15.jpg" alt="HI-ME 15">
       <img src="photo_16.jpg" alt="HI-ME 16">
