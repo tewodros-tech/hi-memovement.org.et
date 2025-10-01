@@ -1,112 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HI-ME Movement - Home</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-body { font-family: 'Montserrat', sans-serif; margin:0; color:#333; background:#f9f9f9; scroll-behavior:smooth; }
-a { text-decoration:none; color:inherit; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HI-ME Movement - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      color: #333;
+      background: #f9f9f9;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* Navbar */
-.navbar { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:#0077b6; color:#fff; position:sticky; top:0; z-index:1000; }
-.logo-text { font-weight:bold; font-size:1.5rem; color:#fff; }
-.nav-links { display:flex; gap:1.5rem; list-style:none; }
-.nav-links a { font-weight:600; color:white; transition:0.3s; }
-.nav-links a:hover, .nav-links a.active { color:#6c757d; }
-.donate-btn { background:#6c757d; color:#fff; padding:0.5rem 1rem; border-radius:5px; font-weight:bold; transition:0.3s; }
-.donate-btn:hover { background:#495057; }
-.menu-toggle { display:none; font-size:1.5rem; background:none; border:none; cursor:pointer; color:white; }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #0077b6;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo-text {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-weight: 600;
+      color: white;
+      transition: 0.3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #6c757d;
+    }
+    .donate-btn {
+      background: #6c757d;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .donate-btn:hover {
+      background: #495057;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
 
-/* Hero Section with Sliding Background */
-.hero {
-  position: relative;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-align: center;
-  overflow: hidden;
-}
-.hero-slides {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 300%;
-  height: 100%;
-  display: flex;
-  transition: transform 1s ease-in-out;
-}
-.hero-slides img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 1;
-}
-.hero h1, .hero p {
-  position: relative;
-  z-index: 2;
-}
-.hero h1 { font-size:3.5rem; margin-bottom:1rem; }
-.hero p { font-size:1.5rem; max-width:800px; }
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-slides {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300%;
+      height: 100%;
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+    .hero-slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero h1,
+    .hero p {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 800px;
+    }
 
-/* Sections */
-.section { padding:5rem 2rem; max-width:1200px; margin:0 auto; }
-.section h2 { font-size:2.5rem; color:#6c757d; margin-bottom:1rem; text-align:center; }
-.section p { font-size:1.2rem; line-height:1.8; max-width:900px; margin:1rem auto; text-align:center; }
+    /* Sections */
+    .section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section h2 {
+      font-size: 2.5rem;
+      color: #6c757d;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .section p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: 1rem auto;
+      text-align: center;
+    }
 
-/* Cards */
-.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:3rem; }
-.card { background:#fff; border-radius:15px; padding:2rem; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform 0.3s ease; }
-.card:hover { transform:translateY(-5px); }
-.card h3 { color:#0077b6; margin-bottom:1rem; }
-.card p { font-size:1rem; line-height:1.6; }
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      color: #0077b6;
+      margin-bottom: 1rem;
+    }
+    .card p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
 
-/* Slider */
-.slider { position:relative; margin-top:3rem; overflow:hidden; border-radius:15px; }
-.slides { display:flex; transition:transform 0.5s ease-in-out; }
-.slides img { width:100%; flex-shrink:0; object-fit:cover; height:400px; }
-.prev, .next { position:absolute; top:50%; transform:translateY(-50%); font-size:2rem; background:rgba(0,0,0,0.4); color:#fff; border:none; padding:0.5rem 1rem; cursor:pointer; border-radius:5px; z-index:10; }
-.prev { left:10px; }
-.next { right:10px; }
+    /* Image Slider - Updated to show actual image size */
+    .slider {
+      position: relative;
+      margin-top: 3rem;
+      overflow: hidden;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .slides {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slides img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      flex-shrink: 0;
+      margin: 0 auto;
+    }
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 10;
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
 
-/* Call to Action */
-.cta { background:#6c757d; color:#fff; text-align:center; padding:3rem 2rem; border-radius:15px; margin-top:3rem; }
-.cta h2 { font-size:2.5rem; margin-bottom:1rem; }
-.cta a { display:inline-block; margin-top:1rem; background:#0077b6; color:#fff; padding:1rem 2rem; border-radius:10px; font-weight:bold; transition:0.3s; }
-.cta a:hover { background:#023e8a; }
+    /* Call to Action */
+    .cta {
+      background: #6c757d;
+      color: #fff;
+      text-align: center;
+      padding: 3rem 2rem;
+      border-radius: 15px;
+      margin-top: 3rem;
+    }
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .cta a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #0077b6;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .cta a:hover {
+      background: #023e8a;
+    }
 
-/* Footer */
-.footer { background:#333; color:#fff; text-align:center; padding:2rem; }
-.social-icons { margin-top:1rem; }
-.social-icons a { color:#fff; margin:0 0.8rem; font-size:1.5rem; transition:0.3s; }
-.social-icons a:hover { color:#0077b6; }
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    .social-icons {
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      color: #fff;
+      margin: 0 0.8rem;
+      font-size: 1.5rem;
+      transition: 0.3s;
+    }
+    .social-icons a:hover {
+      color: #0077b6;
+    }
 
-/* Mobile */
-@media(max-width:768px){ 
-  .nav-links{ display:none; flex-direction:column; gap:1rem; margin-top:1rem; } 
-  .nav-links.show{ display:flex; } 
-  .menu-toggle{ display:block; } 
-  .hero h1{ font-size:2.5rem; } 
-  .hero p{ font-size:1.1rem; } 
-  .cards { grid-template-columns:1fr; }
-  .slides img { height:250px; }
-}
-</style>
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      .slides img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -118,120 +301,4 @@ a { text-decoration:none; color:inherit; }
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="programs.html">Programs</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="donation.html" class="donate-btn">DONATE</a></li>
-  </ul>
-</nav>
-
-<!-- Hero Section with Sliding Background -->
-<section class="hero">
-  <div class="hero-slides">
-    <img src="Cover_One.jpg" alt="Cover One">
-    <img src="Cover_Two.jpg" alt="Cover Two">
-    <img src="Cover_Three.jpg" alt="Cover Three">
-  </div>
-  <h1>Empowering Communities in Ethiopia</h1>
-  <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
-</section>
-
-<!-- Mission Section -->
-<section class="section" id="mission">
-  <h2>Our Mission</h2>
-  <p>We believe in the power of local leadership, cultural preservation, and inclusive development. HI-ME Movement is a grassroots initiative empowering communities through education, healthcare, and humanitarian support.</p>
-</section>
-
-<!-- Programs Section -->
-<section class="section" id="programs">
-  <h2>What We Do</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Education</h3>
-      <p>Supporting local schools, providing scholarships, and equipping students with resources for success.</p>
-    </div>
-    <div class="card">
-      <h3>Healthcare</h3>
-      <p>Providing medical outreach, health education, and essential supplies to underserved communities.</p>
-    </div>
-    <div class="card">
-      <h3>Humanitarian Aid</h3>
-      <p>Delivering food, clothing, and emergency support to internally displaced people and vulnerable families.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Image Slider Section -->
-<section class="section" id="gallery">
-  <h2>Community Moments</h2>
-  <div class="slider">
-    <button class="prev">&#10094;</button>
-    <div class="slides">
-      <img src="photo_10.jpg" alt="HI-ME 10">
-      <img src="photo_11.jpg" alt="HI-ME 11">
-      <img src="photo_12.jpg" alt="HI-ME 12">
-      <img src="photo_13.jpg" alt="HI-ME 13
-      <img src="photo_14.jpg" alt="HI-ME 14">
-      <img src="photo_15.jpg" alt="HI-ME 15">
-      <img src="photo_16.jpg" alt="HI-ME 16">
-      <img src="photo_17.jpg" alt="HI-ME 17">
-      <img src="photo_18.jpg" alt="HI-ME 18">
-      <img src="photo_19.jpg" alt="HI-ME 19">
-    </div>
-    <button class="next">&#10095;</button>
-  </div>
-</section>
-
-<!-- Call to Action -->
-<section class="cta">
-  <h2>Join Us in Making a Difference</h2>
-  <a href="donation.html">Donate Now</a>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-  <p>&copy; 2025 HI-ME Movement. All rights reserved.</p>
-  <div class="social-icons">
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=haymie.tesfaye@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.tiktok.com/@hime.movement" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-    <a href="https://www.facebook.com/share/1JTho6ERoD/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/hime.movement" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-  </div>
-</footer>
-
-<script>
-// Mobile menu toggle
-const toggle=document.querySelector('.menu-toggle');
-const navLinks=document.querySelector('.nav-links');
-toggle.addEventListener('click',()=>{ navLinks.classList.toggle('show'); });
-
-// Slider
-const slides = document.querySelector('.slides');
-const slideImages = document.querySelectorAll('.slides img');
-const prev = document.querySelector('.prev');
-const next = document.querySelector('.next');
-let index = 0;
-const total = slideImages.length;
-
-function showSlide(i) {
-  if(i >= total) index = 0;
-  else if(i < 0) index = total - 1;
-  else index = i;
-  slides.style.transform = `translateX(${-index * 100}%)`;
-}
-
-// Automatic sliding
-let slideInterval = setInterval(()=>{ showSlide(index+1); }, 3000);
-
-// Buttons
-next.addEventListener('click', ()=>{ showSlide(index+1); resetInterval(); });
-prev.addEventListener('click', ()=>{ showSlide(index-1); resetInterval(); });
-
-function resetInterval(){
-  clearInterval(slideInterval);
-  slideInterval = setInterval(()=>{ showSlide(index+1); }, 3000);
-}
-</script>
-
-</body>
-</html>
+    <li
