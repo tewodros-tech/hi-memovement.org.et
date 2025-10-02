@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta tags for character encoding and responsive design -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Page title -->
   <title>HI-ME Movement - Home</title>
 
   <!-- Google Fonts: Montserrat -->
@@ -14,9 +11,7 @@
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Internal CSS styles -->
   <style>
-    /* Base styles */
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
@@ -29,7 +24,6 @@
       color: inherit;
     }
 
-    /* Navbar styles */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -80,7 +74,6 @@
       color: white;
     }
 
-    /* Hero section with sliding background images */
     .hero {
       position: relative;
       height: 80vh;
@@ -100,12 +93,17 @@
       display: flex;
       transition: transform 1s ease-in-out;
     }
+
+    /* ✅ Updated image sizing to show actual dimensions */
     .hero-slides img {
-      width: 100vw;
-      height: 100%;
-      object-fit: cover;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       flex-shrink: 0;
     }
+
     .hero::before {
       content: "";
       position: absolute;
@@ -113,7 +111,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* dark overlay for readability */
+      background: rgba(0, 0, 0, 0.5);
       z-index: 1;
     }
     .hero h1,
@@ -130,7 +128,6 @@
       max-width: 800px;
     }
 
-    /* Responsive styles for mobile */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -155,7 +152,6 @@
 </head>
 <body>
 
-<!-- Navigation bar -->
 <nav class="navbar">
   <div class="logo-text">HI-ME Movement</div>
   <button class="menu-toggle">☰</button>
@@ -170,11 +166,9 @@
   </ul>
 </nav>
 
-<!-- Hero section with sliding background images -->
 <section class="hero">
   <div class="hero-slides">
-    <!-- Updated image paths: images are in the same folder as this HTML file -->
-    <!-- Reordered to show cover images first for emotional impact -->
+    <!-- ✅ Images now load from root folder and display at actual size -->
     <img src="Cover_One.jpg" alt="Cover One">
     <img src="Cover_Two.jpg" alt="Cover Two">
     <img src="Cover_Three.jpg" alt="Cover Three">
@@ -188,18 +182,13 @@
   <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
 </section>
 
-<!-- Additional sections like Mission, Programs, Gallery, CTA, Footer can go here -->
-
-<!-- JavaScript for interactivity -->
 <script>
-  // Toggle mobile menu visibility
   const toggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
   toggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
   });
 
-  // Hero image slider logic
   const heroSlides = document.querySelector('.hero-slides');
   const slideImages = document.querySelectorAll('.hero-slides img');
   let heroIndex = 0;
@@ -208,9 +197,8 @@
   setInterval(() => {
     heroIndex = (heroIndex + 1) % totalSlides;
     heroSlides.style.transform = `translateX(-${heroIndex * 100}vw)`;
-  }, 4000); // Change slide every 4 seconds
+  }, 4000);
 </script>
 
 </body>
 </html>
-
