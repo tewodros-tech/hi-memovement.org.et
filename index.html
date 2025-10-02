@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta tags for character encoding and responsive design -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Page title -->
   <title>HI-ME Movement - Home</title>
+
+  <!-- Google Fonts: Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Internal CSS styles -->
   <style>
+    /* Base styles */
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
@@ -19,7 +29,7 @@
       color: inherit;
     }
 
-    /* Navbar */
+    /* Navbar styles */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -70,7 +80,7 @@
       color: white;
     }
 
-    /* Hero Section with Sliding Background */
+    /* Hero section with sliding background images */
     .hero {
       position: relative;
       height: 80vh;
@@ -103,7 +113,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.5); /* dark overlay for readability */
       z-index: 1;
     }
     .hero h1,
@@ -120,7 +130,7 @@
       max-width: 800px;
     }
 
-    /* Mobile Styles */
+    /* Responsive styles for mobile */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -145,7 +155,7 @@
 </head>
 <body>
 
-<!-- Navbar -->
+<!-- Navigation bar -->
 <nav class="navbar">
   <div class="logo-text">HI-ME Movement</div>
   <button class="menu-toggle">☰</button>
@@ -160,43 +170,44 @@
   </ul>
 </nav>
 
-<!-- Hero Section with Sliding Background -->
+<!-- Hero section with sliding background images -->
 <section class="hero">
   <div class="hero-slides">
-    <img src="Photo_1.jpg" alt="Photo_1.jpg">
-    <img src="Photo_10.jpg" alt="Photo_10.jpg">
-    <img src="Photo_15.jpg" alt="Photo_15.jpg">
-    <img src="Photo_21.jpg" alt="Photo_21.jpg">
-    <img src="Photo_3.jpg" alt="Photo_3.jpg">
-    <img src="Cover_Three.jpg" alt="Cover Three">
-    <img src="Cover_Two.jpg" alt="Cover Two">
-    <img src="Cover_One.jpg" alt="Cover One">
+    <!-- Make sure these images are stored in an 'images' folder -->
+    <img src="images/Photo_1.jpg" alt="Photo 1">
+    <img src="images/Photo_10.jpg" alt="Photo 10">
+    <img src="images/Photo_15.jpg" alt="Photo 15">
+    <img src="images/Photo_21.jpg" alt="Photo 21">
+    <img src="images/Photo_3.jpg" alt="Photo 3">
+    <img src="images/Cover_Three.jpg" alt="Cover Three">
+    <img src="images/Cover_Two.jpg" alt="Cover Two">
+    <img src="images/Cover_One.jpg" alt="Cover One">
   </div>
   <h1>Empowering Communities in Ethiopia</h1>
   <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
 </section>
 
-<!-- Your other sections (Mission, Programs, Gallery, CTA, Footer) go here -->
-<!-- ... -->
+<!-- Additional sections like Mission, Programs, Gallery, CTA, Footer can go here -->
 
+<!-- JavaScript for interactivity -->
 <script>
-// Mobile menu toggle
-const toggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-toggle.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-});
+  // Toggle mobile menu visibility
+  const toggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
 
-// Hero background slider
-const heroSlides = document.querySelector('.hero-slides');
-const slideImages = document.querySelectorAll('.hero-slides img');
-let heroIndex = 0;
-const totalSlides = slideImages.length;
+  // Hero image slider logic
+  const heroSlides = document.querySelector('.hero-slides');
+  const slideImages = document.querySelectorAll('.hero-slides img');
+  let heroIndex = 0;
+  const totalSlides = slideImages.length;
 
-setInterval(() => {
-  heroIndex = (heroIndex + 1) % totalSlides;
-  heroSlides.style.transform = `translateX(-${heroIndex * 100}vw)`;
-}, 4000);
+  setInterval(() => {
+    heroIndex = (heroIndex + 1) % totalSlides;
+    heroSlides.style.transform = `translateX(-${heroIndex * 100}vw)`;
+  }, 4000); // Change slide every 4 seconds
 </script>
 
 </body>
