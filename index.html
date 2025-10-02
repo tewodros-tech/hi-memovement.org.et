@@ -8,10 +8,11 @@
   <!-- Google Fonts: Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome for hamburger icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
+    /* Base styles */
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
@@ -24,6 +25,7 @@
       color: inherit;
     }
 
+    /* Navigation bar */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -38,7 +40,6 @@
     .logo-text {
       font-weight: bold;
       font-size: 1.5rem;
-      color: #fff;
     }
     .nav-links {
       display: flex;
@@ -65,6 +66,8 @@
     .donate-btn:hover {
       background: #495057;
     }
+
+    /* Hamburger menu for mobile */
     .menu-toggle {
       display: none;
       font-size: 1.5rem;
@@ -74,6 +77,7 @@
       color: white;
     }
 
+    /* Hero section with fade slider */
     .hero {
       position: relative;
       height: 80vh;
@@ -98,6 +102,8 @@
       height: 100%;
       object-fit: cover;
     }
+
+    /* Caption overlay */
     .hero-caption {
       position: absolute;
       bottom: 10%;
@@ -110,6 +116,7 @@
       font-size: 1.2rem;
     }
 
+    /* Hero headline and description */
     .hero h1,
     .hero p {
       position: relative;
@@ -127,6 +134,7 @@
       margin: 0 auto;
     }
 
+    /* Responsive styles */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -161,6 +169,7 @@
 </head>
 <body>
 
+<!-- Navigation bar -->
 <nav class="navbar">
   <div class="logo-text">HI-ME Movement</div>
   <button class="menu-toggle"><i class="fas fa-bars"></i></button>
@@ -175,23 +184,24 @@
   </ul>
 </nav>
 
+<!-- Hero section with fade slider and captions -->
 <section class="hero">
-  <!-- 🖼️ Emotionally sequenced slides -->
+  <!-- ✅ photo_1.jpg appears first -->
   <div class="hero-slide active">
-    <img src="Cover_One.jpg" alt="Cover One">
+    <img src="photo_1.jpg" alt="Photo 1">
+    <div class="hero-caption">Education empowers every generation.</div>
+  </div>
+  <div class="hero-slide">
+    <img src="cover_one.jpg" alt="Cover One">
     <div class="hero-caption">Pride in our heritage and strength in our unity.</div>
   </div>
   <div class="hero-slide">
-    <img src="Cover_Two.jpg" alt="Cover Two">
+    <img src="cover_two.jpg" alt="Cover Two">
     <div class="hero-caption">Celebrating the spirit of community and resilience.</div>
   </div>
   <div class="hero-slide">
-    <img src="Cover_Three.jpg" alt="Cover Three">
+    <img src="cover_three.jpg" alt="Cover Three">
     <div class="hero-caption">A movement rooted in hope and healing.</div>
-  </div>
-  <div class="hero-slide">
-    <img src="photo_1.jpg" alt="Photo 1">
-    <div class="hero-caption">Education empowers every generation.</div>
   </div>
   <div class="hero-slide">
     <img src="photo_3.jpg" alt="Photo 3">
@@ -209,19 +219,22 @@
     <img src="photo_21.jpg" alt="Photo 21">
     <div class="hero-caption">Unity is our greatest strength.</div>
   </div>
+
+  <!-- Hero headline and description -->
   <h1>Empowering Communities in Ethiopia</h1>
   <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
 </section>
 
+<!-- JavaScript for menu toggle and slider -->
 <script>
-  // Mobile menu toggle
+  // Toggle mobile menu
   const toggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
   toggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
   });
 
-  // Hero fade slider
+  // Fade slider logic
   const slides = document.querySelectorAll('.hero-slide');
   let currentSlide = 0;
 
@@ -229,7 +242,7 @@
     slides[currentSlide].classList.remove('active');
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].classList.add('active');
-  }, 4000);
+  }, 4000); // Change slide every 4 seconds
 </script>
 
 </body>
