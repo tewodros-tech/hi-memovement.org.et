@@ -86,7 +86,6 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 300%;
       height: 100%;
       display: flex;
       transition: transform 1s ease-in-out;
@@ -120,9 +119,6 @@
       font-size: 1.5rem;
       max-width: 800px;
     }
-
-    /* Sections, Cards, CTA, Footer — unchanged from previous version */
-    /* ... (you can keep your existing styles for sections, cards, slider, etc.) ... */
 
     /* Mobile Styles */
     @media (max-width: 768px) {
@@ -167,11 +163,11 @@
 <!-- Hero Section with Sliding Background -->
 <section class="hero">
   <div class="hero-slides">
-    <img src="Photo_1.jpg" alt="Cover Three">
-    <img src="Photo_10.jpg" alt="Cover Three">
-    <img src="Photo_15.jpg" alt="Cover Three">
-    <img src="Photo_21.jpg" alt="Cover Three">
-    <img src="Photo_3.jpg" alt="Cover Three">
+    <img src="Photo_1.jpg" alt="Photo_1.jpg">
+    <img src="Photo_10.jpg" alt="Photo_10.jpg">
+    <img src="Photo_15.jpg" alt="Photo_15.jpg">
+    <img src="Photo_21.jpg" alt="Photo_21.jpg">
+    <img src="Photo_3.jpg" alt="Photo_3.jpg">
     <img src="Cover_Three.jpg" alt="Cover Three">
     <img src="Cover_Two.jpg" alt="Cover Two">
     <img src="Cover_One.jpg" alt="Cover One">
@@ -193,9 +189,12 @@ toggle.addEventListener('click', () => {
 
 // Hero background slider
 const heroSlides = document.querySelector('.hero-slides');
+const slideImages = document.querySelectorAll('.hero-slides img');
 let heroIndex = 0;
+const totalSlides = slideImages.length;
+
 setInterval(() => {
-  heroIndex = (heroIndex + 1) % 3;
+  heroIndex = (heroIndex + 1) % totalSlides;
   heroSlides.style.transform = `translateX(-${heroIndex * 100}vw)`;
 }, 4000);
 </script>
