@@ -3,96 +3,298 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Programs | Hayimi Movement</title>
+  <title>Programs | HI-ME Movement</title>
 
-  <!-- ✅ Fonts and Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- ✅ External CSS -->
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
-  <link rel="stylesheet" href="css/programs.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      color: #333;
+      background: #f9f9f9;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #0077b6;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo-text {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-weight: 600;
+      color: white;
+      transition: 0.3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #6c757d;
+    }
+    .donate-btn {
+      background: #6c757d;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .donate-btn:hover {
+      background: #495057;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+
+    .hero {
+      background: #0077b6;
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .programs-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .programs-section h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .programs-section p {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    .program-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .program-card {
+      background: #f1f1f1;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .program-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .program-card p {
+      color: #444;
+    }
+
+    .gallery-section {
+      padding: 4rem 2rem;
+      background: #e9f5ff;
+    }
+
+    .gallery-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 8px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .footer {
+      background: #f1f1f1;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 1.5rem;
+    }
+
+    .social-links a:hover {
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #0077b6;
+        padding: 1rem;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        border-radius: 5px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- 🔷 Navbar -->
-  <header class="navbar">
-    <div class="logo">
-      <h1>Hayimi Movement</h1>
-    </div>
-    <nav class="nav-menu">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="programs.html" class="active">Programs</a></li>
-        <li><a href="donation.html">Donate</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<!-- ✅ Navigation -->
+<nav class="navbar">
+  <div class="logo-text">HI-ME Movement</div>
+  <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="programs.html" class="active">Programs</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donation.html" class="donate-btn">DONATE</a></li>
+  </ul>
+</nav>
 
-  <!-- 💙 Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Empowering Lives Through Action</h2>
-      <p>Explore the core programs that make a difference in the lives of displaced families and individuals with disabilities.</p>
-    </div>
-  </section>
+<!-- ✅ Hero -->
+<section class="hero">
+  <h1>Empowering Lives Through Action</h1>
+  <p>Explore the core programs that make a difference in the lives of displaced families and individuals with disabilities.</p>
+</section>
 
-  <!-- 📦 Programs Section -->
-  <main class="programs-section">
-    <h2 class="section-title">Our Core Programs</h2>
-    <p class="section-subtitle">We focus on sustainable support for displaced families and individuals with disabilities.</p>
-
-    <div class="program-grid">
-      <div class="program-card">
-        <h3>🍱 Emergency Food Distribution</h3>
-        <p>Delivering food packages to families facing food insecurity during crises and displacement.</p>
-      </div>
-      <div class="program-card">
-        <h3>📚 Educational Support</h3>
-        <p>Providing school supplies, tuition support, and mentorship to underserved children.</p>
-      </div>
-      <div class="program-card">
-        <h3>💊 Medical Access</h3>
-        <p>Ensuring access to life-saving medication and health services for vulnerable communities.</p>
-      </div>
+<!-- ✅ Programs -->
+<section class="programs-section">
+  <h2>Our Core Programs</h2>
+  <p>We focus on sustainable support for displaced families and individuals with disabilities.</p>
+  <div class="program-grid">
+    <div class="program-card">
+      <h3>🍱 Emergency Food Distribution</h3>
+      <p>Delivering food packages to families facing food insecurity during crises and displacement.</p>
     </div>
-  </main>
-
-  <!-- 🖼️ Gallery Section -->
-  <section class="gallery-section">
-    <h2 class="section-title">Our Impact in Pictures</h2>
-    <div class="gallery-grid">
-      <img src="photo_45.jpg" alt="Gallery Image 1">
-      <img src="photo_44.jpg" alt="Gallery Image 2">
-      <img src="photo_43.jpg" alt="Gallery Image 3">
-      <img src="photo_4.jpg" alt="Gallery Image 4">
-      <img src="photo_39.jpg" alt="Gallery Image 5">
-      <img src="photo_38.jpg" alt="Gallery Image 6">
-      <img src="photo_36.jpg" alt="Gallery Image 7">
-      <img src="photo_7.jpg" alt="Gallery Image 8">
+    <div class="program-card">
+      <h3>📚 Educational Support</h3>
+      <p>Providing school supplies, tuition support, and mentorship to underserved children.</p>
     </div>
-  </section>
-
-  <!-- ⚫ Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
-    
-    <div class="social-icons">
-      <a href="https://www.facebook.com/share/1JTho6ERoD/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.tiktok.com/@hime.movement" target="_blank"><i class="fab fa-tiktok"></i></a>
-      <a href="https://www.instagram.com/hime.movement" target="_blank"><i class="fab fa-instagram"></i></a>
+    <div class="program-card">
+      <h3>💊 Medical Access</h3>
+      <p>Ensuring access to life-saving medication and health services for vulnerable communities.</p>
     </div>
-    
-    <!-- Opens Gmail to send email -->
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=himemovement2025@gmail.com" target="_blank" class="email-link">
-      himemovement2025@gmail.com
-    </a>
-  </footer>
+  </div>
+</section>
+
+<!-- ✅ Gallery -->
+<section class="gallery-section">
+  <h2>Our Impact in Pictures</h2>
+  <div class="gallery-grid">
+    <img src="photo_45.jpg" alt="Gallery Image 1">
+    <img src="photo_44.jpg" alt="Gallery Image 2">
+    <img src="photo_43.jpg" alt="Gallery Image 3">
+    <img src="photo_4.jpg" alt="Gallery Image 4">
+    <img src="photo_39.jpg" alt="Gallery Image 5">
+    <img src="photo_38.jpg" alt="Gallery Image 6">
+    <img src="photo_36.jpg" alt="Gallery Image 7">
+    <img src="photo_7.jpg" alt="Gallery Image 8">
+  </div>
+</section>
+
+<!-- ✅ Footer -->
+<footer class="footer">
+  <h2>Stay Connected with HI-ME</h2>
+  <p>Follow us on social media or reach out via email.</p>
+  <div class="social-links">
+    <a href="https://www.facebook.com/share/1JTho6ERoD/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.tiktok.com/@hime.movement" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.instagram.com/hime.movement" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:himemovement2025@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+</footer>
+
+<!-- ✅ Mobile Nav Toggle -->
+<script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  toggleBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
 
 </body>
 </html>
