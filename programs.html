@@ -1,227 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ✅ Basic Setup -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Programs | Hayimi Movement</title>
 
   <!-- ✅ Fonts and Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- ✅ CSS Styles -->
-  <style>
-    :root {
-      --primary-color: #2563eb;
-      --secondary-color: #f3f4f6;
-      --text-dark: #111827;
-      --text-light: #6b7280;
-      --white: #ffffff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: var(--secondary-color);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-
-    /* ✅ Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: var(--primary-color);
-      color: var(--white);
-      padding: 1rem 2rem;
-    }
-
-    .navbar .logo h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.8rem;
-    }
-
-    .nav-menu ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-menu a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .nav-menu a:hover {
-      color: #d1d5db;
-    }
-
-    /* ✅ Hero Section */
-    .hero {
-      background: linear-gradient(to right, #2563eb, #3b82f6);
-      color: var(--white);
-      text-align: center;
-      padding: 3rem 1rem;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* ✅ Programs Section */
-    .programs-section {
-      padding: 3rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .programs-section h2 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-
-    .programs-section p {
-      text-align: center;
-      color: var(--text-light);
-      margin-bottom: 2rem;
-    }
-
-    .program-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .program-card {
-      background-color: var(--white);
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-      padding: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .program-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    .program-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .program-card p {
-      color: var(--text-light);
-    }
-
-    /* ✅ Gallery Section */
-    .gallery-section {
-      padding: 3rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .gallery-section h2 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .gallery-grid img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    /* ✅ Footer */
-    .footer {
-      background-color: var(--primary-color);
-      color: var(--white);
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    .footer p {
-      margin-bottom: 1rem;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .social-icons a {
-      color: var(--white);
-      font-size: 1.3rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: #d1d5db;
-    }
-
-    .footer a.email-link {
-      display: block;
-      color: #d1d5db;
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-      text-decoration: underline;
-    }
-
-    /* ✅ Responsive */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-menu ul {
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-
-      .hero h2 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+  <!-- ✅ External CSS -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/programs.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
 
-  <!-- 🔷 Header -->
+  <!-- 🔷 Navbar -->
   <header class="navbar">
     <div class="logo">
       <h1>Hayimi Movement</h1>
@@ -229,7 +25,7 @@
     <nav class="nav-menu">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="programs.html">Programs</a></li>
+        <li><a href="programs.html" class="active">Programs</a></li>
         <li><a href="donation.html">Donate</a></li>
         <li><a href="events.html">Events</a></li>
         <li><a href="gallery.html">Gallery</a></li>
@@ -238,16 +34,18 @@
     </nav>
   </header>
 
-  <!-- 🟦 Hero -->
+  <!-- 💙 Hero Section -->
   <section class="hero">
-    <h2>Empowering Lives Through Action</h2>
-    <p>Explore the core programs that make a difference in the lives of displaced families and individuals with disabilities.</p>
+    <div class="hero-content">
+      <h2>Empowering Lives Through Action</h2>
+      <p>Explore the core programs that make a difference in the lives of displaced families and individuals with disabilities.</p>
+    </div>
   </section>
 
   <!-- 📦 Programs Section -->
   <main class="programs-section">
-    <h2>Our Core Programs</h2>
-    <p>We focus on sustainable support for displaced families and individuals with disabilities.</p>
+    <h2 class="section-title">Our Core Programs</h2>
+    <p class="section-subtitle">We focus on sustainable support for displaced families and individuals with disabilities.</p>
 
     <div class="program-grid">
       <div class="program-card">
@@ -267,7 +65,7 @@
 
   <!-- 🖼️ Gallery Section -->
   <section class="gallery-section">
-    <h2>Our Impact in Pictures</h2>
+    <h2 class="section-title">Our Impact in Pictures</h2>
     <div class="gallery-grid">
       <img src="photo_45.jpg" alt="Gallery Image 1">
       <img src="photo_44.jpg" alt="Gallery Image 2">
@@ -283,15 +81,18 @@
   <!-- ⚫ Footer -->
   <footer class="footer">
     <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
+    
     <div class="social-icons">
       <a href="https://www.facebook.com/share/1JTho6ERoD/" target="_blank"><i class="fab fa-facebook-f"></i></a>
       <a href="https://www.tiktok.com/@hime.movement" target="_blank"><i class="fab fa-tiktok"></i></a>
       <a href="https://www.instagram.com/hime.movement" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
-    <a href="mailto:himemovement2025@gmail.com" class="email-link">himemovement2025@gmail.com</a>
+    
+    <!-- Opens Gmail to send email -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=himemovement2025@gmail.com" target="_blank" class="email-link">
+      himemovement2025@gmail.com
+    </a>
   </footer>
 
 </body>
 </html>
-
-
