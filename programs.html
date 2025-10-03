@@ -250,24 +250,11 @@
   <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
 </section>
 
-<script>
-  const toggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  toggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-
-  const slides = document.querySelectorAll('.hero-slide');
-  let currentSlide = 0;
-
-  setInterval(() => {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }, 4000);
-</script>
-
 <section style="padding: 4rem 2rem; background: #fff; text-align: center;">
   <h2 style="font-size: 2rem; margin-bottom: 2rem;">Gallery Highlights</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-    <img src="
+  <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
+    The HI-ME Movement is a beacon of compassion and action — uplifting communities through financial support, hospitality, and holistic care. From empowering youth and nurturing children to embracing all genders with dignity and love, our mission is rooted in humanity. Every image below tells a story of resilience, hope, and unity.
+  </p>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+    <div style="width: 300px; background: #f1f1f1; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <img src="photo_1.jpg" alt="Youth Empowerment" style="width: 100%; height: 200px;
