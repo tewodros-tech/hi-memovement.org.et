@@ -191,11 +191,9 @@
       gap: 2rem;
       flex-wrap: wrap;
       font-size: 1.5rem;
-      margin-top: 1.5rem;
     }
     .social-links a {
       transition: 0.3s;
-      color: #0077b6;
     }
     .social-links a:hover {
       opacity: 0.7;
@@ -268,7 +266,7 @@
   </div>
 </section>
 
-<!-- ✅ Footer with social links -->
+<!-- Footer with social links -->
 <footer class="footer">
   <h2>Stay Connected with HI-ME</h2>
   <p>Follow us on social media or reach out via email.</p>
@@ -277,10 +275,37 @@
     <a href="https://www.tiktok.com/@hime.movement" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
     <a href="https://www.instagram.com/hime.movement" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=himemovement2025@gmail.com" target="_blank" aria-label="Email">
-  <i class="fas fa-envelope"></i>
-</a>
+      <i class="fas fa-envelope"></i>
+    </a>
   </div>
 </footer>
+
+<!-- Slideshow JavaScript -->
+<script>
+  // Initialize current slide index
+  let currentSlide = 0;
+  // Get all slide elements
+  const slides = document.querySelectorAll(".hero-slide");
+
+  // Function to show the slide at the given index and hide others
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+  }
+
+  // Function to move to the next slide, looping back to first after last
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Show the initial slide
+  showSlide(currentSlide);
+
+  // Automatically change slides every 5 seconds
+  setInterval(nextSlide, 5000);
+</script>
 
 </body>
 </html>
