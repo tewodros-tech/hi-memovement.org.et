@@ -131,16 +131,76 @@
       color: var(--text-light);
     }
 
+    /* ✅ Gallery Section */
+    .gallery-section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery-section h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
     /* ✅ Footer */
     .footer {
       background-color: var(--primary-color);
       color: var(--white);
       text-align: center;
-      padding: 1rem 0;
-      margin-top: 3rem;
+      padding: 2rem 1rem;
     }
 
-    /* ✅ Responsive Adjustments */
+    .footer p {
+      margin-bottom: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons a {
+      color: var(--white);
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #d1d5db;
+    }
+
+    .footer a.email-link {
+      display: block;
+      color: #d1d5db;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      text-decoration: underline;
+    }
+
+    /* ✅ Responsive */
     @media (max-width: 768px) {
       .navbar {
         flex-direction: column;
@@ -205,11 +265,33 @@
     </div>
   </main>
 
+  <!-- 🖼️ Gallery Section -->
+  <section class="gallery-section">
+    <h2>Our Impact in Pictures</h2>
+    <div class="gallery-grid">
+      <img src="photo_45.jpg" alt="Gallery Image 1">
+      <img src="photo_44.jpg" alt="Gallery Image 2">
+      <img src="photo_43.jpg" alt="Gallery Image 3">
+      <img src="photo_4.jpg" alt="Gallery Image 4">
+      <img src="photo_39.jpg" alt="Gallery Image 5">
+      <img src="photo_38.jpg" alt="Gallery Image 6">
+      <img src="photo_36.jpg" alt="Gallery Image 7">
+      <img src="photo_7.jpg" alt="Gallery Image 8">
+    </div>
+  </section>
+
   <!-- ⚫ Footer -->
   <footer class="footer">
     <p>&copy; 2025 Hayimi Movement. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/1JTho6ERoD/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.tiktok.com/@hime.movement" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/hime.movement" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <a href="mailto:himemovement2025@gmail.com" class="email-link">himemovement2025@gmail.com</a>
   </footer>
 
 </body>
 </html>
+
 
