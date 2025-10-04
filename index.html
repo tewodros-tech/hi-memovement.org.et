@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HI-ME Movement - Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HI-ME Movement - Home</title>
 
-  <!-- Fonts and Icons -->
+  <!-- Google Fonts: Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -17,13 +19,11 @@
       background: #f9f9f9;
       scroll-behavior: smooth;
     }
-
     a {
       text-decoration: none;
       color: inherit;
     }
 
-    /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -35,29 +35,24 @@
       top: 0;
       z-index: 1000;
     }
-
     .logo-text {
       font-weight: bold;
       font-size: 1.5rem;
     }
-
     .nav-links {
       display: flex;
       gap: 1.5rem;
       list-style: none;
     }
-
     .nav-links a {
       font-weight: 600;
       color: white;
       transition: 0.3s;
     }
-
     .nav-links a:hover,
     .nav-links a.active {
       color: #6c757d;
     }
-
     .donate-btn {
       background: #6c757d;
       color: #fff;
@@ -66,7 +61,6 @@
       font-weight: bold;
       transition: 0.3s;
     }
-
     .donate-btn:hover {
       background: #495057;
     }
@@ -80,11 +74,68 @@
       color: white;
     }
 
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
+    .hero {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+      background: url('logo.jpg') left center / contain no-repeat,
+                  url('logo.jpg') right center / contain no-repeat,
+                  black;
+      background-repeat: no-repeat;
+      background-position: left center, right center;
+      background-size: contain;
+    }
 
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .hero-caption {
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      max-width: 80%;
+      font-size: 1.2rem;
+    }
+
+    .hero h1,
+    .hero p {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-top: 2rem;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
       .nav-links {
         display: none;
         flex-direction: column;
@@ -97,87 +148,43 @@
         right: 20px;
         border-radius: 5px;
       }
-
       .nav-links.show {
         display: flex;
       }
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        height: 60vh;
+        background: black;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .hero-caption {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+      }
     }
 
-    /* Gallery Sections */
-    section {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-    section h2 {
-      color: #007acc;
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    section p {
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 15px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .video-wrapper video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    /* Footer */
     .footer {
       background: #f1f1f1;
       padding: 3rem 2rem;
       text-align: center;
     }
-
     .footer h2 {
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
     }
-
     .footer p {
       font-size: 1.1rem;
       margin-bottom: 2rem;
     }
-
     .social-links {
       display: flex;
       justify-content: center;
@@ -185,93 +192,69 @@
       flex-wrap: wrap;
       font-size: 1.5rem;
     }
-
     .social-links a {
-      color: #333;
       transition: 0.3s;
     }
-
     .social-links a:hover {
       opacity: 0.7;
     }
   </style>
 </head>
-
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="logo-text">HI-ME Movement</div>
-    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="programs.html">Programs</a></li>
-      <li><a href="gallery.html" class="active">Gallery</a></li>
-      <li><a href="events.html">Events</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="donation.html" class="donate-btn">DONATE</a></li>
-    </ul>
-  </nav>
+<nav class="navbar">
+  <div class="logo-text">HI-ME Movement</div>
+  <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donation.html" class="donate-btn">DONATE</a></li>
+  </ul>
+</nav>
 
-  <!-- Gallery Sections -->
-  <section>
-    <h2>Mekele Donation</h2>
-    <p>HI-ME provides humanitarian aid, child support, and women’s empowerment programs in Mekele.</p>
-    <div class="gallery">
-      <!-- Your image tags here -->
-      <img src="mekele-1.jpg" alt="Mekele 1" />
-      <!-- Add more images as needed -->
-    </div>
-  </section>
+<section class="hero">
+  <div class="hero-slide active">
+    <img src="photo_9.jpg" alt="Photo 1">
+    <div class="hero-caption">Education empowers every generation.</div>
+  </div>
+  <div class="hero-slide">
+    <img src="photo_7.jpg" alt="Cover One">
+    <div class="hero-caption">Pride in our heritage and strength in our unity.</div>
+  </div>
+  <div class="hero-slide">
+    <img src="photo_6.jpg" alt="Cover Two">
+    <div class="hero-caption">Celebrating the spirit of community and resilience.</div>
+  </div>
+  <div class="hero-slide">
+    <img src="photo_17.jpg" alt="Cover Three">
+    <div class="hero-caption">A movement rooted in hope and healing.</div>
+  </div>
+  <div class="hero-slide">
+    <img src="photo_12.jpg" alt="Photo 3">
+    <div class="hero-caption">Together, we rise above challenges.</div>
+  </div>
+  <div class="hero-slide">
+    <img src="logo.jpg" alt="Photo 10">
+    <div class="hero-caption">Action speaks louder than words.</div>
+  </div>
+  <div class="hero-slide">
+    <img src="humera.jpg" alt="Photo 15">
+    <div class="hero-caption">Urgency fuels our humanitarian mission.</div>
+  </div>
+  <h1>Empowering Communities in Ethiopia</h1>
+  <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
+</section>
 
-  <section>
-    <h2>Dire Dawa Donation</h2>
-    <p>The video shows before and after Donation in Dire Dawa.</p>
-    <div class="gallery">
-      <img src="Diredawa_One.jpg" alt="Dire Dawa" />
-    </div>
-    <div class="video-wrapper">
-      <video controls>
-        <source src="IMG_1209Before.MP4" type="video/mp4">
-        <source src="IMG_2950After.MP4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </section>
-
-  <!-- Repeat other sections as needed... -->
-
-  <!-- Footer -->
-  <footer class="footer">
-    <h2>Stay Connected with HI-ME</h2>
-    <p>Follow us on social media or reach out via email.</p>
-    <div class="social-links">
-      <a href="https://www.facebook.com/share/1JTho6ERoD/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.tiktok.com/@hime.movement" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      <a href="https://www.instagram.com/hime.movement" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=himemovement2025@gmail.com" target="_blank" aria-label="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </div>
-  </footer>
-
-  <!-- JavaScript -->
-  <script>
-    // Hamburger menu toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const navLinkItems = document.querySelectorAll('.nav-links a');
-
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-
-    navLinkItems.forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('show');
-      });
-    });
-  </script>
-</body>
-</html>
+<section style="padding: 4rem 2rem; background: #fff; text-align: center;">
+  <h2 style="font-size: 2rem; margin-bottom: 2rem;">Gallery Highlights</h2>
+  <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
+    The HI-ME Movement is a beacon of compassion and action — uplifting communities through financial support, hospitality, and holistic care. From empowering youth and nurturing children to embracing all genders with dignity and love, our mission is rooted in humanity. Every image below tells a story of resilience, hope, and unity.
+  </p>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+    <div style="width: 300px; background: #f1f1f1; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <img src="photo_1.jpg" alt="Youth Empowerment" style="width: 100%; height: 200px; object-fit: cover;">
+    </div
