@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
+    /* GENERAL PAGE STYLES */
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
@@ -24,6 +25,7 @@
       color: inherit;
     }
 
+    /* NAVIGATION BAR */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -65,6 +67,7 @@
       background: #495057;
     }
 
+    /* HAMBURGER ICON */
     .menu-toggle {
       display: none;
       font-size: 1.5rem;
@@ -74,6 +77,7 @@
       color: white;
     }
 
+    /* HERO SECTION (SLIDER) */
     .hero {
       position: relative;
       height: 80vh;
@@ -127,6 +131,7 @@
       margin: 0 auto;
     }
 
+    /* MOBILE RESPONSIVENESS */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -150,7 +155,6 @@
       .hero {
         height: 60vh;
       }
-
       .hero h1 {
         font-size: 2.5rem;
       }
@@ -163,7 +167,7 @@
       }
     }
 
-    /* Gallery styling */
+    /* GALLERY STYLING */
     .gallery-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -186,6 +190,7 @@
       object-fit: cover;
     }
 
+    /* FOOTER */
     .footer {
       background: #f1f1f1;
       padding: 3rem 2rem;
@@ -217,6 +222,7 @@
 </head>
 <body>
 
+<!-- ================== NAVIGATION BAR ================== -->
 <nav class="navbar">
   <div class="logo-text">HI-ME Movement</div>
   <button class="menu-toggle"><i class="fas fa-bars"></i></button>
@@ -231,6 +237,7 @@
   </ul>
 </nav>
 
+<!-- ================== HERO SECTION ================== -->
 <section class="hero">
   <div class="hero-slide active">
     <img src="photo_9.jpg" alt="Photo 1">
@@ -248,10 +255,24 @@
     <img src="photo_17.jpg" alt="Cover Three">
     <div class="hero-caption">A movement rooted in hope and healing.</div>
   </div>
+  <div class="hero-slide">
+    <img src="photo_12.jpg" alt="Photo 3">
+    <div class="hero-caption">Together, we rise above challenges.</div>
+  </div>
+  <div class="hero-slide">
+    <img src="logo.jpg" alt="Photo 10">
+    <div class="hero-caption">Action speaks louder than words.</div>
+  </div>
+  <div class="hero-slide">
+    <img src="humera.jpg" alt="Photo 15">
+    <div class="hero-caption">Urgency fuels our humanitarian mission.</div>
+  </div>
+
   <h1>Empowering Communities in Ethiopia</h1>
   <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
 </section>
 
+<!-- ================== GALLERY SECTION ================== -->
 <section style="padding: 4rem 2rem; background: #fff; text-align: center;">
   <h2 style="font-size: 2rem; margin-bottom: 2rem;">Gallery Highlights</h2>
   <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
@@ -268,6 +289,7 @@
   </div>
 </section>
 
+<!-- ================== FOOTER ================== -->
 <footer class="footer">
   <h2>Connect With Us</h2>
   <p>Have questions or want to collaborate? Reach us at <strong>himemovement2025@gmail.com</strong></p>
@@ -279,18 +301,32 @@
   </div>
 </footer>
 
+<!-- ================== JAVASCRIPT FIXES ================== -->
 <script>
-  const slides = document.querySelectorAll('.hero-slide');
-  let current = 0;
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 4000);
+  // Ensure code runs after the page fully loads
+  document.addEventListener("DOMContentLoaded", function () {
+    // HERO SLIDER FUNCTIONALITY (auto-rotation every 4 seconds)
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    setInterval(() => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }, 4000); // slides change every 4 seconds
+
+    // HAMBURGER MENU FUNCTIONALITY (mobile)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  });
 </script>
 
 </body>
