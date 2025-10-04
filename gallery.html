@@ -6,6 +6,8 @@
   <title>HI-ME Movement - Gallery</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
@@ -14,89 +16,88 @@
       color: #333;
     }
 
-    header {
-      background: #007acc;
-      padding: 15px 20px;
+    /* ===== NAVIGATION BAR FROM index.html ===== */
+    .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 1rem 2rem;
+      background: #0077b6;
+      color: white;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    header h1 {
-      margin: 0;
-      color: white;
-      font-size: 20px;
-      font-weight: 700;
+    .logo-text {
+      font-weight: bold;
+      font-size: 1.5rem;
     }
 
-    .menu-toggle {
-      font-size: 24px;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: none;
-    }
-
-    nav {
+    .nav-links {
       display: flex;
-      gap: 15px;
-      transition: all 0.3s ease-in-out;
+      gap: 1.5rem;
+      list-style: none;
     }
 
-    nav a {
+    .nav-links a {
       color: white;
-      text-decoration: none;
       font-weight: 600;
-      font-size: 14px;
+      transition: 0.3s;
+      text-decoration: none;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #6c757d;
     }
 
     .donate-btn {
-      background: #fff;
-      color: #007acc;
-      padding: 8px 16px;
-      border-radius: 25px;
-      border: 2px solid white;
-      font-weight: 700;
-      transition: background 0.3s, color 0.3s;
+      background: #6c757d;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
     }
 
     .donate-btn:hover {
-      background: #005f99;
+      background: #495057;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
       color: white;
     }
 
     @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+        background: #0077b6;
+        padding: 1rem;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        border-radius: 8px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
       .menu-toggle {
         display: block;
       }
-      nav {
-        display: none;
-        flex-direction: column;
-        background: #007acc;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 15px 20px;
-      }
-      nav a {
-        padding: 10px 0;
-        font-size: 16px;
-      }
-      nav.show {
-        display: flex;
-      }
     }
 
-    /* Hero Section */
+    /* HERO SECTION */
     .hero {
       position: relative;
       width: 100%;
@@ -154,7 +155,6 @@
       margin-bottom: 20px;
     }
 
-    /* Gallery Grid */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -196,7 +196,6 @@
       opacity: 1;
     }
 
-    /* Video Styling */
     .video-wrapper {
       position: relative;
       padding-bottom: 56.25%;
@@ -235,19 +234,20 @@
 </head>
 <body>
 
-  <header>
-    <h1>HI-ME Movement</h1>
-    <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
-    <nav id="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="programs.html">Programs</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="events.html">Events</a>
-      <a href="contact.html">Contact</a>
-      <a href="#" class="donate-btn">DONATE</a>
-    </nav>
-  </header>
+  <!-- ===== UPDATED NAVBAR FROM INDEX.HTML ===== -->
+  <nav class="navbar">
+    <div class="logo-text">HI-ME Movement</div>
+    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="donation.html" class="donate-btn">DONATE</a></li>
+    </ul>
+  </nav>
 
   <section class="hero">
     <div class="hero-content">
@@ -256,6 +256,7 @@
     </div>
   </section>
 
+  <!-- ===== GALLERY SECTIONS REMAIN UNTOUCHED ===== -->
   <section data-aos="fade-up">
     <h2>Mekele Donation</h2>
     <p>HI-ME provides humanitarian aid, child support, and women’s empowerment programs in Mekele, a city of resilience and heritage.</p>
@@ -323,8 +324,6 @@
       <div class="gallery-item"><img src="Lalibela_One.jpg" alt="Lalibela One"></div>
       <div class="gallery-item"><img src="Lalibela_Two.jpg" alt="Lalibela Two"></div>
       <div class="gallery-item"><img src="Lalibela_Three.jpg" alt="Lalibela Three"></div>
-
-      <!-- After Support Image -->
       <div class="gallery-item">
         <img src="Lalibela_Three.jpg" alt="Lalibela After Support">
         <div class="caption">HI-ME After The Support</div>
@@ -336,11 +335,13 @@
     &copy; 2025 HI-ME Movement. All rights reserved.
   </footer>
 
+  <!-- ====== JS: MENU TOGGLE AND AOS ====== -->
   <script>
-    function toggleMenu() {
-      const nav = document.getElementById('nav-menu');
-      nav.classList.toggle('show');
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.nav-links');
+      toggle.addEventListener('click', () => nav.classList.toggle('show'));
+    });
   </script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
