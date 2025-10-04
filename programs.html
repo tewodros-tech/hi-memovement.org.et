@@ -19,6 +19,7 @@
       background: #f9f9f9;
       scroll-behavior: smooth;
     }
+
     a {
       text-decoration: none;
       color: inherit;
@@ -35,24 +36,29 @@
       top: 0;
       z-index: 1000;
     }
+
     .logo-text {
       font-weight: bold;
       font-size: 1.5rem;
     }
+
     .nav-links {
       display: flex;
       gap: 1.5rem;
       list-style: none;
     }
+
     .nav-links a {
       font-weight: 600;
       color: white;
       transition: 0.3s;
     }
+
     .nav-links a:hover,
     .nav-links a.active {
       color: #6c757d;
     }
+
     .donate-btn {
       background: #6c757d;
       color: #fff;
@@ -61,6 +67,7 @@
       font-weight: bold;
       transition: 0.3s;
     }
+
     .donate-btn:hover {
       background: #495057;
     }
@@ -90,6 +97,40 @@
       font-size: 1.2rem;
       max-width: 800px;
       margin: 0 auto;
+    }
+
+    /* ✅ New Video Section */
+    .video-section {
+      background: #f0f8ff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .video-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0077b6;
+    }
+
+    .video-section p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .video-container {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .programs-section {
@@ -237,6 +278,18 @@
 <section class="hero">
   <h1>Empowering Lives Through Action</h1>
   <p>Explore the core programs that make a difference in the lives of displaced families and individuals with disabilities.</p>
+</section>
+
+<!-- ✅ Video Section -->
+<section class="video-section">
+  <h2>🎥 Watch Us in Action</h2>
+  <p>See how the HI-ME Movement is actively making a difference in communities every day.</p>
+  <div class="video-container">
+    <video controls poster="thumbnail.jpg">
+      <source src="Helping.MP4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 </section>
 
 <!-- ✅ Programs -->
