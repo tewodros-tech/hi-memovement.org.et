@@ -16,7 +16,7 @@
       color: #333;
     }
 
-    /* ===== NAVIGATION BAR FROM index.html ===== */
+    /* ===== NAVIGATION BAR ===== */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -196,6 +196,15 @@
       opacity: 1;
     }
 
+    /* FOR AFTER SUPPORT TEXT ABOVE IMAGE */
+    .after-support {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #007acc;
+      font-size: 18px;
+    }
+
     .video-wrapper {
       position: relative;
       padding-bottom: 56.25%;
@@ -234,7 +243,7 @@
 </head>
 <body>
 
-  <!-- ===== UPDATED NAVBAR FROM INDEX.HTML ===== -->
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="logo-text">HI-ME Movement</div>
     <button class="menu-toggle"><i class="fas fa-bars"></i></button>
@@ -249,6 +258,7 @@
     </ul>
   </nav>
 
+  <!-- HERO SECTION -->
   <section class="hero">
     <div class="hero-content">
       <h2>Empowering Communities in Ethiopia</h2>
@@ -256,7 +266,8 @@
     </div>
   </section>
 
-  <!-- ===== GALLERY SECTIONS REMAIN UNTOUCHED ===== -->
+  <!-- GALLERY SECTIONS -->
+
   <section data-aos="fade-up">
     <h2>Mekele Donation</h2>
     <p>HI-ME provides humanitarian aid, child support, and women’s empowerment programs in Mekele, a city of resilience and heritage.</p>
@@ -324,9 +335,9 @@
       <div class="gallery-item"><img src="Lalibela_One.jpg" alt="Lalibela One"></div>
       <div class="gallery-item"><img src="Lalibela_Two.jpg" alt="Lalibela Two"></div>
       <div class="gallery-item"><img src="Lalibela_Three.jpg" alt="Lalibela Three"></div>
-        <img src="Lalibela_Four.jpg" alt="Lalibela After Support">
-        <div class="caption">HI-ME After The Support</div>
-      </div>
+      <!-- AFTER SUPPORT TEXT BEFORE IMAGE -->
+      <div class="after-support">HI-ME After The Support</div>
+      <div class="gallery-item"><img src="Lalibela_Four.jpg" alt="Lalibela After Support"></div>
     </div>
   </section>
 
@@ -334,7 +345,7 @@
     &copy; 2025 HI-ME Movement. All rights reserved.
   </footer>
 
-  <!-- ====== JS: MENU TOGGLE AND AOS ====== -->
+  <!-- JS: MENU TOGGLE AND AOS -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const toggle = document.querySelector('.menu-toggle');
