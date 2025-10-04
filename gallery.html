@@ -14,26 +14,33 @@
       color: #333;
     }
 
-    /* HEADER */
     header {
       background: #007acc;
       padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
-      z-index: 100;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     header h1 {
       margin: 0;
       color: white;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
-      letter-spacing: 1px;
     }
 
-    /* NAVIGATION */
+    .menu-toggle {
+      font-size: 24px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none;
+    }
+
     nav {
       display: flex;
       gap: 15px;
@@ -45,22 +52,10 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 14px;
-      position: relative;
     }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -3px;
-      left: 0;
-      background-color: white;
-      transition: width 0.3s;
-    }
-
-    nav a:hover::after {
-      width: 100%;
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .donate-btn {
@@ -70,7 +65,7 @@
       border-radius: 25px;
       border: 2px solid white;
       font-weight: 700;
-      transition: 0.3s;
+      transition: background 0.3s, color 0.3s;
     }
 
     .donate-btn:hover {
@@ -78,55 +73,30 @@
       color: white;
     }
 
-    /* HAMBURGER MENU */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: white;
-      margin: 4px 0;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-
-    /* MOBILE NAVIGATION */
     @media (max-width: 768px) {
       .menu-toggle {
-        display: flex;
+        display: block;
       }
-
       nav {
+        display: none;
+        flex-direction: column;
+        background: #007acc;
         position: absolute;
         top: 100%;
         left: 0;
-        background: #007acc;
         width: 100%;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
-        max-height: 0;
-        opacity: 0;
+        padding: 15px 20px;
       }
-
-      nav.show {
-        max-height: 400px;
-        opacity: 1;
-        padding: 15px 0;
-      }
-
       nav a {
-        display: block;
         padding: 10px 0;
         font-size: 16px;
       }
+      nav.show {
+        display: flex;
+      }
     }
 
-    /* HERO SECTION */
+    /* Hero Section */
     .hero {
       position: relative;
       width: 100%;
@@ -136,14 +106,13 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      overflow: hidden;
     }
 
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6);
     }
 
     .hero-content {
@@ -164,35 +133,19 @@
       line-height: 1.6;
     }
 
-    /* LOGOS IN HERO */
-    .hero-logo {
-      position: absolute;
-      top: 20px;
-      width: 80px;
-      height: auto;
-      z-index: 3;
-      opacity: 0.9;
-    }
-    .hero-logo.left { left: 20px; }
-    .hero-logo.right { right: 20px; }
-
-    /* SECTIONS */
     section {
       max-width: 1100px;
       margin: 40px auto;
       padding: 20px;
       background: white;
       border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
     section h2 {
       color: #007acc;
       font-size: 24px;
       margin-bottom: 10px;
-      text-transform: uppercase;
-      border-left: 4px solid #007acc;
-      padding-left: 10px;
     }
 
     section p {
@@ -201,35 +154,56 @@
       margin-bottom: 20px;
     }
 
-    /* GALLERY STYLE */
+    /* Gallery Grid */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      gap: 15px;
     }
 
-    .gallery img {
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .gallery-item img {
       width: 100%;
-      height: 220px;
-      border-radius: 12px;
+      height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
     }
 
-    .gallery img:hover {
-      transform: scale(1.06);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    .gallery-item:hover img {
+      transform: scale(1.1);
     }
 
-    /* VIDEO WRAPPER */
+    .caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 122, 204, 0.8);
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    /* Video Styling */
     .video-wrapper {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       margin-top: 15px;
     }
 
@@ -239,28 +213,15 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border-radius: 12px;
     }
 
-    /* FOOTER */
     footer {
       background: #007acc;
       color: white;
       text-align: center;
-      padding: 40px 15px;
+      padding: 15px;
       margin-top: 40px;
-      font-size: 14px;
-      position: relative;
     }
-
-    .footer-logo {
-      position: absolute;
-      bottom: 20px;
-      width: 60px;
-      opacity: 0.9;
-    }
-    .footer-logo.left { left: 20px; }
-    .footer-logo.right { right: 20px; }
 
     @media (max-width: 600px) {
       .hero-content h2 {
@@ -269,21 +230,14 @@
       .hero-content p {
         font-size: 1em;
       }
-      .hero-logo { width: 60px; }
-      .footer-logo { width: 50px; }
     }
   </style>
 </head>
-
 <body>
 
   <header>
     <h1>HI-ME Movement</h1>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
     <nav id="nav-menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -296,54 +250,41 @@
   </header>
 
   <section class="hero">
-    <img src="logo.jpg" alt="HI-ME Logo" class="hero-logo left">
-    <img src="logo.jpg" alt="HI-ME Logo" class="hero-logo right">
-    <div class="hero-content" data-aos="zoom-in">
+    <div class="hero-content">
       <h2>Empowering Communities in Ethiopia</h2>
       <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
     </div>
   </section>
 
-  <!-- MEKELE -->
   <section data-aos="fade-up">
     <h2>Mekele Donation</h2>
     <p>HI-ME provides humanitarian aid, child support, and women’s empowerment programs in Mekele, a city of resilience and heritage.</p>
     <div class="gallery">
-      <img src="mekele-1.jpg" alt="Mekele 1">
-      <img src="mekele-2.jpg" alt="Mekele 2">
-      <img src="mekele-4.jpg" alt="Mekele 4">
-      <img src="mekele-5.jpg" alt="Mekele 5">
-      <img src="mekele-6.jpg" alt="Mekele 6">
-      <img src="mekele-7.jpg" alt="Mekele 7">
-      <img src="mekele-10.jpg" alt="Mekele 10">
-      <img src="mekele-11.jpg" alt="Mekele 11">
-      <img src="mekele-12.jpg" alt="Mekele 12">
-      <img src="mekele-13.jpg" alt="Mekele 13">
-      <img src="mekele-14.jpg" alt="Mekele 14">
-      <img src="mekele-15.jpg" alt="Mekele 15">
-      <img src="mekele-16.jpg" alt="Mekele 16">
-      <img src="mekele-17.jpg" alt="Mekele 17">
+      <div class="gallery-item"><img src="mekele-1.jpg" alt="Mekele 1"></div>
+      <div class="gallery-item"><img src="mekele-2.jpg" alt="Mekele 2"></div>
+      <div class="gallery-item"><img src="mekele-4.jpg" alt="Mekele 4"></div>
+      <div class="gallery-item"><img src="mekele-5.jpg" alt="Mekele 5"></div>
+      <div class="gallery-item"><img src="mekele-6.jpg" alt="Mekele 6"></div>
+      <div class="gallery-item"><img src="mekele-7.jpg" alt="Mekele 7"></div>
     </div>
   </section>
 
-  <!-- HAWASSA -->
   <section data-aos="fade-up">
     <h2>Hawassa Donation</h2>
     <p>HI-ME supports children’s education, environmental conservation, and youth skill development in Hawassa.</p>
     <div class="gallery">
-      <img src="hawasa-1.jpg" alt="Hawassa 1">
-      <img src="hawasa-3.jpg" alt="Hawassa 3">
-      <img src="hawasa-4.jpg" alt="Hawassa 4">
-      <img src="hawasa-6.jpg" alt="Hawassa 6">
+      <div class="gallery-item"><img src="hawasa-1.jpg" alt="Hawassa 1"></div>
+      <div class="gallery-item"><img src="hawasa-3.jpg" alt="Hawassa 3"></div>
+      <div class="gallery-item"><img src="hawasa-4.jpg" alt="Hawassa 4"></div>
+      <div class="gallery-item"><img src="hawasa-6.jpg" alt="Hawassa 6"></div>
     </div>
   </section>
 
-  <!-- DIRE DAWA -->
   <section data-aos="fade-up">
     <h2>Dire Dawa Donation</h2>
     <p>HI-ME focuses on youth employment, small business support, and health outreach programs in Dire Dawa. The video shows before and after Donation.</p>
     <div class="gallery">
-      <img src="Diredawa_One.jpg" alt="Dire Dawa One">
+      <div class="gallery-item"><img src="Diredawa_One.jpg" alt="Dire Dawa"></div>
     </div>
     <div class="video-wrapper">
       <video controls>
@@ -354,51 +295,47 @@
     </div>
   </section>
 
-  <!-- HUMERA -->
   <section data-aos="fade-up">
     <h2>Humera Donation</h2>
     <p>In Humera, HI-ME supports displaced families, agricultural recovery, and trauma healing programs for war-affected communities.</p>
     <div class="gallery">
-      <img src="humera-1.jpg" alt="Humera 1">
-      <img src="humera-2.jpg" alt="Humera 2">
-      <img src="humera-3.jpg" alt="Humera 3">
+      <div class="gallery-item"><img src="humera-1.jpg" alt="Humera 1"></div>
+      <div class="gallery-item"><img src="humera-2.jpg" alt="Humera 2"></div>
+      <div class="gallery-item"><img src="humera-3.jpg" alt="Humera 3"></div>
     </div>
   </section>
 
-  <!-- AXUM -->
   <section data-aos="fade-up">
     <h2>Axum Donation</h2>
     <p>HI-ME supports children’s education, environmental conservation, and youth skill development in Axum.</p>
-    <div class="gallery">
-      <div class="video-wrapper">
-        <video controls>
-          <source src="axum_one.MP4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+    <div class="video-wrapper">
+      <video controls>
+        <source src="axum_one.MP4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </section>
 
-  <!-- LALIBELA -->
   <section data-aos="fade-up">
     <h2>Lalibela Donation</h2>
     <p>HI-ME supports children’s education, environmental conservation, and youth skill development in Lalibela.</p>
     <div class="gallery">
-      <img src="Lalibela_One.jpg" alt="Lalibela One">
-      <img src="Lalibela_Two.jpg" alt="Lalibela Two">
-      <img src="Lalibela_Three.jpg" alt="Lalibela Three">
-      <p>HI-ME After The Support</p>
-      <img src="Lalibela_Three.jpg" alt="Lalibela After Support">
+      <div class="gallery-item"><img src="Lalibela_One.jpg" alt="Lalibela One"></div>
+      <div class="gallery-item"><img src="Lalibela_Two.jpg" alt="Lalibela Two"></div>
+      <div class="gallery-item"><img src="Lalibela_Three.jpg" alt="Lalibela Three"></div>
+
+      <!-- After Support Image -->
+      <div class="gallery-item">
+        <img src="Lalibela_Three.jpg" alt="Lalibela After Support">
+        <div class="caption">HI-ME After The Support</div>
+      </div>
     </div>
   </section>
 
   <footer>
-    <img src="logo.jpg" alt="HI-ME Logo" class="footer-logo left">
-    <img src="logo.jpg" alt="HI-ME Logo" class="footer-logo right">
     &copy; 2025 HI-ME Movement. All rights reserved.
   </footer>
 
-  <!-- JS -->
   <script>
     function toggleMenu() {
       const nav = document.getElementById('nav-menu');
