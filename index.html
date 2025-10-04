@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HI-ME Movement - Home</title>
 
-  <!-- Google Fonts: Montserrat -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -77,7 +76,7 @@
       color: white;
     }
 
-    /* HERO SECTION (SLIDER) */
+    /* HERO SECTION */
     .hero {
       position: relative;
       height: 80vh;
@@ -100,7 +99,8 @@
     .hero-slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      background-color: black;
     }
     .hero-caption {
       position: absolute;
@@ -131,6 +131,45 @@
       margin: 0 auto;
     }
 
+    /* GALLERY SLIDER */
+    .gallery-slider {
+      position: relative;
+      height: 70vh;
+      overflow: hidden;
+      background: #000;
+      margin-top: 3rem;
+    }
+    .gallery-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .gallery-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: black;
+    }
+    .gallery-caption {
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      max-width: 85%;
+      font-size: 1.1rem;
+    }
+
     /* MOBILE RESPONSIVENESS */
     @media (max-width: 768px) {
       .nav-links {
@@ -155,39 +194,20 @@
       .hero {
         height: 60vh;
       }
+      .gallery-slider {
+        height: 50vh;
+      }
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
       .hero p {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        padding: 0 1rem;
       }
-      .hero-caption {
+      .hero-caption, .gallery-caption {
         font-size: 1rem;
         padding: 0.8rem 1.2rem;
       }
-    }
-
-    /* GALLERY STYLING */
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 0 2rem;
-    }
-    .gallery-item {
-      background: #f1f1f1;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .gallery-item:hover {
-      transform: scale(1.03);
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
     }
 
     /* FOOTER */
@@ -272,20 +292,31 @@
   <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
 </section>
 
-<!-- ================== GALLERY SECTION ================== -->
-<section style="padding: 4rem 2rem; background: #fff; text-align: center;">
-  <h2 style="font-size: 2rem; margin-bottom: 2rem;">Gallery Highlights</h2>
-  <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
-    The HI-ME Movement is a beacon of compassion and action — uplifting communities through financial support, hospitality, and holistic care. Every image below tells a story of resilience, hope, and unity.
-  </p>
-  <div class="gallery-container">
-    <div class="gallery-item"><img src="hawasa-1.jpg" alt="Hawasa 1"></div>
-    <div class="gallery-item"><img src="hawasa-3.jpg" alt="Hawasa 3"></div>
-    <div class="gallery-item"><img src="hawasa-4.jpg" alt="Hawasa 4"></div>
-    <div class="gallery-item"><img src="hawasa-6.jpg" alt="Hawasa 6"></div>
-    <div class="gallery-item"><img src="humera-1.jpg" alt="Humera 1"></div>
-    <div class="gallery-item"><img src="humera-2.jpg" alt="Humera 2"></div>
-    <div class="gallery-item"><img src="humera-3.jpg" alt="Humera 3"></div>
+<!-- ================== GALLERY SLIDER SECTION ================== -->
+<section class="gallery-slider">
+  <div class="gallery-slide active">
+    <img src="hawasa-1.jpg" alt="Hawasa 1">
+    <div class="gallery-caption">HI-ME volunteers supporting local education initiatives in Hawassa.</div>
+  </div>
+  <div class="gallery-slide">
+    <img src="hawasa-3.jpg" alt="Hawasa 3">
+    <div class="gallery-caption">Healthcare awareness programs bringing communities together.</div>
+  </div>
+  <div class="gallery-slide">
+    <img src="hawasa-6.jpg" alt="Hawasa 6">
+    <div class="gallery-caption">Empowering women and children through sustainable projects.</div>
+  </div>
+  <div class="gallery-slide">
+    <img src="humera-1.jpg" alt="Humera 1">
+    <div class="gallery-caption">Delivering hope and humanitarian aid in Humera.</div>
+  </div>
+  <div class="gallery-slide">
+    <img src="humera-2.jpg" alt="Humera 2">
+    <div class="gallery-caption">Working hand-in-hand with communities for a brighter future.</div>
+  </div>
+  <div class="gallery-slide">
+    <img src="humera-3.jpg" alt="Humera 3">
+    <div class="gallery-caption">Unity and compassion drive every HI-ME initiative.</div>
   </div>
 </section>
 
@@ -301,26 +332,32 @@
   </div>
 </footer>
 
-<!-- ================== JAVASCRIPT FIXES ================== -->
+<!-- ================== JAVASCRIPT ================== -->
 <script>
-  // Ensure code runs after the page fully loads
   document.addEventListener("DOMContentLoaded", function () {
-    // HERO SLIDER FUNCTIONALITY (auto-rotation every 4 seconds)
-    const slides = document.querySelectorAll('.hero-slide');
-    let current = 0;
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
+    // HERO SLIDER
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    let heroIndex = 0;
+    function showHeroSlide(index) {
+      heroSlides.forEach((slide, i) => slide.classList.toggle('active', i === index));
     }
-
     setInterval(() => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }, 4000); // slides change every 4 seconds
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      showHeroSlide(heroIndex);
+    }, 4000);
 
-    // HAMBURGER MENU FUNCTIONALITY (mobile)
+    // GALLERY SLIDER
+    const gallerySlides = document.querySelectorAll('.gallery-slide');
+    let galleryIndex = 0;
+    function showGallerySlide(index) {
+      gallerySlides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+    }
+    setInterval(() => {
+      galleryIndex = (galleryIndex + 1) % gallerySlides.length;
+      showGallerySlide(galleryIndex);
+    }, 4500);
+
+    // HAMBURGER MENU
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     menuToggle.addEventListener('click', () => {
