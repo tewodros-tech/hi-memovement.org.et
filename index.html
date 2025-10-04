@@ -78,14 +78,8 @@
       position: relative;
       height: 80vh;
       overflow: hidden;
-      background: url('logo.jpg') left center / contain no-repeat,
-                  url('logo.jpg') right center / contain no-repeat,
-                  black;
-      background-repeat: no-repeat;
-      background-position: left center, right center;
-      background-size: contain;
+      background: black;
     }
-
     .hero-slide {
       position: absolute;
       top: 0;
@@ -99,13 +93,11 @@
       opacity: 1;
       z-index: 1;
     }
-
     .hero-slide img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
     }
-
     .hero-caption {
       position: absolute;
       bottom: 10%;
@@ -157,7 +149,6 @@
 
       .hero {
         height: 60vh;
-        background: black;
       }
 
       .hero h1 {
@@ -170,6 +161,29 @@
         font-size: 1rem;
         padding: 0.8rem 1.2rem;
       }
+    }
+
+    /* Gallery styling */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 0 2rem;
+    }
+    .gallery-item {
+      background: #f1f1f1;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
     }
 
     .footer {
@@ -193,6 +207,7 @@
       font-size: 1.5rem;
     }
     .social-links a {
+      color: #0077b6;
       transition: 0.3s;
     }
     .social-links a:hover {
@@ -233,18 +248,6 @@
     <img src="photo_17.jpg" alt="Cover Three">
     <div class="hero-caption">A movement rooted in hope and healing.</div>
   </div>
-  <div class="hero-slide">
-    <img src="photo_12.jpg" alt="Photo 3">
-    <div class="hero-caption">Together, we rise above challenges.</div>
-  </div>
-  <div class="hero-slide">
-    <img src="logo.jpg" alt="Photo 10">
-    <div class="hero-caption">Action speaks louder than words.</div>
-  </div>
-  <div class="hero-slide">
-    <img src="humera.jpg" alt="Photo 15">
-    <div class="hero-caption">Urgency fuels our humanitarian mission.</div>
-  </div>
   <h1>Empowering Communities in Ethiopia</h1>
   <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
 </section>
@@ -252,9 +255,43 @@
 <section style="padding: 4rem 2rem; background: #fff; text-align: center;">
   <h2 style="font-size: 2rem; margin-bottom: 2rem;">Gallery Highlights</h2>
   <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
-    The HI-ME Movement is a beacon of compassion and action — uplifting communities through financial support, hospitality, and holistic care. From empowering youth and nurturing children to embracing all genders with dignity and love, our mission is rooted in humanity. Every image below tells a story of resilience, hope, and unity.
+    The HI-ME Movement is a beacon of compassion and action — uplifting communities through financial support, hospitality, and holistic care. Every image below tells a story of resilience, hope, and unity.
   </p>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-    <div style="width: 300px; background: #f1f1f1; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <img src="photo_1.jpg" alt="Youth Empowerment" style="width: 100%; height: 200px; object-fit: cover;">
-    </div
+  <div class="gallery-container">
+    <div class="gallery-item"><img src="hawasa-1.jpg" alt="Hawasa 1"></div>
+    <div class="gallery-item"><img src="hawasa-3.jpg" alt="Hawasa 3"></div>
+    <div class="gallery-item"><img src="hawasa-4.jpg" alt="Hawasa 4"></div>
+    <div class="gallery-item"><img src="hawasa-6.jpg" alt="Hawasa 6"></div>
+    <div class="gallery-item"><img src="humera-1.jpg" alt="Humera 1"></div>
+    <div class="gallery-item"><img src="humera-2.jpg" alt="Humera 2"></div>
+    <div class="gallery-item"><img src="humera-3.jpg" alt="Humera 3"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <h2>Connect With Us</h2>
+  <p>Have questions or want to collaborate? Reach us at <strong>himemovement2025@gmail.com</strong></p>
+  <div class="social-links">
+    <a href="https://www.facebook.com/share/1JTho6ERoD/" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.tiktok.com/@hime.movement" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.instagram.com/hime.movement" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:himemovement2025@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+</footer>
+
+<script>
+  const slides = document.querySelectorAll('.hero-slide');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
+</script>
+
+</body>
+</html>
