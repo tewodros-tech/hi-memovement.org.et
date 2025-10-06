@@ -5,124 +5,271 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HI-ME Movement - Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
   <style>
-    /* GLOBAL STYLES */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden; /* Remove horizontal scroll */
-      overflow-y: auto;   /* Enable smooth vertical scroll only */
+    body {
       font-family: 'Montserrat', sans-serif;
-      background: #f5f5f5;
+      margin: 0;
+      color: #333;
+      background: #f9f9f9;
+      scroll-behavior: smooth;
+      overflow-x: hidden; /* Prevent horizontal scroll */
     }
+    a { text-decoration: none; color: inherit; }
 
-    header {
-      background: #222;
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #0077b6;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-
-    header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+    .logo-text { font-weight: bold; font-size: 1.5rem; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-weight: 600; color: white; transition: 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: #6c757d; }
+    .donate-btn {
+      background: #6c757d;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
     }
+    .donate-btn:hover { background: #495057; }
+    .menu-toggle { display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: white; }
 
-    section {
-      padding: 4rem 2rem;
-      background: #fff;
-      text-align: center;
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem 1rem;
     }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    section p {
-      font-size: 1.1rem;
-      max-width: 800px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.6;
-    }
-
-    /* GALLERY GRID STYLE */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      justify-items: center;
-    }
-
-    .gallery-grid img {
+    .hero-slide {
       width: 100%;
-      height: 250px;
+      max-height: 80vh;
+      margin: 0 auto 1rem;
+      text-align: center;
+    }
+    .hero-slide img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .hero-caption {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      display: inline-block;
+    }
+    .hero h1 { font-size: 2.8rem; color: #fff; margin: 1rem 0 0.5rem; text-align: center; }
+    .hero p { font-size: 1.2rem; color: #fff; max-width: 700px; text-align: center; }
+
+    /* INFO SECTION */
+    .info-section { background: #f8f8f8; padding: 4rem 2rem; text-align: center; }
+    .info-section h2 { font-size: 2.5rem; margin-bottom: 1.5rem; color: #0077b6; }
+    .info-section p { font-size: 1.2rem; max-width: 900px; margin: 0 auto 2rem; line-height: 1.8; }
+    .info-cards { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-top: 2rem; }
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 300px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
+    .card i { font-size: 2rem; margin-bottom: 1rem; color: #0077b6; }
+    .card h4 { margin-bottom: 1rem; }
+    .donate-section a {
+      display: inline-block;
+      background: #0077b6;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .donate-section a:hover { background: #005f87; }
+
+    /* SWIPER GALLERY */
+    .swiper-container {
+      width: 100%;
+      padding: 2rem 0;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-slide img {
+      width: 80%;
+      max-width: 600px; /* Medium size */
+      height: 300px; /* Medium card height */
       object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .gallery-grid img:hover {
+    .swiper-slide img:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
+    .swiper-button-next, .swiper-button-prev { color: #0077b6; }
+    .swiper-pagination-bullet { background: #0077b6; }
 
-    footer {
-      background: #222;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-    }
+    /* FOOTER */
+    .footer { background: #f1f1f1; padding: 3rem 2rem; text-align: center; }
+    .footer h2 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+    .footer p { font-size: 1.1rem; margin-bottom: 2rem; }
+    .social-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 1.5rem; }
+    .social-links a { color: #0077b6; transition: 0.3s; }
+    .social-links a:hover { opacity: 0.7; }
 
-    /* Prevent scrollbars in all elements */
-    ::-webkit-scrollbar {
-      width: 0;
-      height: 0;
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; gap: 1rem; margin-top: 1rem; background: #0077b6; padding: 1rem; position: absolute; top: 60px; right: 20px; border-radius: 5px; }
+      .nav-links.show { display: flex; }
+      .menu-toggle { display: block; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .info-cards { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>HI-ME Movement</h1>
-  </header>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="logo-text">HI-ME Movement</div>
+    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="donation.html" class="donate-btn">DONATE</a></li>
+    </ul>
+  </nav>
 
-  <!-- ABOUT SECTION -->
-  <section>
-    <h2>About the Movement</h2>
-    <p>
-      The HI-ME Movement is a beacon of compassion and action — uplifting communities through financial support, hospitality, and holistic care. We aim to empower individuals and inspire collective progress through our initiatives.
-    </p>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-slide"><img src="photo_10.jpg" alt="Photo 1"><div class="hero-caption">Education empowers every generation.</div></div>
+    <div class="hero-slide"><img src="photo_7.jpg" alt="Cover One"><div class="hero-caption">Pride in our heritage and strength in our unity.</div></div>
+    <div class="hero-slide"><img src="Cover_Two.jpg" alt="Cover Two"><div class="hero-caption">Celebrating the spirit of community and resilience.</div></div>
+    <div class="hero-slide"><img src="Cover_Three.jpg" alt="Cover Three"><div class="hero-caption">A movement rooted in hope and healing.</div></div>
+    <div class="hero-slide"><img src="photo_12.jpg" alt="Photo 3"><div class="hero-caption">Together, we rise above challenges.</div></div>
+    <div class="hero-slide"><img src="photo_31.jpg" alt="Photo 15"><div class="hero-caption">Urgency fuels our humanitarian mission.</div></div>
+    <h1>Empowering Communities in Ethiopia</h1>
+    <p>HI-ME Movement is committed to education, health, and humanitarian support for local communities.</p>
   </section>
 
-  <!-- GALLERY SECTION -->
-  <section>
-    <h2>Gallery Highlights</h2>
-    <p>
-      Every image below tells a story of resilience, hope, and unity across Ethiopia. From Humera to Hawasa, our mission thrives through acts of kindness and empowerment.
-    </p>
-
-    <div class="gallery-grid">
-      <img src="hawasa-1.jpg" alt="Hawasa 1">
-      <img src="hawasa-3.jpg" alt="Hawasa 3">
-      <img src="hawasa-4.jpg" alt="Hawasa 4">
-      <img src="hawasa-6.jpg" alt="Hawasa 6">
-      <img src="humera-1.jpg" alt="Humera 1">
-      <img src="humera-2.jpg" alt="Humera 2">
-      <img src="humera-3.jpg" alt="Humera 3">
+  <!-- INFO SECTION -->
+  <section class="info-section">
+    <h2>Our Mission & Impact</h2>
+    <p>The HI-ME Movement is a non-profit initiative dedicated to uplifting communities across Ethiopia. We support individuals of all genders and ages who are economically disadvantaged, lacking access to quality healthcare, and in need of humanitarian relief. Through direct community outreach and sustainable development projects, we ensure no one is left behind.</p>
+    <div class="info-cards">
+      <div class="card">
+        <i class="fas fa-hand-holding-heart"></i>
+        <h4>Humanitarian Support</h4>
+        <p>Providing emergency aid, food distribution, and support for displaced individuals and families.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-stethoscope"></i>
+        <h4>Health Initiatives</h4>
+        <p>Organizing free clinics and connecting vulnerable people to life-saving medical services.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-book-reader"></i>
+        <h4>Education for All</h4>
+        <p>Empowering youth through scholarships, school supplies, and community learning programs.</p>
+      </div>
+    </div>
+    <div class="donate-section">
+      <a href="donation.html">Support Our Work – Donate Now</a>
     </div>
   </section>
 
-  <footer>
-    © 2025 HI-ME Movement | All Rights Reserved
+  <!-- SWIPER GALLERY SECTION (1 Medium Card per Slide) -->
+  <section style="padding: 4rem 2rem; background: #fff; text-align: center;">
+    <h2 style="font-size: 2rem; margin-bottom: 2rem;">Gallery Highlights</h2>
+    <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">The HI-ME Movement is a beacon of compassion and action — uplifting communities through financial support, hospitality, and holistic care. Every image below tells a story of resilience, hope, and unity.</p>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="hawasa-1.jpg" alt="Hawasa 1"></div>
+        <div class="swiper-slide"><img src="hawasa-3.jpg" alt="Hawasa 3"></div>
+        <div class="swiper-slide"><img src="hawasa-4.jpg" alt="Hawasa 4"></div>
+        <div class="swiper-slide"><img src="hawasa-6.jpg" alt="Hawasa 6"></div>
+        <div class="swiper-slide"><img src="humera-1.jpg" alt="Humera 1"></div>
+        <div class="swiper-slide"><img src="humera-2.jpg" alt="Humera 2"></div>
+        <div class="swiper-slide"><img src="humera-3.jpg" alt="Humera 3"></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <h2>Connect With Us</h2>
+    <p>Have questions or want to collaborate? Reach us at <strong>himemovement2025@gmail.com</strong></p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/1JTho6ERoD/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.tiktok.com/@hime.movement" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/hime.movement" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:himemovement2025@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
   </footer>
+
+  <!-- JAVASCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Hero slides fade effect
+      const slides = document.querySelectorAll('.hero-slide');
+      let current = 0;
+      function showSlide(index) {
+        slides.forEach((slide, i) => { slide.style.display = i === index ? 'block' : 'none'; });
+      }
+      showSlide(current);
+      setInterval(() => { current = (current + 1) % slides.length; showSlide(current); }, 4000);
+
+      // Mobile menu toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      menuToggle.addEventListener('click', () => { navLinks.classList.toggle('show'); });
+
+      // Swiper gallery (1 medium card per slide)
+      const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: { delay: 3000 },
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 40,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      });
+    });
+  </script>
 </body>
 </html>
