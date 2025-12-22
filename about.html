@@ -1,226 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About Us - HI-ME Movement</title>
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-
-<!-- Font Awesome for social icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who We Are | Ztrust Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-
-  a { text-decoration: none; color: inherit; }
-
-  /* Navbar */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #002855;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  .logo { display: flex; align-items: center; gap: 0.5rem; }
-
-  /* FIXED SIZE logo with hand visible */
-  .logo img {
-    height: 100px;  /* adjust if needed */
-    width: auto;
-    object-fit: contain;
-  }
-
-  .logo span { font-size: 1.2rem; font-weight: bold; color: white; }
-
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-  .nav-links a { color: white; font-weight: 600; transition: 0.3s; }
-  .nav-links a:hover, .nav-links a.active { color: #ffc107; }
-
-  .donate-btn {
-    background-color: #ffc107;
-    color: #002855;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  .donate-btn:hover { background-color: #e0a800; }
-
-  .menu-toggle {
-    display: none;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-  }
-
-  /* Hero Section */
-  .hero-about {
-    background: url('photo_45.jpg') center/cover no-repeat;
-    color: white;
-    padding: 6rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-about::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 0;
-  }
-  .hero-about h1, .hero-about p { position: relative; z-index: 1; }
-  .hero-about h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInDown 1s ease forwards; }
-  .hero-about p { font-size: 1.3rem; max-width: 700px; margin: 0 auto; animation: fadeInUp 1s ease 0.5s forwards; opacity: 0; }
-
-  /* Animations */
-  @keyframes fadeInDown {
-    0% { opacity: 0; transform: translateY(-50px);}
-    100% { opacity: 1; transform: translateY(0);}
-  }
-  @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(50px);}
-    100% { opacity: 1; transform: translateY(0);}
-  }
-  @keyframes slideInLeft {
-    0% { opacity: 0; transform: translateX(-50px);}
-    100% { opacity: 1; transform: translateX(0);}
-  }
-  @keyframes slideInRight {
-    0% { opacity: 0; transform: translateX(50px);}
-    100% { opacity: 1; transform: translateX(0);}
-  }
-
-  /* About Section */
-  .about-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .slide {
-    padding: 3rem 2rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards;
-  }
-  .slide:nth-child(even) { animation-delay: 0.3s; }
-  .slide:nth-child(odd) { animation-delay: 0.6s; }
-
-  .slide h2 { color: #002855; font-size: 2rem; margin-bottom: 1rem; }
-  .slide p { font-size: 1.1rem; line-height: 1.8; margin: 1rem 0; }
-
-  .highlight { color: #ffc107; font-weight: bold; }
-
-  /* Footer */
-  footer {
-    background-color: #002855;
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 0.95rem;
-  }
-  .social-icons a {
-    color: white;
-    margin: 0 0.5rem;
-    font-size: 1.3rem;
-    transition: 0.3s;
-  }
-  .social-icons a:hover { color: #ffc107; }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .nav-links { display: none; flex-direction: column; gap: 1rem; margin-top: 1rem; }
-    .nav-links.show { display: flex; }
-    .menu-toggle { display: block; }
-    .hero-about h1 { font-size: 2rem; }
-    .hero-about p { font-size: 1rem; }
-    .about-section { padding: 2rem 1rem; }
-  }
+body{margin:0;font-family:Montserrat;background:#fff;color:#111}
+.section{padding:4rem 2.5rem;max-width:1100px;margin:auto}
+h1{border-left:6px solid #c1121f;padding-left:1rem}
 </style>
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="logo">
-    <img src="Hime.png" alt="HI-ME Logo">
-    <span>HI-ME Movement</span>
-  </div>
-  <button class="menu-toggle">☰</button>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="programs.html">Programs</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="donation.html" class="donate-btn">DONATE</a></li>
-  </ul>
-</nav>
+<section class="section">
+<h1>Who We Are</h1>
+<p>
+Ztrust Tech is an independent cybersecurity and risk advisory company focused on helping organizations
+navigate complex digital threats. We work with public and private institutions to improve security posture,
+reduce risk, and build cyber resilience.
+</p>
 
-<section class="hero-about">
-  <h1>About HI-ME Movement</h1>
-  <p>Spreading love and hope to families in need—through compassion, resilience, and community-driven action. We believe every life deserves dignity and support.</p>
+<p>
+Our approach is practical, standards-driven, and aligned with global best practices. We combine technical
+expertise with strategic insight to deliver measurable security outcomes.
+</p>
+
+<h2>Our Principles</h2>
+<ul>
+<li>Integrity and independence</li>
+<li>Risk-based decision making</li>
+<li>Clear and actionable guidance</li>
+<li>Continuous improvement</li>
+</ul>
 </section>
-
-<section class="about-section">
-  <div class="slide">
-    <h2>Our Mission</h2>
-    <p>At <span class="highlight">HI-ME Movement</span>, our mission is to empower communities by providing access to <strong>education</strong>, <strong>healthcare</strong>, and <strong>humanitarian support</strong>. We aim to build a society where <span class="highlight">every individual thrives</span> regardless of circumstance.</p>
-  </div>
-  <div class="slide">
-    <h2>Our Vision</h2>
-    <p>We envision a world where <span class="highlight">no family is left behind</span>. Through advocacy, sustainable development programs, and community engagement, we work to create <span class="highlight">resilient and self-sufficient communities</span>.</p>
-  </div>
-  <div class="slide">
-    <h2>What We Do</h2>
-    <p>We provide direct support to internally displaced people, people with disabilities, and vulnerable families. Our programs include educational workshops, health initiatives, emergency relief, and community empowerment projects.</p>
-  </div>
-  <div class="slide">
-    <h2>Why Choose Us?</h2>
-    <p>With transparency, dedication, and measurable impact, <span class="highlight">HI-ME Movement</span> ensures that every contribution directly helps those in need. Join us in creating meaningful change that lasts.</p>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2025 HI-ME Movement. All rights reserved.</p>
-  <div class="social-icons">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-  </div>
-</footer>
-
-<script>
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.nav-links');
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('show');
-  });
-</script>
 
 </body>
 </html>
